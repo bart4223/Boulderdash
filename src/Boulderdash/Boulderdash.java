@@ -10,7 +10,7 @@ public class Boulderdash extends NGObject {
     public Boulderdash() {
         super();
         FGameEngine = new NG2DGameEngine();
-        //FGameEngine.setDebugLevel(10);
+        FGameEngine.setDebugLevel(10);
     }
 
     public void Run() {

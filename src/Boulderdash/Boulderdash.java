@@ -14,13 +14,11 @@ public class Boulderdash extends NGObject {
     }
 
     public void Run() {
-        FGameEngine.Initialize();
-        FGameEngine.Run();
+        FGameEngine.Startup();
     }
 
     public void Stop() {
-        FGameEngine.Stop();
-        FGameEngine.Finalize();
+        FGameEngine.Shutdown();
     }
 
 }

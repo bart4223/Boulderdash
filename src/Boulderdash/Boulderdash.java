@@ -1,15 +1,15 @@
 package Boulderdash;
 
 import Uniplay.Base.NGUniplayObject;
-import Uniplay.NG2DGameEngine;
+import Uniplay.NGGameEngine;
 
 public class Boulderdash extends NGUniplayObject {
 
-    protected NG2DGameEngine FGameEngine;
+    protected NGGameEngine FGameEngine;
 
     public Boulderdash() {
         super();
-        FGameEngine = new NG2DGameEngine(this);
+        FGameEngine = new NGGameEngine(this);
         //FGameEngine.setDebugLevel(10);
     }
 

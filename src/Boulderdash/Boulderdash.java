@@ -10,6 +10,7 @@ public class Boulderdash extends NGUniplayObject {
     public Boulderdash() {
         super();
         FGameEngine = new NGGameEngine(this);
+        FGameEngine.setConfigurationFilename("resources/config.ucf");
         //FGameEngine.setDebugLevel(10);
     }
 

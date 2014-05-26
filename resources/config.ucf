@@ -1,1 +1,4 @@
-Debuglevel=10
+Debuglevel=0
+ConsoleShowLog=true
+ConsoleShowLogEntrySource=false
+DefinitionFilename=resources/definition.udf

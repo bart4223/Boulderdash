@@ -14,6 +14,9 @@
       <void property="name">
        <string>2DGraphicEngine</string>
       </void>
+      <void property="caption">
+       <string>2D Graphic Engine</string>
+      </void>
      </object>
     </void>
    </object>

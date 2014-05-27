@@ -1,0 +1,4 @@
+Debuglevel=0
+ConsoleShowLog=true
+ConsoleShowLogEntrySource=false
+DefinitionFilename=resources/uniplay/definition.udf

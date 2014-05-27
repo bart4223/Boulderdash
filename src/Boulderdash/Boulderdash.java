@@ -12,8 +12,8 @@ public class Boulderdash extends NGUniplayObject {
 
     protected NGGameEngine FGameEngine;
     protected Stage FGameFieldStage;
-    protected GameFieldController FGameFieldController;
     protected Stage FGameControlStage;
+    protected GameFieldController FGameFieldController;
     protected GameControlController FGameControlController;
 
     protected void CreateGameFieldStage(){
@@ -44,7 +44,7 @@ public class Boulderdash extends NGUniplayObject {
             FGameControlController.Game = this;
             Parent lRoot = lXMLLoader.getRoot();
             FGameControlStage.setTitle("Boulderdash-Control");
-            FGameControlStage.setScene(new Scene(lRoot, 500, 200, Color.LIGHTGRAY));
+            FGameControlStage.setScene(new Scene(lRoot, 500, 100, Color.LIGHTGRAY));
             FGameControlStage.setResizable(false);
         }
         catch( Exception e) {
@@ -55,7 +55,11 @@ public class Boulderdash extends NGUniplayObject {
     @Override
     protected Object DoResolveObject(String aName, Class aClass) {
         Object result = super.DoResolveObject(aName, aClass);
-        System.out.println(aName);
+        if (result == null) {
+            if (aName.equals("GameFieldController.Layer0") && aClass.isAssignableFrom(FGameFieldController.Layer0.getClass())) {
+                return FGameFieldController.Layer0;
+            }
+        }
         return result;
     }
 

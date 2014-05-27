@@ -17,13 +17,13 @@ public class GameFieldController implements Initializable {
     public Canvas Layer0;
 
     @FXML
-    public Canvas Layer1;
+    public Canvas LayerGrid;
 
     public Boulderdash Game;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        FDCLayer0 = new NGGrid2DDisplayController(Layer0);
+        FDCLayer0 = new NGGrid2DDisplayController(LayerGrid);
         FDCLayer0.GridColor = Color.DARKGRAY;
         FDCLayer0.Initialize();
     }

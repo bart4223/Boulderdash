@@ -125,6 +125,10 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
         return Boolean.valueOf(FConfiguration.getProperty("ShowGameFieldGrid"));
     }
 
+    protected void RenderStages() {
+        FGameFieldController.Render();
+    }
+
     public Boulderdash() {
         super();
         FGameEngine = new NGGameEngine(this);
@@ -142,10 +146,10 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
     public void Show() {
         FGameControlStage.show();
         FGameFieldStage.show();
-        FGameFieldController.Render();
         if (ShowConsoleStage) {
             FGameConsoleStage.show();
         }
+        RenderStages();
     }
 
     public void Run() {

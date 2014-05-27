@@ -8,6 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Properties;
+
 public class Boulderdash extends NGUniplayObject {
 
     protected NGGameEngine FGameEngine;
@@ -15,6 +19,7 @@ public class Boulderdash extends NGUniplayObject {
     protected Stage FGameControlStage;
     protected GameFieldController FGameFieldController;
     protected GameControlController FGameControlController;
+    protected Properties FConfiguration;
 
     protected void CreateGameFieldStage(){
         FGameFieldStage = new Stage();
@@ -52,6 +57,18 @@ public class Boulderdash extends NGUniplayObject {
         }
     }
 
+    protected void LoadConfiguration() {
+        try {
+            InputStream is = new FileInputStream("resources/config.bd");
+            FConfiguration.load(is);
+            FGameEngine.setConfigurationFilename(FConfiguration.getProperty("UniplayConfigurationFilename"));
+        }
+        catch ( Exception e) {
+            // ToDo
+            //writeLog(e.getMessage());
+        }
+    }
+
     @Override
     protected Object DoResolveObject(String aName, Class aClass) {
         Object result = super.DoResolveObject(aName, aClass);
@@ -66,12 +83,13 @@ public class Boulderdash extends NGUniplayObject {
     public Boulderdash() {
         super();
         FGameEngine = new NGGameEngine(this);
-        FGameEngine.setConfigurationFilename("resources/config.ucf");
+        FConfiguration = new Properties();
     }
 
     public void Initialize() {
         CreateGameControlStage();
         CreateGameFieldStage();
+        LoadConfiguration();
     }
 
     public void Show() {

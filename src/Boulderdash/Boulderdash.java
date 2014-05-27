@@ -93,6 +93,9 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
             FConfiguration.load(is);
             FGameEngine.setConfigurationFilename(FConfiguration.getProperty("UniplayConfigurationFilename"));
             ShowConsoleStage = Boolean.valueOf(FConfiguration.getProperty("ShowConsoleStage"));
+            if (ShowConsoleStage) {
+                FGameEngine.addLogListener(this);
+            }
         }
         catch ( Exception e) {
             writeLog(e.getMessage());
@@ -117,7 +120,6 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
     public Boulderdash() {
         super();
         FGameEngine = new NGGameEngine(this);
-        FGameEngine.addLogListener(this);
         FConfiguration = new Properties();
         ShowConsoleStage = false;
     }

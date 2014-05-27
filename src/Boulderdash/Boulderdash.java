@@ -117,6 +117,14 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
         FGameConsoleController.addLog(NGStrings.addString(NGStrings.getDateAsString(new Date(), FMT_DATETIME), aText, " "));
     }
 
+    protected int getGameFieldGridSize() {
+        return Integer.parseInt(FConfiguration.getProperty("GameFieldGridSize"));
+    }
+
+    protected Boolean getShowGameFieldGrid() {
+        return Boolean.valueOf(FConfiguration.getProperty("ShowGameFieldGrid"));
+    }
+
     public Boulderdash() {
         super();
         FGameEngine = new NGGameEngine(this);
@@ -134,6 +142,7 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
     public void Show() {
         FGameControlStage.show();
         FGameFieldStage.show();
+        FGameFieldController.Render();
         if (ShowConsoleStage) {
             FGameConsoleStage.show();
         }

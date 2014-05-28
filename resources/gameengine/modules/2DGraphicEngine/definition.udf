@@ -25,11 +25,11 @@
       <void property="name">
        <string>RenderEngineLayer0</string>
       </void>
-      <void property="layerIndex">
-       <int>0</int>
-      </void>
       <void property="layername">
        <string>GameFieldController.Layer0</string>
+      </void>
+      <void property="layerIndex">
+       <int>0</int>
       </void>
       <void property="classname">
        <string>Uniplay.Graphics.NGRenderEngine</string>

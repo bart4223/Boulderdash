@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="1.7.0_25" class="java.beans.XMLDecoder">
- <object class="Uniplay.Graphics.NG2DGraphicEngineDefinition"/>
+ <object class="Uniplay.Graphics.NG2DGraphicEngineDefinition">
+  <void property="renderEngines">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="Uniplay.Graphics.NGGraphicEngineDefintionRenderEngineItem">
+      <void property="displayControllers">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniplay.Graphics.NGGraphicEngineDefintionRenderEngineDisplayControllerItem">
+          <void property="name">
+           <string>RetroNumberDisplayControllerLayer0</string>
+          </void>
+          <void property="classname">
+           <string>Uniwork.Visuals.NGRetroNumberDisplayController</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="name">
+       <string>RenderEngineLayer0</string>
+      </void>
+      <void property="layerIndex">
+       <int>0</int>
+      </void>
+      <void property="layername">
+       <string>GameFieldController.Layer0</string>
+      </void>
+      <void property="classname">
+       <string>Uniplay.Graphics.NGRenderEngine</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
 </java>

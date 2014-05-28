@@ -1,4 +1,4 @@
-Debuglevel=0
-ConsoleShowLog=true
+Debuglevel=5
+ConsoleShowLog=false
 ConsoleShowLogEntrySource=false
 DefinitionFilename=resources/gameengine/definition.udf

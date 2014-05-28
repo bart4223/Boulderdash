@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class GameFieldController implements Initializable {
 
-    protected NGGrid2DDisplayController FDCLayer0;
+    protected NGGrid2DDisplayController FDCLayerGrid;
 
     @FXML
     public Canvas Layer0;
@@ -23,15 +23,15 @@ public class GameFieldController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        FDCLayer0 = new NGGrid2DDisplayController(LayerGrid);
-        FDCLayer0.GridColor = Color.DARKGRAY;
-        FDCLayer0.Initialize();
+        FDCLayerGrid = new NGGrid2DDisplayController(LayerGrid);
+        FDCLayerGrid.GridColor = Color.DARKGRAY;
+        FDCLayerGrid.Initialize();
     }
 
     public void Render() {
-        FDCLayer0.DrawGrid = Game.getShowGameFieldGrid();
-        FDCLayer0.GridDistance = Game.getGameFieldGridSize();
-        FDCLayer0.Render();
+        FDCLayerGrid.DrawGrid = Game.getShowGameFieldGrid();
+        FDCLayerGrid.GridDistance = Game.getGameFieldGridSize();
+        FDCLayerGrid.Render();
     }
 
 }

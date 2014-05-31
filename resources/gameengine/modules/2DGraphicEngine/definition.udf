@@ -32,7 +32,7 @@
        <int>0</int>
       </void>
       <void property="classname">
-       <string>Uniplay.Graphics.NGRenderEngine</string>
+       <string>Uniplay.Graphics.NG2DRenderEngine</string>
       </void>
       <void property="valuepropname">
        <string>Number</string>

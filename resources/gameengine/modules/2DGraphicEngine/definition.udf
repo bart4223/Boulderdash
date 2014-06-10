@@ -10,13 +10,13 @@
         <void method="add">
          <object class="Uniplay.Graphics.NGGraphicEngineDefintionRenderEngineDisplayControllerItem">
           <void property="name">
-           <string>RetroNumberDisplayControllerLayer0</string>
+           <string>ImageDisplayControllerLayer0</string>
           </void>
           <void property="classname">
-           <string>Uniwork.Visuals.NGRetroNumberDisplayController</string>
+           <string>Uniwork.Visuals.NGImageDisplayController</string>
           </void>
-          <void property="pixelsize">
-           <int>2</int>
+          <void property="imagename">
+           <string>resources/sprites/id_%d.png</string>
           </void>
          </object>
         </void>
@@ -35,7 +35,7 @@
        <string>Uniplay.Graphics.NG2DRenderEngine</string>
       </void>
       <void property="valuepropname">
-       <string>Number</string>
+       <string>ImageNumber</string>
       </void>
      </object>
     </void>

@@ -1,4 +1,4 @@
 ShowConsoleStage=true
 ShowGameFieldGrid=true
-GameFieldGridSize=16
+GameFieldGridSize=32
 UniplayConfigurationFilename=resources/gameengine/config.ucf

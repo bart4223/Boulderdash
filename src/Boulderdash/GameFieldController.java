@@ -24,7 +24,7 @@ public class GameFieldController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FDCLayerGrid = new NGGrid2DDisplayController(LayerGrid);
-        FDCLayerGrid.GridColor = Color.DARKGRAY;
+        FDCLayerGrid.GridColor = Color.BLACK;
         FDCLayerGrid.Initialize();
     }
 

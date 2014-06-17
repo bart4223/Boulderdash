@@ -21,7 +21,7 @@
        <string>Bender</string>
       </void>
       <void property="imagename">
-       <string>id_1.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_1.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -43,7 +43,7 @@
        <string>Diamond</string>
       </void>
       <void property="imagename">
-       <string>id_2.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_2.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -65,7 +65,7 @@
        <string>Boulder</string>
       </void>
       <void property="imagename">
-       <string>id_4.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_4.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -87,7 +87,7 @@
        <string>Earth</string>
       </void>
       <void property="imagename">
-       <string>id_5.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_5.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -109,7 +109,7 @@
        <string>Door</string>
       </void>
       <void property="imagename">
-       <string>id_6.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_6.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -131,7 +131,7 @@
        <string>Monster</string>
       </void>
       <void property="imagename">
-       <string>id_12.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_12.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -153,7 +153,7 @@
        <string>Brick TopLeft Corner</string>
       </void>
       <void property="imagename">
-       <string>id_14.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_14.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -175,7 +175,7 @@
        <string>Brick Top</string>
       </void>
       <void property="imagename">
-       <string>id_15.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_15.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -197,7 +197,7 @@
        <string>Brick TopRight Corner</string>
       </void>
       <void property="imagename">
-       <string>id_16.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_16.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -219,7 +219,7 @@
        <string>Brick Left</string>
       </void>
       <void property="imagename">
-       <string>id_17.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_17.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -241,7 +241,7 @@
        <string>Brick Right</string>
       </void>
       <void property="imagename">
-       <string>id_18.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_18.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -263,7 +263,7 @@
        <string>Brick BottlmLeft Corner</string>
       </void>
       <void property="imagename">
-       <string>id_19.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_19.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -285,7 +285,7 @@
        <string>Brick Bottom</string>
       </void>
       <void property="imagename">
-       <string>id_20.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_20.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -307,7 +307,7 @@
        <string>Brick BottomRight Corner</string>
       </void>
       <void property="imagename">
-       <string>id_21.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_21.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -329,7 +329,7 @@
        <string>Brick Down End</string>
       </void>
       <void property="imagename">
-       <string>id_22.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_22.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -351,7 +351,7 @@
        <string>Brick Up End</string>
       </void>
       <void property="imagename">
-       <string>id_23.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_23.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -373,7 +373,7 @@
        <string>Brick Left End</string>
       </void>
       <void property="imagename">
-       <string>id_24.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_24.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
@@ -395,7 +395,7 @@
         <string>Brick Right End</string>
        </void>
        <void property="imagename">
-        <string>id_25.png</string>
+        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_25.png</string>
        </void>
        <void property="geometryObjects">
         <object class="java.util.ArrayList"/>
@@ -417,7 +417,7 @@
        <string>Brick End</string>
       </void>
       <void property="imagename">
-       <string>id_26.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_26.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>

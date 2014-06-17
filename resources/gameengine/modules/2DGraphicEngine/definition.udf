@@ -4,11 +4,11 @@
   <void property="renderEngines">
    <object class="java.util.ArrayList">
     <void method="add">
-     <object class="Uniplay.Graphics.NGGraphicEngineDefintionRenderEngineItem">
+     <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineItem">
       <void property="displayControllers">
        <object class="java.util.ArrayList">
         <void method="add">
-         <object class="Uniplay.Graphics.NGGraphicEngineDefintionRenderEngineDisplayControllerItem">
+         <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerItem">
           <void property="name">
            <string>ImageDisplayControllerLayer0</string>
           </void>
@@ -17,6 +17,20 @@
           </void>
           <void property="imagename">
            <string>resources/sprites/id_%d.png</string>
+          </void>
+          <void property="props">
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object class="Uniwork.Base.NGSerializePropertyItem">
+              <void property="name">
+               <string>MaxImageNumber</string>
+              </void>
+              <void property="value">
+               <int>26</int>
+              </void>
+             </object>
+            </void>
+           </object>
           </void>
          </object>
         </void>
@@ -34,8 +48,19 @@
       <void property="classname">
        <string>Uniplay.Graphics.NG2DRenderEngine</string>
       </void>
-      <void property="valuepropname">
-       <string>ImageNumber</string>
+      <void property="props">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>RenderEngine.ValuePropname</string>
+          </void>
+          <void property="value">
+           <string>ImageNumber</string>
+          </void>
+         </object>
+        </void>
+       </object>
       </void>
      </object>
     </void>

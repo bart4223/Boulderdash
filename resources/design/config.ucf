@@ -1,0 +1,4 @@
+Debuglevel=5
+ConsoleShowLog=false
+ConsoleShowLogEntrySource=false
+DefinitionFilename=resources/design/definition.udf

@@ -9,7 +9,7 @@
        <string>Uniplay.Graphics.NG2DGraphicEngine</string>
       </void>
       <void property="configurationFilename">
-       <string>resources/gameengine/modules/2DGraphicEngine/config.ucf</string>
+       <string>resources/runtime/modules/2DGraphicEngine/config.ucf</string>
       </void>
       <void property="name">
        <string>2DGraphicEngine</string>

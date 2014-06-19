@@ -2,7 +2,7 @@
 <java version="1.7.0_25" class="java.beans.XMLDecoder">
  <object class="Grids.XMLGrid">
   <void property="currentLayer">
-   <string>ID_5</string>
+   <string>ID_1</string>
   </void>
   <void property="gridColor">
    <string>0xd3d3d3ff</string>
@@ -15,7 +15,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>51</int>
+       <int>55</int>
       </void>
       <void property="description">
        <string>Bender</string>
@@ -214,7 +214,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>52</int>
+       <int>54</int>
       </void>
       <void property="description">
        <string>Earth</string>
@@ -775,26 +775,6 @@
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
            <double>8.0</double>
-          </void>
-          <void property="y">
-           <double>8.0</double>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="Uniwork.Graphics.NGPoint2D">
-          <void property="x">
-           <double>9.0</double>
-          </void>
-          <void property="y">
-           <double>8.0</double>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="Uniwork.Graphics.NGPoint2D">
-          <void property="x">
-           <double>10.0</double>
           </void>
           <void property="y">
            <double>8.0</double>
@@ -2402,6 +2382,49 @@
       </void>
       <void property="name">
        <string>ID_26</string>
+      </void>
+      <void property="objectColor">
+       <string>0xffffffff</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Grids.XMLLayer">
+      <void property="ZOrder">
+       <int>53</int>
+      </void>
+      <void property="description">
+       <string>Bomb</string>
+      </void>
+      <void property="geometryObjects">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>10.0</double>
+          </void>
+          <void property="y">
+           <double>8.0</double>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>9.0</double>
+          </void>
+          <void property="y">
+           <double>8.0</double>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="imagename">
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_27.png</string>
+      </void>
+      <void property="name">
+       <string>ID_27</string>
       </void>
       <void property="objectColor">
        <string>0xffffffff</string>

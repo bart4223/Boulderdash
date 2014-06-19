@@ -32,6 +32,19 @@
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
+      <void property="classname">
+       <string>Uniplay.Workbench.NGWorkbenchModule</string>
+      </void>
+      <void property="name">
+       <string>WorkbenchModule</string>
+      </void>
+      <void property="caption">
+       <string>Workbench Module</string>
+      </void>
+     </object>
+    </void>
    </object>
   </void>
  </object>

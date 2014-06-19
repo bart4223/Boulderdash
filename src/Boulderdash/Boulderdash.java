@@ -38,7 +38,7 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
             FGameFieldController = (GameFieldController)lXMLLoader.getController();
             FGameFieldController.Game = this;
             Parent lRoot = lXMLLoader.getRoot();
-            FGameFieldStage.setTitle("Boulderdash-Field");
+            FGameFieldStage.setTitle("Boulderdash.Field");
             FGameFieldStage.setScene(new Scene(lRoot, 500, 500, Color.WHITE));
             FGameFieldStage.setResizable(false);
             FGameFieldStage.setX(1800);
@@ -57,7 +57,7 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
             FGameControlController = (GameControlController)lXMLLoader.getController();
             FGameControlController.Game = this;
             Parent lRoot = lXMLLoader.getRoot();
-            FGameControlStage.setTitle("Boulderdash-Control");
+            FGameControlStage.setTitle("Boulderdash.Control");
             FGameControlStage.setScene(new Scene(lRoot, 700, 50, Color.LIGHTGRAY));
             FGameControlStage.setResizable(false);
             FGameControlStage.setX(1030);
@@ -76,7 +76,7 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
             FGameConsoleController = (GameConsoleController)lXMLLoader.getController();
             FGameConsoleController.Game = this;
             Parent lRoot = lXMLLoader.getRoot();
-            FGameConsoleStage.setTitle("Boulderdash-Console");
+            FGameConsoleStage.setTitle("Boulderdash.Console");
             FGameConsoleStage.setScene(new Scene(lRoot, 700, 400, Color.LIGHTGRAY));
             FGameConsoleStage.setResizable(false);
             FGameConsoleStage.setX(1030);

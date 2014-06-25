@@ -22,19 +22,6 @@
     <void method="add">
      <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
       <void property="classname">
-       <string>Uniplay.Test.NGTestModule</string>
-      </void>
-      <void property="name">
-       <string>TestModule</string>
-      </void>
-      <void property="caption">
-       <string>Test Module</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
-      <void property="classname">
        <string>Uniplay.Workbench.NGWorkbenchModule</string>
       </void>
       <void property="name">
@@ -42,6 +29,19 @@
       </void>
       <void property="caption">
        <string>Workbench Module</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
+      <void property="classname">
+       <string>Uniplay.Test.NGTestModule</string>
+      </void>
+      <void property="name">
+       <string>TestModule</string>
+      </void>
+      <void property="caption">
+       <string>Test Module</string>
       </void>
      </object>
     </void>

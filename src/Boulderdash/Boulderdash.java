@@ -2,6 +2,7 @@ package Boulderdash;
 
 import Uniplay.Base.NGUniplayObject;
 import Uniplay.NGGameEngine;
+import Uniwork.Base.NGObjectRequestItem;
 import Uniwork.Misc.NGLogEvent;
 import Uniwork.Misc.NGLogEventListener;
 import Uniwork.Misc.NGStrings;
@@ -172,7 +173,8 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
 
     // ToDo
     public void Test() {
-        FGameEngine.Test();
+        NGObjectRequestItem request = new NGObjectRequestItem("TestModule", "Test");
+        FGameEngine.Invoke(request);
     }
 
 }

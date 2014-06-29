@@ -3,9 +3,6 @@ package Boulderdash;
 import Uniplay.Base.NGUniplayObject;
 import Uniplay.NGGameEngine;
 import Uniwork.Base.NGObjectRequestItem;
-import Uniwork.Misc.NGLogEvent;
-import Uniwork.Misc.NGLogEventListener;
-import Uniwork.Misc.NGStrings;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,22 +11,16 @@ import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.util.Date;
 import java.util.Properties;
 
-public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
-
-    public static final String FMT_DATETIME = "YYYY/MM/dd HH:mm:ss";
+public class Boulderdash extends NGUniplayObject {
 
     protected NGGameEngine FGameEngine;
     protected Stage FGameFieldStage;
     protected GameFieldController FGameFieldController;
     protected Stage FGameControlStage;
     protected GameControlController FGameControlController;
-    protected Stage FGameConsoleStage;
-    protected GameConsoleController FGameConsoleController;
     protected Properties FConfiguration;
-    protected Boolean ShowConsoleStage;
 
     protected void CreateGameControlStage(){
         FGameControlStage = new Stage();
@@ -65,35 +56,14 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
         }
     }
 
-    protected void CreateGameConsoleStage(){
-        FGameConsoleStage = new Stage();
-        FXMLLoader lXMLLoader = new FXMLLoader(getClass().getResource("GameConsoleStage.fxml"));
-        try {
-            lXMLLoader.load();
-            FGameConsoleController = (GameConsoleController)lXMLLoader.getController();
-            FGameConsoleController.Game = this;
-            Parent lRoot = lXMLLoader.getRoot();
-            FGameConsoleStage.setTitle("Boulderdash.Console");
-            FGameConsoleStage.setScene(new Scene(lRoot, 800, 200, Color.LIGHTGRAY));
-            FGameConsoleStage.setResizable(false);
-        }
-        catch( Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     protected void LoadConfiguration() {
         try {
             InputStream is = new FileInputStream("resources/config.bd");
             FConfiguration.load(is);
             FGameEngine.setConfigurationFilename(FConfiguration.getProperty("UniplayConfigurationFilename"));
-            ShowConsoleStage = Boolean.valueOf(FConfiguration.getProperty("ShowConsoleStage"));
-            if (ShowConsoleStage) {
-                FGameEngine.addLogListener(this);
-            }
         }
         catch ( Exception e) {
-            writeLog(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -102,8 +72,6 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
         FGameControlStage.setY(150);
         FGameFieldStage.setX(1400);
         FGameFieldStage.setY(250);
-        FGameConsoleStage.setX(1400);
-        FGameConsoleStage.setY(1100);
     }
 
     @Override
@@ -115,10 +83,6 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
             }
         }
         return result;
-    }
-
-    protected void writeLog(String aText) {
-        FGameConsoleController.addLog(NGStrings.addString(NGStrings.getDateAsString(new Date(), FMT_DATETIME), aText, " "));
     }
 
     protected int getGameFieldGridSize() {
@@ -137,13 +101,11 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
         super();
         FGameEngine = new NGGameEngine(this);
         FConfiguration = new Properties();
-        ShowConsoleStage = false;
     }
 
     public void Initialize() {
         CreateGameControlStage();
         CreateGameFieldStage();
-        CreateGameConsoleStage();
         LoadConfiguration();
         perfectLayout();
     }
@@ -151,9 +113,6 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
     public void Show() {
         FGameControlStage.show();
         FGameFieldStage.show();
-        if (ShowConsoleStage) {
-            FGameConsoleStage.show();
-        }
         RenderStages();
     }
 
@@ -163,16 +122,6 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
 
     public void Stop() {
         FGameEngine.Shutdown();
-    }
-
-    @Override
-    public void handleAddLog(NGLogEvent e) {
-        FGameConsoleController.addLog(e.LogEntry.GetFullAsString(FMT_DATETIME, false));
-    }
-
-    @Override
-    public void handleClearLog() {
-        FGameConsoleController.clearLog();
     }
 
     // ToDo

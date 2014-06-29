@@ -31,25 +31,6 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
     protected Properties FConfiguration;
     protected Boolean ShowConsoleStage;
 
-    protected void CreateGameFieldStage(){
-        FGameFieldStage = new Stage();
-        FXMLLoader lXMLLoader = new FXMLLoader(getClass().getResource("GameFieldStage.fxml"));
-        try {
-            lXMLLoader.load();
-            FGameFieldController = (GameFieldController)lXMLLoader.getController();
-            FGameFieldController.Game = this;
-            Parent lRoot = lXMLLoader.getRoot();
-            FGameFieldStage.setTitle("Boulderdash.Field");
-            FGameFieldStage.setScene(new Scene(lRoot, 500, 500, Color.WHITE));
-            FGameFieldStage.setResizable(false);
-            FGameFieldStage.setX(1800);
-            FGameFieldStage.setY(250);
-        }
-        catch( Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     protected void CreateGameControlStage(){
         FGameControlStage = new Stage();
         FXMLLoader lXMLLoader = new FXMLLoader(getClass().getResource("GameControlStage.fxml"));
@@ -59,10 +40,25 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
             FGameControlController.Game = this;
             Parent lRoot = lXMLLoader.getRoot();
             FGameControlStage.setTitle("Boulderdash.Control");
-            FGameControlStage.setScene(new Scene(lRoot, 700, 50, Color.LIGHTGRAY));
+            FGameControlStage.setScene(new Scene(lRoot, 800, 50, Color.LIGHTGRAY));
             FGameControlStage.setResizable(false);
-            FGameControlStage.setX(1030);
-            FGameControlStage.setY(250);
+        }
+        catch( Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void CreateGameFieldStage(){
+        FGameFieldStage = new Stage();
+        FXMLLoader lXMLLoader = new FXMLLoader(getClass().getResource("GameFieldStage.fxml"));
+        try {
+            lXMLLoader.load();
+            FGameFieldController = (GameFieldController)lXMLLoader.getController();
+            FGameFieldController.Game = this;
+            Parent lRoot = lXMLLoader.getRoot();
+            FGameFieldStage.setTitle("Boulderdash.Field");
+            FGameFieldStage.setScene(new Scene(lRoot, 800, 800, Color.WHITE));
+            FGameFieldStage.setResizable(false);
         }
         catch( Exception e) {
             e.printStackTrace();
@@ -78,10 +74,8 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
             FGameConsoleController.Game = this;
             Parent lRoot = lXMLLoader.getRoot();
             FGameConsoleStage.setTitle("Boulderdash.Console");
-            FGameConsoleStage.setScene(new Scene(lRoot, 700, 400, Color.LIGHTGRAY));
+            FGameConsoleStage.setScene(new Scene(lRoot, 800, 200, Color.LIGHTGRAY));
             FGameConsoleStage.setResizable(false);
-            FGameConsoleStage.setX(1030);
-            FGameConsoleStage.setY(350);
         }
         catch( Exception e) {
             e.printStackTrace();
@@ -101,6 +95,15 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
         catch ( Exception e) {
             writeLog(e.getMessage());
         }
+    }
+
+    protected void perfectLayout() {
+        FGameControlStage.setX(1400);
+        FGameControlStage.setY(150);
+        FGameFieldStage.setX(1400);
+        FGameFieldStage.setY(250);
+        FGameConsoleStage.setX(1400);
+        FGameConsoleStage.setY(1100);
     }
 
     @Override
@@ -142,6 +145,7 @@ public class Boulderdash extends NGUniplayObject implements NGLogEventListener {
         CreateGameFieldStage();
         CreateGameConsoleStage();
         LoadConfiguration();
+        perfectLayout();
     }
 
     public void Show() {

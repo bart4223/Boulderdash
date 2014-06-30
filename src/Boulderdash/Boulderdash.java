@@ -17,9 +17,9 @@ public class Boulderdash extends NGUniplayObject {
 
     protected NGGameEngine FGameEngine;
     protected Stage FGameFieldStage;
-    protected GameFieldController FGameFieldController;
+    protected GameFieldStageController FGameFieldController;
     protected Stage FGameControlStage;
-    protected GameControlController FGameControlController;
+    protected GameControlStageController FGameControlController;
     protected Properties FConfiguration;
 
     protected void CreateGameControlStage(){
@@ -27,7 +27,7 @@ public class Boulderdash extends NGUniplayObject {
         FXMLLoader lXMLLoader = new FXMLLoader(getClass().getResource("GameControlStage.fxml"));
         try {
             lXMLLoader.load();
-            FGameControlController = (GameControlController)lXMLLoader.getController();
+            FGameControlController = (GameControlStageController)lXMLLoader.getController();
             FGameControlController.Game = this;
             Parent lRoot = lXMLLoader.getRoot();
             FGameControlStage.setTitle("Boulderdash.Control");
@@ -44,7 +44,7 @@ public class Boulderdash extends NGUniplayObject {
         FXMLLoader lXMLLoader = new FXMLLoader(getClass().getResource("GameFieldStage.fxml"));
         try {
             lXMLLoader.load();
-            FGameFieldController = (GameFieldController)lXMLLoader.getController();
+            FGameFieldController = (GameFieldStageController)lXMLLoader.getController();
             FGameFieldController.Game = this;
             Parent lRoot = lXMLLoader.getRoot();
             FGameFieldStage.setTitle("Boulderdash.Field");

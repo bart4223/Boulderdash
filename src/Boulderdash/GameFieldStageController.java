@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GameFieldController implements Initializable {
+public class GameFieldStageController implements Initializable {
 
     protected NGGrid2DDisplayController FDCLayerGrid;
 

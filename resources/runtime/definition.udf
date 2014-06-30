@@ -6,6 +6,19 @@
     <void method="add">
      <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
       <void property="classname">
+       <string>Uniplay.Storage.NGDataStorageModule</string>
+      </void>
+      <void property="name">
+       <string>DataStorage</string>
+      </void>
+      <void property="caption">
+       <string>Data Storage</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
+      <void property="classname">
        <string>Uniplay.Graphics.NG2DGraphicEngine</string>
       </void>
       <void property="configurationFilename">

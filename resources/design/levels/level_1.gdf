@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_25" class="java.beans.XMLDecoder">
+<java version="1.7.0_60" class="java.beans.XMLDecoder">
  <object class="Grids.XMLGrid">
   <void property="currentLayer">
-   <string>ID_4</string>
+   <string>ID_25</string>
   </void>
   <void property="gridColor">
    <string>0xd3d3d3ff</string>
@@ -9098,7 +9098,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>66</int>
+       <int>95</int>
       </void>
       <void property="description">
        <string>Brick Left</string>
@@ -9252,16 +9252,6 @@
           </void>
           <void property="y">
            <double>10.0</double>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="Uniwork.Graphics.NGPoint2D">
-          <void property="x">
-           <double>1.0</double>
-          </void>
-          <void property="y">
-           <double>7.0</double>
           </void>
          </object>
         </void>
@@ -9977,7 +9967,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>65</int>
+       <int>96</int>
       </void>
       <void property="description">
        <string>Brick Right End</string>
@@ -9987,7 +9977,7 @@
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
-           <double>1.0</double>
+           <double>38.0</double>
           </void>
           <void property="y">
            <double>7.0</double>
@@ -9997,7 +9987,7 @@
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
-           <double>38.0</double>
+           <double>1.0</double>
           </void>
           <void property="y">
            <double>7.0</double>

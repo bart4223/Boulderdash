@@ -50,6 +50,9 @@
       <void property="classname">
        <string>Uniplay.Workbench.NGWorkbenchModule</string>
       </void>
+      <void property="configurationFilename">
+       <string>resources/design/modules/Workbench/config.ucf</string>
+      </void>
       <void property="name">
        <string>WorkbenchModule</string>
       </void>

@@ -40,7 +40,7 @@
        <string>RenderEngineLayer0</string>
       </void>
       <void property="layername">
-       <string>GameFieldController.Layer0</string>
+       <string>Boulderdash.StageManager.Gamefield.Layer1</string>
       </void>
       <void property="layerIndex">
        <int>0</int>

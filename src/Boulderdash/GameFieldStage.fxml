@@ -1,6 +1,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.canvas.Canvas?>
 <AnchorPane fx:controller="Boulderdash.GameFieldStageController" xmlns:fx="http://javafx.com/fxml" >
+    <Canvas id="Layer1" height="800" width="800" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" fx:id="Layer1" />
     <Canvas id="Layer0" height="800" width="800" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" fx:id="Layer0" />
-    <Canvas id="LayerGrid" height="800" width="800" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" fx:id="LayerGrid" />
 </AnchorPane>

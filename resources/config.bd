@@ -1,4 +1,1 @@
-ShowConsoleStage=true
-ShowGameFieldGrid=false
-GameFieldGridSize=32
 UniplayConfigurationFilename=resources/design/config.ucf

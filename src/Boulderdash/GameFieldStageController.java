@@ -1,37 +1,36 @@
 package Boulderdash;
 
 import Uniwork.Visuals.NGGrid2DDisplayController;
+import Uniwork.Visuals.NGStageController;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+public class GameFieldStageController extends NGStageController {
 
-public class GameFieldStageController implements Initializable {
+    protected NGGrid2DDisplayController FDCGrid;
 
-    protected NGGrid2DDisplayController FDCLayerGrid;
+    public StageManager Manager;
+
+    @FXML
+    public Canvas Layer1;
 
     @FXML
     public Canvas Layer0;
 
-    @FXML
-    public Canvas LayerGrid;
-
-    public Boulderdash Game;
-
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        FDCLayerGrid = new NGGrid2DDisplayController(LayerGrid);
-        FDCLayerGrid.GridColor = Color.BLACK;
-        FDCLayerGrid.Initialize();
+    protected void CreateDisplayController() {
+        super.CreateDisplayController();
+        FDCGrid = new NGGrid2DDisplayController(Layer0);
+        FDCGrid.GridColor = Color.DARKGRAY;
+        registerDisplayController(FDCGrid);
     }
 
-    public void Render() {
-        FDCLayerGrid.DrawGrid = Game.getShowGameFieldGrid();
-        FDCLayerGrid.GridDistance = Game.getGameFieldGridSize();
-        FDCLayerGrid.Render();
+    @Override
+    protected void DoBeforeRenderScene() {
+        super.DoBeforeRenderScene();
+        FDCGrid.DrawGrid = Manager.getShowGameFieldGrid();
+        FDCGrid.GridDistance = Manager.getGameFieldGridSize();
     }
 
 }

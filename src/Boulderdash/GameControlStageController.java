@@ -1,23 +1,15 @@
 package Boulderdash;
 
+import Uniwork.Visuals.NGStageController;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+public class GameControlStageController extends NGStageController {
 
-public class GameControlStageController implements Initializable {
-
-    public Boulderdash Game;
+    public StageManager Manager;
 
     @FXML
     protected void handleTest(){
-        Game.Test();
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        Manager.Test();
     }
 
 }

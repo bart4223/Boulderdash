@@ -38,10 +38,10 @@
        <string>Uniplay.Debugger.NGDebuggerModule</string>
       </void>
       <void property="name">
-       <string>DebuggerModule</string>
+       <string>Debugger</string>
       </void>
       <void property="caption">
-       <string>Debugger Module</string>
+       <string>Debugger</string>
       </void>
      </object>
     </void>
@@ -54,10 +54,10 @@
        <string>resources/design/modules/Workbench/config.ucf</string>
       </void>
       <void property="name">
-       <string>WorkbenchModule</string>
+       <string>Workbench</string>
       </void>
       <void property="caption">
-       <string>Workbench Module</string>
+       <string>Workbench</string>
       </void>
      </object>
     </void>
@@ -67,10 +67,23 @@
        <string>Uniplay.Test.NGTestModule</string>
       </void>
       <void property="name">
-       <string>TestModule</string>
+       <string>Test</string>
       </void>
       <void property="caption">
-       <string>Test Module</string>
+       <string>Test</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
+      <void property="classname">
+       <string>Boulderdash.BoulderdashModule</string>
+      </void>
+      <void property="name">
+       <string>Boulderdash</string>
+      </void>
+      <void property="caption">
+       <string>Boulderdash</string>
       </void>
      </object>
     </void>

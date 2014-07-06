@@ -32,6 +32,19 @@
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
+      <void property="classname">
+       <string>Boulderdash.BoulderdashModule</string>
+      </void>
+      <void property="name">
+       <string>Boulderdash</string>
+      </void>
+      <void property="caption">
+       <string>Boulderdash</string>
+      </void>
+     </object>
+    </void>
    </object>
   </void>
  </object>

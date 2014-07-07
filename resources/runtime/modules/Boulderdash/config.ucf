@@ -1,2 +1,2 @@
-StageManager.ShowGameFieldGrid=true
+StageManager.ShowGameFieldGrid=false
 StageManager.GameFieldGridSize=32

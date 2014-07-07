@@ -22,6 +22,7 @@ public class GameFieldStageController extends NGStageController {
     protected void CreateDisplayController() {
         super.CreateDisplayController();
         FDCGrid = new NGGrid2DDisplayController(Layer0);
+        FDCGrid.DrawGrid = false;
         FDCGrid.GridColor = Color.DARKGRAY;
         registerDisplayController(FDCGrid);
     }

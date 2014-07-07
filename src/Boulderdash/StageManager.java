@@ -102,7 +102,7 @@ public class StageManager extends NGUniplayComponent {
     }
 
     public Canvas getGameFieldCanvas() {
-        return FGameFieldController.Layer0;
+        return FGameFieldController.Layer1;
     }
 
     // ToDo

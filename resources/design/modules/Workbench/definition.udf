@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_25" class="java.beans.XMLDecoder">
+ <object class="Uniplay.Workbench.NGWorkbenchDefintion">
+  <void property="levelDesignerManager">
+   <object class="Uniplay.Workbench.NGLevelDesignerManagerDefinition">
+    <void property="levelDesigners">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Uniplay.Workbench.NG2DLevelDesignerDefinition">
+        <void property="name">
+         <string>LevelDesigner</string>
+        </void>
+        <void property="props">
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <object class="Uniwork.Base.NGSerializePropertyItem">
+            <void property="name">
+             <string>FIELDVALUE_DIAMOND</string>
+            </void>
+            <void property="value">
+             <int>2</int>
+            </void>
+           </object>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

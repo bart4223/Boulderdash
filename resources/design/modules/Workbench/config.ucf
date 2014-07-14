@@ -1,2 +1,3 @@
+DefinitionFilename=resources/design/modules/Workbench/definition.udf
 WorkbenchManager.LevelDesignerManager.LevelDesigner.Imagename=resources/sprites/id_%d.png
 WorkbenchManager.LevelDesignerManager.LevelDesigner.GridSize=32

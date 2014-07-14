@@ -10,12 +10,18 @@
         <void property="name">
          <string>LevelDesigner</string>
         </void>
+        <void property="levelname">
+         <string>Level1</string>
+        </void>
+        <void property="levelcaption">
+         <string>The First</string>
+        </void>
         <void property="props">
          <object class="java.util.ArrayList">
           <void method="add">
            <object class="Uniwork.Base.NGSerializePropertyItem">
             <void property="name">
-             <string>FIELDVALUE_DIAMOND</string>
+             <string>GAMEFIELD.DEFAULT.DIAMOND</string>
             </void>
             <void property="value">
              <int>2</int>

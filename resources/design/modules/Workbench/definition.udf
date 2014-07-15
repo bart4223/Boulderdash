@@ -21,7 +21,7 @@
           <void method="add">
            <object class="Uniwork.Base.NGSerializePropertyItem">
             <void property="name">
-             <string>GAMEFIELD.DEFAULT.DIAMOND</string>
+             <string>GAMEFIELD.DEFAULT.DIAMOND.COUNT</string>
             </void>
             <void property="value">
              <int>2</int>

@@ -9,8 +9,8 @@ public class StageManagerEventHandlerKernelStarted extends NGGameEngineEventHand
     @Override
     protected void DoHandleEvent() {
         super.DoHandleEvent();
-        FManager.showStages();
         FManager.updateGameControlControls();
+        FManager.showStages();
     }
 
     public StageManagerEventHandlerKernelStarted(StageManager aManager) {

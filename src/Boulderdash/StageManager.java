@@ -2,6 +2,8 @@ package Boulderdash;
 
 import Uniplay.Base.NGUniplayComponent;
 import Uniplay.Base.NGUniplayObject;
+import Uniplay.Kernel.NGGameEngineConstants;
+import Uniplay.Storage.NGPlayerManager;
 import Uniwork.Base.NGObjectRequestInvoker;
 import Uniwork.Base.NGObjectRequestItem;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +29,7 @@ public class StageManager extends NGUniplayComponent {
             lXMLLoader.load();
             FGameControlController = lXMLLoader.getController();
             FGameControlController.Manager = this;
+            FGameControlController.Initialize();
             Parent lRoot = lXMLLoader.getRoot();
             FGameControlStage.setTitle("Boulderdash.Control");
             FGameControlStage.setScene(new Scene(lRoot, 800, 50, Color.LIGHTGRAY));
@@ -44,6 +47,7 @@ public class StageManager extends NGUniplayComponent {
             lXMLLoader.load();
             FGameFieldController = lXMLLoader.getController();
             FGameFieldController.Manager = this;
+            FGameFieldController.Initialize();
             Parent lRoot = lXMLLoader.getRoot();
             FGameFieldStage.setTitle("Boulderdash.Field");
             FGameFieldStage.setScene(new Scene(lRoot, 800, 800, Color.WHITE));
@@ -67,6 +71,10 @@ public class StageManager extends NGUniplayComponent {
 
     protected Boolean getShowGameFieldGrid() {
         return FShowGameFieldGrid;
+    }
+
+    protected void updateGameControlControls() {
+        FGameControlController.updateControls();
     }
 
     @Override
@@ -103,6 +111,10 @@ public class StageManager extends NGUniplayComponent {
 
     public Canvas getGameFieldCanvas() {
         return FGameFieldController.Layer1;
+    }
+
+    public NGPlayerManager getPlayerManager() {
+        return (NGPlayerManager)ResolveObject(NGGameEngineConstants.CMP_PLAYER_MANAGER, NGPlayerManager.class);
     }
 
     // ToDo

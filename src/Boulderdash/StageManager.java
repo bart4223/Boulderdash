@@ -2,7 +2,7 @@ package Boulderdash;
 
 import Uniplay.Base.NGUniplayComponent;
 import Uniplay.Base.NGUniplayObject;
-import Uniplay.Kernel.NGGameEngineConstants;
+import Uniplay.NGGameEngineConstants;
 import Uniplay.Storage.NGPlayerManager;
 import Uniwork.Base.NGObjectRequestInvoker;
 import Uniwork.Base.NGObjectRequestItem;

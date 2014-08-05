@@ -1,8 +1,8 @@
 package Boulderdash;
 
-import Uniplay.Base.NGUniplayComponent;
 import Uniplay.Base.NGUniplayObject;
 import Uniplay.NGGameEngineConstants;
+import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NGPlayerManager;
 import Uniwork.Base.NGObjectRequestInvoker;
 import Uniwork.Base.NGObjectRequestItem;
@@ -13,7 +13,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class Boulderdash extends NGUniplayComponent {
+public class Boulderdash extends NG2DGame {
 
     protected Integer FGameFieldGridSize;
     protected Boolean FShowGameFieldGrid;
@@ -65,16 +65,18 @@ public class Boulderdash extends NGUniplayComponent {
         FGameFieldStage.setY(250);
     }
 
-    protected int getGameFieldGridSize() {
-        return FGameFieldGridSize;
-    }
-
-    protected Boolean getShowGameFieldGrid() {
-        return FShowGameFieldGrid;
-    }
-
     protected void updateGameControlControls() {
         FGameControlController.updateControls();
+    }
+
+    @Override
+    protected void DoShowStages() {
+        super.DoShowStages();
+        perfectLayout();
+        FGameFieldController.RenderScene();
+        updateGameControlControls();
+        FGameControlStage.show();
+        FGameFieldStage.show();
     }
 
     @Override
@@ -83,13 +85,6 @@ public class Boulderdash extends NGUniplayComponent {
         CreateControlStage();
         CreateGameFieldStage();
         LoadConfiguration();
-    }
-
-    @Override
-    protected void AfterInitialize() {
-        super.AfterInitialize();
-        FGameFieldGridSize = Integer.parseInt(getConfigurationProperty("GameFieldGridSize"));
-        FShowGameFieldGrid = Boolean.valueOf(getConfigurationProperty("ShowGameFieldGrid"));
     }
 
     protected NGObjectRequestInvoker getInvoker() {
@@ -102,19 +97,28 @@ public class Boulderdash extends NGUniplayComponent {
         FShowGameFieldGrid = false;
     }
 
-    public void showStages() {
-        perfectLayout();
-        FGameFieldController.RenderScene();
-        FGameControlStage.show();
-        FGameFieldStage.show();
-    }
-
     public Canvas getGameFieldCanvas() {
         return FGameFieldController.Layer1;
     }
 
     public NGPlayerManager getPlayerManager() {
         return (NGPlayerManager)ResolveObject(NGGameEngineConstants.CMP_PLAYER_MANAGER, NGPlayerManager.class);
+    }
+
+    public void setGameFieldGridSize(Integer aValue) {
+        FGameFieldGridSize = aValue;
+    }
+
+    public Integer getGameFieldGridSize() {
+        return FGameFieldGridSize;
+    }
+
+    public void setShowGameFieldGrid(Boolean aValue) {
+        FShowGameFieldGrid = aValue;
+    }
+
+    public Boolean getShowGameFieldGrid() {
+        return FShowGameFieldGrid;
     }
 
     // ToDo

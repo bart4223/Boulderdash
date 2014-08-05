@@ -1,2 +1,2 @@
-Boulderdash.ShowGameFieldGrid=false
-Boulderdash.GameFieldGridSize=32
+ShowGameFieldGrid=false
+GameFieldGridSize=32

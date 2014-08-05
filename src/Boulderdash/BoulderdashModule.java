@@ -8,19 +8,19 @@ public class BoulderdashModule extends NGGameEngineModule {
     @Override
     protected void CreateSubComponents() {
         super.CreateSubComponents();
-        StageManager manager = new StageManager(this, "StageManager");
-        addSubComponent(manager);
-        registerEventHandler(new StageManagerEventHandlerKernelStarted(manager));
+        Boulderdash game = new Boulderdash(this, "Boulderdash");
+        addSubComponent(game);
+        registerEventHandler(new BoulderdashEventHandlerKernelStarted(game));
     }
 
     @Override
     protected void AfterInitialize() {
         super.AfterInitialize();
-        registerObject("Boulderdash.StageManager.Gamefield.Layer1", getStageManager().getGameFieldCanvas());
+        registerObject("Boulderdash.Gamefield.Layer1", getGame().getGameFieldCanvas());
     }
 
-    protected StageManager getStageManager() {
-        return (StageManager)getSubComponent("StageManager");
+    protected Boulderdash getGame() {
+        return (Boulderdash)getSubComponent("Boulderdash");
     }
 
     public BoulderdashModule(NGGameEngineModuleManager aManager, String aName) {

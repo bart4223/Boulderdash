@@ -10,7 +10,7 @@ public class GameFieldStageController extends NGStageController {
 
     protected NGGrid2DDisplayController FDCGrid;
 
-    public StageManager Manager;
+    public Boulderdash Game;
 
     @FXML
     public Canvas Layer1;
@@ -30,8 +30,8 @@ public class GameFieldStageController extends NGStageController {
     @Override
     protected void DoBeforeRenderScene() {
         super.DoBeforeRenderScene();
-        FDCGrid.DrawGrid = Manager.getShowGameFieldGrid();
-        FDCGrid.GridDistance = Manager.getGameFieldGridSize();
+        FDCGrid.DrawGrid = Game.getShowGameFieldGrid();
+        FDCGrid.GridDistance = Game.getGameFieldGridSize();
     }
 
 }

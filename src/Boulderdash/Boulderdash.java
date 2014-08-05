@@ -13,7 +13,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class StageManager extends NGUniplayComponent {
+public class Boulderdash extends NGUniplayComponent {
 
     protected Integer FGameFieldGridSize;
     protected Boolean FShowGameFieldGrid;
@@ -28,7 +28,7 @@ public class StageManager extends NGUniplayComponent {
         try {
             lXMLLoader.load();
             FGameControlController = lXMLLoader.getController();
-            FGameControlController.Manager = this;
+            FGameControlController.Game = this;
             FGameControlController.Initialize();
             Parent lRoot = lXMLLoader.getRoot();
             FGameControlStage.setTitle("Boulderdash.Control");
@@ -46,7 +46,7 @@ public class StageManager extends NGUniplayComponent {
         try {
             lXMLLoader.load();
             FGameFieldController = lXMLLoader.getController();
-            FGameFieldController.Manager = this;
+            FGameFieldController.Game = this;
             FGameFieldController.Initialize();
             Parent lRoot = lXMLLoader.getRoot();
             FGameFieldStage.setTitle("Boulderdash.Field");
@@ -96,7 +96,7 @@ public class StageManager extends NGUniplayComponent {
         return (NGObjectRequestInvoker)ResolveObject(NGObjectRequestInvoker.class);
     }
 
-    public StageManager(NGUniplayObject aOwner, String aName) {
+    public Boulderdash(NGUniplayObject aOwner, String aName) {
         super(aOwner, aName);
         FGameFieldGridSize = 16;
         FShowGameFieldGrid = false;

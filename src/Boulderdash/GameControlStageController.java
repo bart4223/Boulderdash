@@ -10,7 +10,7 @@ import javafx.scene.control.Tooltip;
 
 public class GameControlStageController extends NGStageController {
 
-    public StageManager Manager;
+    public Boulderdash Game;
 
     @FXML
     private ComboBox cbPlayers;
@@ -19,7 +19,7 @@ public class GameControlStageController extends NGStageController {
     protected void handlecbPlayers(ActionEvent Event){
         if (Event.getEventType().equals(ActionEvent.ACTION)) {
             if (cbPlayers.getValue() != null) {
-                NGPlayer player = Manager.getPlayerManager().setCurrentPlayer(cbPlayers.getValue().toString());
+                NGPlayer player = Game.getPlayerManager().setCurrentPlayer(cbPlayers.getValue().toString());
                 cbPlayers.setTooltip(new Tooltip(player.getNickname()));
             }
         }
@@ -27,19 +27,19 @@ public class GameControlStageController extends NGStageController {
 
     @FXML
     protected void handleTest(){
-        Manager.Test();
+        Game.Test();
     }
 
     protected void updatecbPlayers() {
         cbPlayers.getItems().clear();
-        for (NGCustomPlayer player : Manager.getPlayerManager().getPlayers()) {
+        for (NGCustomPlayer player : Game.getPlayerManager().getPlayers()) {
             cbPlayers.getItems().add(player.getName());
         }
-        if (Manager.getPlayerManager().getCurrentPlayer() != null) {
+        if (Game.getPlayerManager().getCurrentPlayer() != null) {
             // workaround start
             cbPlayers.valueProperty().set(null);
             // workaround end
-            cbPlayers.getSelectionModel().select(Manager.getPlayerManager().getCurrentPlayer().getName());
+            cbPlayers.getSelectionModel().select(Game.getPlayerManager().getCurrentPlayer().getName());
         }
     }
 

@@ -1,8 +1,8 @@
 package Boulderdash;
 
-import Uniplay.Base.NGUniplayObject;
 import Uniplay.NGGameEngineConstants;
 import Uniplay.Storage.NG2DGame;
+import Uniplay.Storage.NGGameManager;
 import Uniplay.Storage.NGPlayerManager;
 import Uniwork.Base.NGObjectRequestInvoker;
 import Uniwork.Base.NGObjectRequestItem;
@@ -35,7 +35,7 @@ public class Boulderdash extends NG2DGame {
             FGameControlStage.setScene(new Scene(lRoot, 800, 50, Color.LIGHTGRAY));
             FGameControlStage.setResizable(false);
         }
-        catch( Exception e) {
+        catch (Exception e) {
             writeError("CreateControlStage", e.getMessage());
         }
     }
@@ -53,7 +53,7 @@ public class Boulderdash extends NG2DGame {
             FGameFieldStage.setScene(new Scene(lRoot, 800, 800, Color.WHITE));
             FGameFieldStage.setResizable(false);
         }
-        catch( Exception e) {
+        catch (Exception e) {
             writeError("CreateGameFieldStage", e.getMessage());
         }
     }
@@ -79,22 +79,16 @@ public class Boulderdash extends NG2DGame {
         FGameFieldStage.show();
     }
 
-    @Override
-    protected void DoInitialize() {
-        super.DoInitialize();
-        CreateControlStage();
-        CreateGameFieldStage();
-        LoadConfiguration();
-    }
-
     protected NGObjectRequestInvoker getInvoker() {
         return (NGObjectRequestInvoker)ResolveObject(NGObjectRequestInvoker.class);
     }
 
-    public Boulderdash(NGUniplayObject aOwner, String aName) {
-        super(aOwner, aName);
+    public Boulderdash(NGGameManager aManager, String aName) {
+        super(aManager, aName);
         FGameFieldGridSize = 16;
         FShowGameFieldGrid = false;
+        CreateControlStage();
+        CreateGameFieldStage();
     }
 
     public Canvas getGameFieldCanvas() {

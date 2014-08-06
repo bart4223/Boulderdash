@@ -1,9 +1,7 @@
 package Boulderdash;
 
-import Uniplay.NGGameEngineConstants;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NGGameManager;
-import Uniplay.Storage.NGPlayerManager;
 import Uniwork.Base.NGObjectRequestInvoker;
 import Uniwork.Base.NGObjectRequestItem;
 import javafx.fxml.FXMLLoader;
@@ -83,6 +81,13 @@ public class Boulderdash extends NG2DGame {
         return (NGObjectRequestInvoker)ResolveObject(NGObjectRequestInvoker.class);
     }
 
+    @Override
+    protected void DoBeforeStart() {
+        super.DoBeforeStart();
+        removeAllPlayers();
+        addPlayer(getPlayerManager().getCurrentPlayer());
+    }
+
     public Boulderdash(NGGameManager aManager, String aName) {
         super(aManager, aName);
         FGameFieldGridSize = 16;
@@ -93,10 +98,6 @@ public class Boulderdash extends NG2DGame {
 
     public Canvas getGameFieldCanvas() {
         return FGameFieldController.Layer1;
-    }
-
-    public NGPlayerManager getPlayerManager() {
-        return (NGPlayerManager)ResolveObject(NGGameEngineConstants.CMP_PLAYER_MANAGER, NGPlayerManager.class);
     }
 
     public void setGameFieldGridSize(Integer aValue) {

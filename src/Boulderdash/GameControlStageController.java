@@ -30,6 +30,11 @@ public class GameControlStageController extends NGStageController {
         Game.Test();
     }
 
+    @FXML
+    protected void handleStart(){
+        Game.Start();
+    }
+
     protected void updatecbPlayers() {
         cbPlayers.getItems().clear();
         for (NGCustomPlayer player : Game.getPlayerManager().getPlayers()) {

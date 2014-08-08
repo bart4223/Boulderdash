@@ -6,7 +6,7 @@
 <AnchorPane fx:controller="Boulderdash.GameControlStageController" xmlns:fx="http://javafx.com/fxml">
     <HBox prefHeight="50" minWidth="800" alignment="TOP_LEFT" spacing="10" xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: gray;">
         <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
-        <ComboBox id="cbPlayers" prefWidth="100" onAction="#handlecbPlayers" fx:id="cbPlayers" />
+        <ComboBox id="cbPlayers" prefWidth="150" onAction="#handlecbPlayers" fx:id="cbPlayers" />
         <Button id="btnStart" prefWidth="80" text="Start" onAction="#handleStart" fx:id="btnStart" />
         <Button id="btnTest" prefWidth="80" text="Test" onAction="#handleTest" fx:id="btnTest" />
     </HBox>

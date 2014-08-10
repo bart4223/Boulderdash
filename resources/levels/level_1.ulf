@@ -13809,7 +13809,35 @@
          <string>DEFAULT</string>
         </void>
         <void property="props">
-         <object class="java.util.ArrayList"/>
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <object class="Uniwork.Base.NGSerializePropertyItem">
+            <void property="name">
+             <string>GAMEFIELD.DEFAULT.DIAMOND.COUNT</string>
+            </void>
+            <void property="value">
+             <int>5</int>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="Uniwork.Base.NGSerializePropertyItem">
+            <void property="name">
+             <string>GAMEFIELD.DEFAULT.PLAYER.POSITION</string>
+            </void>
+            <void property="value">
+             <object class="Uniplay.Storage.NG2DGamePlayerPosition">
+              <void property="x">
+               <double>6.0</double>
+              </void>
+              <void property="y">
+               <double>13.0</double>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+         </object>
         </void>
        </object>
       </void>

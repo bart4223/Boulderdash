@@ -28,6 +28,16 @@
             </void>
            </object>
           </void>
+          <void method="add">
+           <object class="Uniwork.Base.NGSerializePropertyItem">
+            <void property="name">
+             <string>GAMEFIELD.DEFAULT.PLAYER.POSITION</string>
+            </void>
+            <void property="value">
+             <int>1</int>
+            </void>
+           </object>
+          </void>
          </object>
         </void>
        </object>

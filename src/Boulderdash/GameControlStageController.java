@@ -31,7 +31,8 @@ public class GameControlStageController extends NGStageController {
     }
 
     @FXML
-    protected void handleStart(){
+    protected void handleNew(){
+        Game.Finish();
         Game.Start();
     }
 

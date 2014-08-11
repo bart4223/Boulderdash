@@ -105,6 +105,7 @@ public class Boulderdash extends NG2DGame {
         FGameFieldGridSize = 16;
         FShowGameFieldGrid = false;
         FCaller = new NGObjectRequestCaller(getInvoker());
+        FCaller.setLogManager(aManager.getLogManager());
         CreateControlStage();
         CreateGameFieldStage();
     }

@@ -4,6 +4,7 @@ import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicPeriodicAction;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NGGameManager;
+import Uniwork.Base.NGObjectRequestCaller;
 import Uniwork.Base.NGObjectRequestInvoker;
 import Uniwork.Base.NGObjectRequestItem;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,7 @@ public class Boulderdash extends NG2DGame {
     protected GameFieldStageController FGameFieldController;
     protected Stage FGameControlStage;
     protected GameControlStageController FGameControlController;
+    protected NGObjectRequestCaller FCaller;
 
     protected void CreateControlStage(){
         FGameControlStage = new Stage();
@@ -102,6 +104,7 @@ public class Boulderdash extends NG2DGame {
         super(aManager, aName);
         FGameFieldGridSize = 16;
         FShowGameFieldGrid = false;
+        FCaller = new NGObjectRequestCaller(getInvoker());
         CreateControlStage();
         CreateGameFieldStage();
     }
@@ -128,7 +131,9 @@ public class Boulderdash extends NG2DGame {
 
     // ToDo
     public void Test() {
-        getInvoker().Invoke(new NGObjectRequestItem("TestModule", "Test"));
+        FCaller.setObjectName("TestModule");
+        FCaller.setObjectMethod("Test");
+        FCaller.Invoke();
     }
 
 }

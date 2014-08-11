@@ -1,5 +1,7 @@
 package Boulderdash;
 
+import Uniplay.Control.NGControlMimicManager;
+import Uniplay.Control.NGControlMimicPeriodicAction;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NGGameManager;
 import Uniwork.Base.NGObjectRequestInvoker;
@@ -86,6 +88,14 @@ public class Boulderdash extends NG2DGame {
         super.DoBeforeStart();
         removeAllPlayers();
         addPlayer(getPlayerManager().getCurrentPlayer());
+    }
+
+    @Override
+    protected void registerMimicActions() {
+        super.registerMimicActions();
+        NGControlMimicManager manager = getMimicManager();
+        NGControlMimicPeriodicAction mimic = new MimicActionPlayerStomp(manager, this, "Player.Stomp", 50);
+        manager.addMimic(mimic);
     }
 
     public Boulderdash(NGGameManager aManager, String aName) {

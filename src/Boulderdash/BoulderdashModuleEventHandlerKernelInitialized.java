@@ -9,6 +9,7 @@ public class BoulderdashModuleEventHandlerKernelInitialized extends NGGameEngine
     @Override
     protected void DoHandleEvent() {
         super.DoHandleEvent();
+        FModule.getBoulderdash().Initialize();
     }
 
     public BoulderdashModuleEventHandlerKernelInitialized(BoulderdashModule aModule) {

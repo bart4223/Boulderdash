@@ -7,10 +7,12 @@ import Uniplay.Storage.NGGameManager;
 
 public class BoulderdashModule extends NGGameEngineModule {
 
+    protected Boulderdash FBoulderdash;
+
     @Override
     protected void DoInitialize() {
         super.DoInitialize();
-        addGame("Boulderdash");
+        FBoulderdash = addGame("Boulderdash");
     }
 
     @Override
@@ -24,16 +26,22 @@ public class BoulderdashModule extends NGGameEngineModule {
         return (NGGameManager)ResolveObject(NGGameEngineConstants.CMP_GAME_MANAGER, NGGameManager.class);
     }
 
-    protected void addGame(String aName) {
+    protected Boulderdash addGame(String aName) {
         NGGameManager manager = getGameManager();
         Boulderdash game = (Boulderdash)manager.addGame(aName, Boulderdash.class);
         game.setGameFieldGridSize(Integer.parseInt(getConfigurationProperty("GameFieldGridSize")));
         game.setShowGameFieldGrid(Boolean.valueOf(getConfigurationProperty("ShowGameFieldGrid")));
         registerObject(String.format("%s.Gamefield.Layer1",aName), game.getGameFieldCanvas());
+        return game;
     }
 
     public BoulderdashModule(NGGameEngineModuleManager aManager, String aName) {
         super(aManager, aName);
+        FBoulderdash = null;
+    }
+
+    public Boulderdash getBoulderdash() {
+        return FBoulderdash;
     }
 
 }

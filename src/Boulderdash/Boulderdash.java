@@ -76,6 +76,11 @@ public class Boulderdash extends NG2DGame {
                     PlayerDown();
                 }
                 break;
+            case UP:
+                if (FState == State.Started) {
+                    PlayerUp();
+                }
+                break;
         }
     }
 
@@ -122,10 +127,19 @@ public class Boulderdash extends NG2DGame {
         // Player.Down
         mimic = new MimicActionPlayerDown(manager, this, BoulderdashConsts.MIMIC_ACTION_PLAYER_DOWN);
         manager.addMimic(mimic);
+        // Player.Up
+        mimic = new MimicActionPlayerUp(manager, this, BoulderdashConsts.MIMIC_ACTION_PLAYER_UP);
+        manager.addMimic(mimic);
     }
 
     protected void PlayerDown() {
         FCaller.setObjectName(String.format(NGGameEngineConstants.MIMIC_OBJECTREQUEST_ACTION_TEMPLATE, BoulderdashConsts.MIMIC_ACTION_PLAYER_DOWN));
+        FCaller.setObjectMethod(NGGameEngineConstants.MIMIC_OBJECTREQUESTMETHOD_DEFAULT);
+        FCaller.Invoke();
+    }
+
+    protected void PlayerUp() {
+        FCaller.setObjectName(String.format(NGGameEngineConstants.MIMIC_OBJECTREQUEST_ACTION_TEMPLATE, BoulderdashConsts.MIMIC_ACTION_PLAYER_UP));
         FCaller.setObjectMethod(NGGameEngineConstants.MIMIC_OBJECTREQUESTMETHOD_DEFAULT);
         FCaller.Invoke();
     }

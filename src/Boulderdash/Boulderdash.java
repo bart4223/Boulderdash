@@ -1,17 +1,18 @@
 package Boulderdash;
 
 import Uniplay.Control.NGControlMimicManager;
-import Uniplay.Control.NGControlMimicPeriodicAction;
 import Uniplay.Control.NGCustomControlMimic;
 import Uniplay.NGGameEngineConstants;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NGGameManager;
 import Uniwork.Base.NGObjectRequestCaller;
 import Uniwork.Base.NGObjectRequestInvoker;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -53,11 +54,28 @@ public class Boulderdash extends NG2DGame {
             FGameFieldController.Initialize();
             Parent lRoot = lXMLLoader.getRoot();
             FGameFieldStage.setTitle("Boulderdash.Field");
-            FGameFieldStage.setScene(new Scene(lRoot, 800, 800, Color.WHITE));
+            Scene scene = new Scene(lRoot, 800, 800, Color.LIGHTGRAY);
+            FGameFieldStage.setScene(scene);
             FGameFieldStage.setResizable(false);
+            scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent keyEvent) {
+                    handleKeyPressed(keyEvent);
+                }
+            });
         }
         catch (Exception e) {
             writeError("CreateGameFieldStage", e.getMessage());
+        }
+    }
+
+    protected void handleKeyPressed(KeyEvent e) {
+        switch (e.getCode()) {
+            case DOWN:
+                if (FState == State.Started) {
+                    PlayerDown();
+                }
+                break;
         }
     }
 
@@ -99,11 +117,17 @@ public class Boulderdash extends NG2DGame {
         NGCustomControlMimic mimic;
         NGControlMimicManager manager = getMimicManager();
         // Player.Stomp
-        mimic = new MimicActionPlayerStomp(manager, this, "Player.Stomp", 50);
+        mimic = new MimicActionPlayerStomp(manager, this, BoulderdashConsts.MIMIC_ACTION_PLAYER_STOMP, 50);
         manager.addMimic(mimic);
         // Player.Down
-        mimic = new MimicActionPlayerDown(manager, this, "Player.Down");
+        mimic = new MimicActionPlayerDown(manager, this, BoulderdashConsts.MIMIC_ACTION_PLAYER_DOWN);
         manager.addMimic(mimic);
+    }
+
+    protected void PlayerDown() {
+        FCaller.setObjectName(String.format(NGGameEngineConstants.MIMIC_OBJECTREQUEST_ACTION_TEMPLATE, BoulderdashConsts.MIMIC_ACTION_PLAYER_DOWN));
+        FCaller.setObjectMethod(NGGameEngineConstants.MIMIC_OBJECTREQUESTMETHOD_DEFAULT);
+        FCaller.Invoke();
     }
 
     public Boulderdash(NGGameManager aManager, String aName) {
@@ -134,12 +158,6 @@ public class Boulderdash extends NG2DGame {
 
     public Boolean getShowGameFieldGrid() {
         return FShowGameFieldGrid;
-    }
-
-    public void PlayerDown() {
-        FCaller.setObjectName(String.format(NGGameEngineConstants.MIMIC_OBJECTREQUEST_ACTION_TEMPLATE, "Player.Down"));
-        FCaller.setObjectMethod(NGGameEngineConstants.MIMIC_OBJECTREQUESTMETHOD_DEFAULT);
-        FCaller.Invoke();
     }
 
     // ToDo

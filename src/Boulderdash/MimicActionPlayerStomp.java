@@ -9,6 +9,7 @@ import Uniplay.Storage.NGCustomGame;
 
 public class MimicActionPlayerStomp extends NGControlMimicPeriodicAction {
 
+    @Override
     protected void DoHandleTick() {
         super.DoHandleTick();
         NG2DGame game = getGame();

@@ -4,10 +4,7 @@ import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicORBAction;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryManager;
-import Uniplay.Storage.NG2DGame;
-import Uniplay.Storage.NG2DGamePlayerItem;
-import Uniplay.Storage.NG2DGamePlayerPosition;
-import Uniplay.Storage.NGCustomGame;
+import Uniplay.Storage.*;
 
 public class MimicActionPlayerDown extends NGControlMimicORBAction {
 
@@ -16,7 +13,8 @@ public class MimicActionPlayerDown extends NGControlMimicORBAction {
         super.DoExecute();
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
-        for (NG2DGamePlayerItem player : game.getPlayers()) {
+        for (NGCustomGamePlayerItem item : game.getPlayers()) {
+            NG2DGamePlayerItem player = (NG2DGamePlayerItem)item;
             NGGameEngineMemoryAddress playerAddress = player.getMemoryAddress();
             NGGameEngineMemoryAddress playerNewAddress = new NGGameEngineMemoryAddress(playerAddress.getPage(), playerAddress.getBase() + 1, playerAddress.getOffset());
             Integer value = mm.getCellValueAsInteger(game.getMemoryName(), playerNewAddress);

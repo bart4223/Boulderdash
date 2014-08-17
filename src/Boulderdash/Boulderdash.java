@@ -123,7 +123,7 @@ public class Boulderdash extends NG2DGame {
     protected void DoBeforeStart() {
         super.DoBeforeStart();
         removeAllPlayers();
-        addPlayer(getPlayerManager().getCurrentPlayer());
+        add2DGamePlayer(getPlayerManager().getCurrentPlayer());
     }
 
     @Override

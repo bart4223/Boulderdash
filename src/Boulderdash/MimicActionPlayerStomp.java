@@ -6,6 +6,7 @@ import Uniplay.Kernel.NGGameEngineMemoryManager;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NG2DGamePlayerItem;
 import Uniplay.Storage.NGCustomGame;
+import Uniplay.Storage.NGCustomGamePlayerItem;
 
 public class MimicActionPlayerStomp extends NGControlMimicPeriodicAction {
 
@@ -14,7 +15,8 @@ public class MimicActionPlayerStomp extends NGControlMimicPeriodicAction {
         super.DoHandleTick();
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
-        for (NG2DGamePlayerItem player : game.getPlayers()) {
+        for (NGCustomGamePlayerItem item : game.getPlayers()) {
+            NG2DGamePlayerItem player = (NG2DGamePlayerItem)item;
             Integer value = mm.getCellValueAsInteger(game.getMemoryName(), player.getMemoryAddress());
             if (value == BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT) {
                 mm.setCellValue(game.getMemoryName(), player.getMemoryAddress(), BoulderdashConsts.SPRITE_ID_BENDER_FOOT_UP);

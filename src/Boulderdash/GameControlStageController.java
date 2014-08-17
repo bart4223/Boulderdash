@@ -1,7 +1,7 @@
 package Boulderdash;
 
-import Uniplay.Storage.NGCustomPlayer;
 import Uniplay.Storage.NGPlayer;
+import Uniplay.Storage.NGPlayerItem;
 import Uniwork.Visuals.NGStageController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,7 +38,8 @@ public class GameControlStageController extends NGStageController {
 
     protected void updatecbPlayers() {
         cbPlayers.getItems().clear();
-        for (NGCustomPlayer player : Game.getPlayerManager().getPlayers()) {
+        for (NGPlayerItem item : Game.getPlayerManager().getPlayers()) {
+            NGPlayer player = item.getPlayer();
             cbPlayers.getItems().add(player.getName());
         }
         if (Game.getPlayerManager().getCurrentPlayer() != null) {

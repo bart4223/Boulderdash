@@ -3,6 +3,8 @@ package Boulderdash;
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGCustomControlMimic;
 import Uniplay.NGGameEngineConstants;
+import Uniplay.Sound.NGMediaPlayerSoundItem;
+import Uniplay.Sound.NGSoundManager;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NGGameManager;
 import Uniwork.Base.NGObjectRequestCaller;
@@ -25,6 +27,7 @@ public class Boulderdash extends NG2DGame {
     protected Stage FGameControlStage;
     protected GameControlStageController FGameControlController;
     protected NGObjectRequestCaller FCaller;
+    protected Boolean FPlaySound;
 
     protected void CreateControlStage(){
         FGameControlStage = new Stage();
@@ -119,11 +122,39 @@ public class Boulderdash extends NG2DGame {
         return (NGObjectRequestInvoker)ResolveObject(NGObjectRequestInvoker.class);
     }
 
+    protected void playSound() {
+        getSoundManager().playSound(BoulderdashConsts.SOUND_SPLASH_FEAR, NGMediaPlayerSoundItem.Mode.repetitive);
+    }
+
+    protected void stopSound() {
+        getSoundManager().stopSound(BoulderdashConsts.SOUND_SPLASH_FEAR);
+    }
+
+    @Override
+    protected void DoInitialize() {
+        super.DoInitialize();
+        NGSoundManager soundManager = getSoundManager();
+        if (soundManager != null) {
+            soundManager.addSound(BoulderdashConsts.SOUND_SPLASH_FEAR, "resources/sound/fear.mp3");
+        }
+    }
+
     @Override
     protected void DoBeforeStart() {
         super.DoBeforeStart();
+        if (getSoundManager() != null && FPlaySound) {
+            stopSound();
+        }
         removeAllPlayers();
         add2DGamePlayer(getPlayerManager().getCurrentPlayer());
+    }
+
+    @Override
+    protected void DoAfterStart() {
+        super.DoAfterStart();
+        if (getSoundManager() != null && FPlaySound) {
+            playSound();
+        }
     }
 
     @Override
@@ -176,6 +207,7 @@ public class Boulderdash extends NG2DGame {
         super(aManager, aName);
         FGameFieldGridSize = 16;
         FShowGameFieldGrid = false;
+        FPlaySound = false;
         FCaller = new NGObjectRequestCaller(getInvoker());
         FCaller.setLogManager(aManager.getLogManager());
         CreateControlStage();

@@ -17,4 +17,8 @@ public abstract class BoulderdashConsts {
     public final static String MIMIC_ACTION_PLAYER_LEFT              = "Player.Left";
     public final static String MIMIC_ACTION_PLAYER_RIGHT             = "Player.Right";
 
+    // --------------------- SOUNDS ---------------------------------
+    // Splash
+    public final static String SOUND_SPLASH_FEAR                     = "Fear";
+
 }

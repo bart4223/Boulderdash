@@ -6,6 +6,19 @@
     <void method="add">
      <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
       <void property="classname">
+       <string>Uniplay.Sound.NGSoundSystemModule</string>
+      </void>
+      <void property="name">
+       <string>SoundSystem</string>
+      </void>
+      <void property="caption">
+       <string>Sound System</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
+      <void property="classname">
        <string>Uniplay.Storage.NGDataStorageModule</string>
       </void>
       <void property="name">

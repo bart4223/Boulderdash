@@ -10,7 +10,7 @@
         <void method="add">
          <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerItem">
           <void property="name">
-           <string>ImageDisplayControllerLayer0</string>
+           <string>DEFAULT</string>
           </void>
           <void property="classname">
            <string>Uniwork.Visuals.NGImageDisplayController</string>

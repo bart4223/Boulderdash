@@ -21,7 +21,7 @@ public class MimicActionPlayerRight extends NGControlMimicORBAction {
             if (value == BoulderdashConsts.SPRITE_ID_EARTH || value == BoulderdashConsts.SPRITE_ID_AIR) {
                 mm.setCellValue(game.getMemoryName(), playerNewAddress, BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT);
                 NG2DGamePlayerPosition pos = player.getPosition();
-                player.setPosition(pos.getX() + 1, pos.getY());
+                game.setPlayerPosition(player, pos.getX() + 1, pos.getY());
                 mm.setCellValue(game.getMemoryName(), playerAddress, BoulderdashConsts.SPRITE_ID_AIR);
             }
         }

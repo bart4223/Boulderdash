@@ -37,7 +37,7 @@
        </object>
       </void>
       <void property="name">
-       <string>RenderEngineLayer0</string>
+       <string>DEFAULT</string>
       </void>
       <void property="layername">
        <string>Boulderdash.Gamefield.Layer1</string>

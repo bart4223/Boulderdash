@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="1.7.0_25" class="java.beans.XMLDecoder">
  <object class="Uniplay.Graphics.NG2DGraphicEngineDefinition">
+  <void property="eventHandlers">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="Uniplay.Graphics.NGGraphicEngineDefinitionEventHandlerItem">
+      <void property="classname">
+       <string>Uniplay.Graphics.NGGraphicEngineEventHandlerMemoryCellsChanged</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Graphics.NGGraphicEngineDefinitionEventHandlerItem">
+      <void property="classname">
+       <string>Uniplay.Graphics.NG2DGraphicEngineEventHandlerGamePlayerPositionChanged</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
   <void property="renderEngines">
    <object class="java.util.ArrayList">
     <void method="add">

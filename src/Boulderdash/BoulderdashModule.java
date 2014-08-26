@@ -1,5 +1,6 @@
 package Boulderdash;
 
+import Boulderdash.Storage.Boulderdash;
 import Uniplay.Kernel.NGGameEngineModule;
 import Uniplay.Kernel.NGGameEngineModuleManager;
 import Uniplay.NGGameEngineConstants;

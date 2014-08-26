@@ -1,4 +1,4 @@
-package Boulderdash;
+package Boulderdash.Control;
 
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicPeriodicAction;
@@ -18,11 +18,11 @@ public class MimicActionPlayerStomp extends NGControlMimicPeriodicAction {
         for (NGCustomGamePlayerItem item : game.getPlayers()) {
             NG2DGamePlayerItem player = (NG2DGamePlayerItem)item;
             Integer value = mm.getCellValueAsInteger(game.getMemoryName(), player.getMemoryAddress());
-            if (value == BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT) {
-                mm.setCellValue(game.getMemoryName(), player.getMemoryAddress(), BoulderdashConsts.SPRITE_ID_BENDER_FOOT_UP);
+            if (value == Boulderdash.BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT) {
+                mm.setCellValue(game.getMemoryName(), player.getMemoryAddress(), Boulderdash.BoulderdashConsts.SPRITE_ID_BENDER_FOOT_UP);
             }
             else {
-                mm.setCellValue(game.getMemoryName(), player.getMemoryAddress(), BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT);
+                mm.setCellValue(game.getMemoryName(), player.getMemoryAddress(), Boulderdash.BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT);
             }
         }
     }

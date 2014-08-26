@@ -1,4 +1,4 @@
-package Boulderdash;
+package Boulderdash.Control;
 
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicORBAction;
@@ -18,11 +18,11 @@ public class MimicActionPlayerUp extends NGControlMimicORBAction {
             NGGameEngineMemoryAddress playerAddress = player.getMemoryAddress();
             NGGameEngineMemoryAddress playerNewAddress = new NGGameEngineMemoryAddress(playerAddress.getPage(), playerAddress.getBase() - 1, playerAddress.getOffset());
             Integer value = mm.getCellValueAsInteger(game.getMemoryName(), playerNewAddress);
-            if (value == BoulderdashConsts.SPRITE_ID_EARTH || value == BoulderdashConsts.SPRITE_ID_AIR) {
-                mm.setCellValue(game.getMemoryName(), playerNewAddress, BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT);
+            if (value == Boulderdash.BoulderdashConsts.SPRITE_ID_EARTH || value == Boulderdash.BoulderdashConsts.SPRITE_ID_AIR) {
+                mm.setCellValue(game.getMemoryName(), playerNewAddress, Boulderdash.BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT);
                 NG2DGamePlayerPosition pos = player.getPosition();
                 game.setPlayerPosition(player, pos.getX(), pos.getY() - 1);
-                mm.setCellValue(game.getMemoryName(), playerAddress, BoulderdashConsts.SPRITE_ID_AIR);
+                mm.setCellValue(game.getMemoryName(), playerAddress, Boulderdash.BoulderdashConsts.SPRITE_ID_AIR);
             }
         }
     }

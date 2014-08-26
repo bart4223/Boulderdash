@@ -1,5 +1,7 @@
-package Boulderdash;
+package Boulderdash.Storage;
 
+import Boulderdash.BoulderdashConsts;
+import Boulderdash.Control.*;
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGCustomControlMimic;
 import Uniplay.NGGameEngineConstants;

@@ -1,5 +1,6 @@
-package Boulderdash;
+package Boulderdash.Storage;
 
+import Boulderdash.Storage.Boulderdash;
 import Uniwork.Visuals.NGGrid2DDisplayController;
 import Uniwork.Visuals.NGStageController;
 import javafx.fxml.FXML;

@@ -1,5 +1,6 @@
-package Boulderdash;
+package Boulderdash.Storage;
 
+import Boulderdash.Storage.Boulderdash;
 import Uniplay.Storage.NGPlayer;
 import Uniplay.Storage.NGPlayerItem;
 import Uniwork.Visuals.NGStageController;

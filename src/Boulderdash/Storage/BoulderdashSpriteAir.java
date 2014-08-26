@@ -8,9 +8,4 @@ public class BoulderdashSpriteAir extends BoulderdashCustomSprite {
         super();
     }
 
-    @Override
-    public Integer getID() {
-        return ID;
-    }
-
 }

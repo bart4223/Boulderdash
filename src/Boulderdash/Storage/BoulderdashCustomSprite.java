@@ -4,14 +4,21 @@ import Uniplay.Base.NGUniplayObject;
 
 public abstract class BoulderdashCustomSprite extends NGUniplayObject {
 
-    public final static Integer ID = -1;
+    protected Integer FID;
+
+    public final static Integer ID  = -1;
 
     public BoulderdashCustomSprite() {
         super();
+        FID = ID;
     }
 
     public Integer getID() {
-        return ID;
+        return FID;
+    }
+
+    public void setID(Integer aID) {
+        FID = ID;
     }
 
 }

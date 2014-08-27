@@ -2,13 +2,6 @@ package Boulderdash;
 
 public abstract class BoulderdashConsts {
 
-    // --------------------- Sprites -----------------------------------
-    public final static Integer SPRITE_ID_BENDER_DEFAULT             = 1;
-    public final static Integer SPRITE_ID_DIAMOND                    = 2;
-    public final static Integer SPRITE_ID_BENDER_FOOT_UP             = 3;
-    public final static Integer SPRITE_ID_BOULDER                    = 4;
-    public final static Integer SPRITE_ID_EARTH                      = 5;
-
     // --------------------- Mimics ------------------------------------
     public final static String MIMIC_ACTION_PLAYER_STOMP             = "PLayer.Stomp";
     public final static String MIMIC_ACTION_PLAYER_UP                = "Player.Up";

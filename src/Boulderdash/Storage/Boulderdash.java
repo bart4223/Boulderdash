@@ -160,6 +160,11 @@ public class Boulderdash extends NG2DGame {
     }
 
     @Override
+    protected Class getMemoryCellValueClass() {
+        return BoulderdashMemoryCellValue.class;
+    }
+
+    @Override
     protected void registerMimicActions() {
         super.registerMimicActions();
         NGCustomControlMimic mimic;

@@ -1,7 +1,10 @@
 package Boulderdash.Control;
 
+import Boulderdash.Storage.BoulderdashMemoryCellValue;
+import Boulderdash.Storage.BoulderdashSpriteBender;
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicPeriodicAction;
+import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryManager;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NG2DGamePlayerItem;
@@ -17,13 +20,11 @@ public class MimicActionPlayerStomp extends NGControlMimicPeriodicAction {
         NGGameEngineMemoryManager mm = game.getMemoryManager();
         for (NGCustomGamePlayerItem item : game.getPlayers()) {
             NG2DGamePlayerItem player = (NG2DGamePlayerItem)item;
-            Integer value = mm.getCellValueAsInteger(game.getMemoryName(), player.getMemoryAddress());
-            if (value == Boulderdash.BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT) {
-                mm.setCellValue(game.getMemoryName(), player.getMemoryAddress(), Boulderdash.BoulderdashConsts.SPRITE_ID_BENDER_FOOT_UP);
-            }
-            else {
-                mm.setCellValue(game.getMemoryName(), player.getMemoryAddress(), Boulderdash.BoulderdashConsts.SPRITE_ID_BENDER_DEFAULT);
-            }
+            NGGameEngineMemoryAddress address = player.getMemoryAddress();
+            BoulderdashMemoryCellValue value = (BoulderdashMemoryCellValue)mm.getCellValue(game.getMemoryName(), address);
+            BoulderdashSpriteBender bender = (BoulderdashSpriteBender)value.getObject();
+            bender.ToggleMode();
+            mm.refreshCell(game.getMemoryName(), address);
         }
     }
 

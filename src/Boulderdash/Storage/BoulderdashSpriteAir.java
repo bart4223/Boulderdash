@@ -6,6 +6,7 @@ public class BoulderdashSpriteAir extends BoulderdashCustomSprite {
 
     public BoulderdashSpriteAir() {
         super();
+        FID = ID;
     }
 
 }

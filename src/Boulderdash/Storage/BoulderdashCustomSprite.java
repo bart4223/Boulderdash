@@ -18,7 +18,7 @@ public abstract class BoulderdashCustomSprite extends NGUniplayObject {
     }
 
     public void setID(Integer aID) {
-        FID = ID;
+        FID = aID;
     }
 
 }

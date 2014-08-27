@@ -13808,6 +13808,9 @@
         <void property="name">
          <string>DEFAULT</string>
         </void>
+        <void property="cellsclassname">
+         <string>Boulderdash.Storage.BoulderdashMemoryCellValue</string>
+        </void>
         <void property="props">
          <object class="java.util.ArrayList">
           <void method="add">

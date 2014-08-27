@@ -63,7 +63,7 @@ public class BoulderdashMemoryCellValue extends NGGameEngineMemoryCustomCellValu
 
     @Override
     public void clear() {
-        setObject(new BoulderdashSpriteAir());
+        setInteger(0);
     }
 
 }

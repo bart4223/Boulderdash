@@ -1,9 +1,6 @@
 package Boulderdash.Storage;
 
 import Boulderdash.BoulderdashConsts;
-import Boulderdash.Control.*;
-import Uniplay.Control.NGControlMimicManager;
-import Uniplay.Control.NGCustomControlMimic;
 import Uniplay.NGGameEngineConstants;
 import Uniplay.Sound.NGMediaPlayerSoundItem;
 import Uniplay.Sound.NGSoundManager;
@@ -162,28 +159,6 @@ public class Boulderdash extends NG2DGame {
     @Override
     protected Class getMemoryCellValueClass() {
         return BoulderdashMemoryCellValue.class;
-    }
-
-    @Override
-    protected void registerMimicActions() {
-        super.registerMimicActions();
-        NGCustomControlMimic mimic;
-        NGControlMimicManager manager = getMimicManager();
-        // Player.Stomp
-        mimic = new MimicActionPlayerStomp(manager, this, BoulderdashConsts.MIMIC_ACTION_PLAYER_STOMP, 50);
-        manager.addMimic(mimic);
-        // Player.Down
-        mimic = new MimicActionPlayerDown(manager, this, BoulderdashConsts.MIMIC_ACTION_PLAYER_DOWN);
-        manager.addMimic(mimic);
-        // Player.Up
-        mimic = new MimicActionPlayerUp(manager, this, BoulderdashConsts.MIMIC_ACTION_PLAYER_UP);
-        manager.addMimic(mimic);
-        // Player.Left
-        mimic = new MimicActionPlayerLeft(manager, this, BoulderdashConsts.MIMIC_ACTION_PLAYER_LEFT);
-        manager.addMimic(mimic);
-        // Player.Right
-        mimic = new MimicActionPlayerRight(manager, this, BoulderdashConsts.MIMIC_ACTION_PLAYER_RIGHT);
-        manager.addMimic(mimic);
     }
 
     protected void PlayerDown() {

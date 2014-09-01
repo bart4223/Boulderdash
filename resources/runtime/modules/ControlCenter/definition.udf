@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_25" class="java.beans.XMLDecoder">
+ <object class="Uniplay.Control.NGControlCenterDefinition">
+  <void property="mimicItems">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
+      <void property="classname">
+       <string>Boulderdash.Control.MimicActionPlayerStomp</string>
+      </void>
+      <void property="name">
+       <string>Player.Stomp</string>
+      </void>
+      <void property="game">
+       <string>Boulderdash</string>
+      </void>
+      <void property="props">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>Interval</string>
+          </void>
+          <void property="value">
+           <int>50</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
+      <void property="classname">
+       <string>Boulderdash.Control.MimicActionPlayerMove</string>
+      </void>
+      <void property="name">
+       <string>Player.Up</string>
+      </void>
+      <void property="game">
+       <string>Boulderdash</string>
+      </void>
+      <void property="props">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>Mode</string>
+          </void>
+          <void property="value">
+           <object class="java.lang.Enum" method="valueOf">
+            <class>Boulderdash.Control.MimicActionPlayerMove$Movemode</class>
+            <string>Up</string>
+           </object>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
+      <void property="classname">
+       <string>Boulderdash.Control.MimicActionPlayerMove</string>
+      </void>
+      <void property="name">
+       <string>Player.Down</string>
+      </void>
+      <void property="game">
+       <string>Boulderdash</string>
+      </void>
+      <void property="props">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>Mode</string>
+          </void>
+          <void property="value">
+           <object class="java.lang.Enum" method="valueOf">
+            <class>Boulderdash.Control.MimicActionPlayerMove$Movemode</class>
+            <string>Down</string>
+           </object>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
+      <void property="classname">
+       <string>Boulderdash.Control.MimicActionPlayerMove</string>
+      </void>
+      <void property="name">
+       <string>Player.Left</string>
+      </void>
+      <void property="game">
+       <string>Boulderdash</string>
+      </void>
+      <void property="props">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>Mode</string>
+          </void>
+          <void property="value">
+           <object class="java.lang.Enum" method="valueOf">
+            <class>Boulderdash.Control.MimicActionPlayerMove$Movemode</class>
+            <string>Left</string>
+           </object>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
+      <void property="classname">
+       <string>Boulderdash.Control.MimicActionPlayerMove</string>
+      </void>
+      <void property="name">
+       <string>Player.Right</string>
+      </void>
+      <void property="game">
+       <string>Boulderdash</string>
+      </void>
+      <void property="props">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>Mode</string>
+          </void>
+          <void property="value">
+           <object class="java.lang.Enum" method="valueOf">
+            <class>Boulderdash.Control.MimicActionPlayerMove$Movemode</class>
+            <string>Right</string>
+           </object>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

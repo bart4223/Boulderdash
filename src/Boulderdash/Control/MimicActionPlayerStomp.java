@@ -32,8 +32,8 @@ public class MimicActionPlayerStomp extends NGControlMimicPeriodicAction {
         return (NG2DGame)super.getGame();
     }
 
-    public MimicActionPlayerStomp(NGControlMimicManager aManager, NGCustomGame aGame, String aName, Integer aInterval) {
-        super(aManager, aGame, aName, aInterval);
+    public MimicActionPlayerStomp(NGControlMimicManager aManager, NGCustomGame aGame, String aName) {
+        super(aManager, aGame, aName);
     }
 
 }

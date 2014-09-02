@@ -1,8 +1,6 @@
 package Boulderdash.Control;
 
-import Boulderdash.Storage.BoulderdashMemoryCellValue;
-import Boulderdash.Storage.BoulderdashSpriteAir;
-import Boulderdash.Storage.BoulderdashSpriteEarth;
+import Boulderdash.Storage.*;
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicORBAction;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
@@ -12,6 +10,10 @@ import Uniplay.Storage.*;
 public class MimicActionPlayerMove extends NGControlMimicORBAction {
 
     public enum Movemode {Up, Down, Left, Right};
+
+    protected Boolean isObjectRemovably(BoulderdashMemoryCellValue aCellValue) {
+        return aCellValue.getObject() instanceof BoulderdashSpriteEarth || aCellValue.getObject() instanceof BoulderdashSpriteAir || aCellValue.getObject() instanceof BoulderdashSpriteDiamond;
+    }
 
     @Override
     protected void DoExecute() {
@@ -37,7 +39,11 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                     break;
             }
             BoulderdashMemoryCellValue value = (BoulderdashMemoryCellValue)mm.getCellValue(game.getMemoryName(), playerNewAddress);
-            if (value.getObject() instanceof BoulderdashSpriteEarth || value.getObject() instanceof BoulderdashSpriteAir) {
+            if (value.getObject() instanceof BoulderdashSpriteDiamond) {
+                Boulderdash bd = (Boulderdash)getGame();
+                bd.DiamondCollected();
+            }
+            if (isObjectRemovably(value)) {
                 value = (BoulderdashMemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
                 mm.setCellValueAsObject(game.getMemoryName(), playerNewAddress, value.getObject());
                 NG2DGamePlayerPosition pos = player.getPosition();

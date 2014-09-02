@@ -28,6 +28,7 @@ public class MimicActionPlayerStomp extends NGControlMimicPeriodicAction {
         }
     }
 
+    @Override
     public NG2DGame getGame() {
         return (NG2DGame)super.getGame();
     }

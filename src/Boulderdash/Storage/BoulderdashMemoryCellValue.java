@@ -39,7 +39,7 @@ public class BoulderdashMemoryCellValue extends NGGameEngineMemoryCustomCellValu
             case 5:
                 setObject(new BoulderdashSpriteEarth());
                 break;
-            case 6:
+            case 7:
                 setObject(new BoulderdashSpriteDoor());
                 break;
             case 12:

@@ -4,10 +4,11 @@ import Boulderdash.BoulderdashConsts;
 import Uniplay.NGGameEngineConstants;
 import Uniplay.Sound.NGMediaPlayerSoundItem;
 import Uniplay.Sound.NGSoundManager;
-import Uniplay.Storage.NG2DGame;
-import Uniplay.Storage.NGGameManager;
+import Uniplay.Storage.*;
 import Uniwork.Base.NGObjectRequestCaller;
 import Uniwork.Base.NGObjectRequestInvoker;
+import Uniwork.Base.NGPropertyItem;
+import Uniwork.Misc.NGStrings;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +17,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class Boulderdash extends NG2DGame {
 
@@ -27,6 +30,8 @@ public class Boulderdash extends NG2DGame {
     protected GameControlStageController FGameControlController;
     protected NGObjectRequestCaller FCaller;
     protected Boolean FPlaySound;
+    protected Integer FDiamondCount;
+    protected ArrayList<BoulderdashDoorItem> FDoors;
 
     protected void CreateControlStage(){
         FGameControlStage = new Stage();
@@ -149,6 +154,13 @@ public class Boulderdash extends NG2DGame {
     }
 
     @Override
+    protected void DoStart() {
+        super.DoStart();
+        assignDiamondCount();
+        assignDoorPositions(getCurrentGameFieldLayer());
+    }
+
+    @Override
     protected void DoAfterStart() {
         super.DoAfterStart();
         if (getSoundManager() != null && FPlaySound) {
@@ -159,6 +171,42 @@ public class Boulderdash extends NG2DGame {
     @Override
     protected Class getMemoryCellValueClass() {
         return BoulderdashMemoryCellValue.class;
+    }
+
+    protected void assignDiamondCount() {
+        FDiamondCount = 0;
+        for (NG2DGameFieldLayer layer : FCurrentLevel.getGameField().getLayers()) {
+            for (NGPropertyItem prop : layer.getProps().getItems()) {
+                String obj = NGStrings.getStringPos(prop.getName(), "\\.", 3);
+                if (obj.equals("DIAMOND")) {
+                    String op = NGStrings.getStringPos(prop.getName(), "\\.", 4);
+                    if (op.equals("COUNT")) {
+                        FDiamondCount = FDiamondCount + (Integer)prop.getValue();
+                    }
+                }
+            }
+        }
+        writeLog(String.format("Level [%s] has %d diamond(s).", FCurrentLevel.getCaption(), FDiamondCount));
+    }
+
+    protected void assignDoorPositions(NG2DGameFieldLayer aLayer) {
+        for (NGPropertyItem prop : aLayer.getProps().getItems()) {
+            String obj = NGStrings.getStringPos(prop.getName(), "\\.", 3);
+            if (obj.equals("DOOR")) {
+                String op = NGStrings.getStringPos(prop.getName(), "\\.", 4);
+                if (op.equals("POSITION")) {
+                    NG2DGameObjectPosition pos = (NG2DGameObjectPosition)prop.getValue();
+                    addDoor(pos, 1);
+                }
+            }
+        }
+    }
+
+    protected void addDoor(NG2DGameObjectPosition aPosition, Integer aLayerIndex) {
+        BoulderdashDoorItem item = new BoulderdashDoorItem(this, aLayerIndex);
+        item.setPosition(aPosition.getX(), aPosition.getY());
+        FDoors.add(item);
+        writeLog(String.format("Door at (%.1f/%.1f) added.", aPosition.getX(), aPosition.getY()));
     }
 
     protected void PlayerDown() {
@@ -194,6 +242,8 @@ public class Boulderdash extends NG2DGame {
         FCaller.setLogManager(aManager.getLogManager());
         CreateControlStage();
         CreateGameFieldStage();
+        FDiamondCount = 0;
+        FDoors = new ArrayList<BoulderdashDoorItem>();
     }
 
     public Canvas getGameFieldCanvas() {
@@ -214,6 +264,20 @@ public class Boulderdash extends NG2DGame {
 
     public Boolean getShowGameFieldGrid() {
         return FShowGameFieldGrid;
+    }
+
+    public void DiamondCollected() {
+        FDiamondCount--;
+        if (FDiamondCount == 0) {
+            getMimicManager().ActivateMimic(BoulderdashConsts.MIMIC_ACTION_DOOR_OPEN);
+        }
+        else {
+            writeLog(String.format("Diamond collected. [%d] diamond(s) to be collect...", FDiamondCount));
+        }
+    }
+
+    public ArrayList<BoulderdashDoorItem> getDoors() {
+        return FDoors;
     }
 
     // ToDo

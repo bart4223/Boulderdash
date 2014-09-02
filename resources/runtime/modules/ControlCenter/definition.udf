@@ -150,6 +150,34 @@
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
+      <void property="classname">
+       <string>Boulderdash.Control.MimicActionDoor</string>
+      </void>
+      <void property="name">
+       <string>Door.Open</string>
+      </void>
+      <void property="game">
+       <string>Boulderdash</string>
+      </void>
+      <void property="props">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>Interval</string>
+          </void>
+          <void property="value">
+           <int>25</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+
    </object>
   </void>
  </object>

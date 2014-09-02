@@ -13277,7 +13277,7 @@
              <int>30</int>
             </void>
             <void property="value">
-             <int>6</int>
+             <int>7</int>
             </void>
            </object>
           </void>
@@ -13808,9 +13808,6 @@
         <void property="name">
          <string>DEFAULT</string>
         </void>
-        <void property="cellsclassname">
-         <string>Boulderdash.Storage.BoulderdashMemoryCellValue</string>
-        </void>
         <void property="props">
          <object class="java.util.ArrayList">
           <void method="add">
@@ -13829,12 +13826,29 @@
              <string>GAMEFIELD.DEFAULT.PLAYER.POSITION</string>
             </void>
             <void property="value">
-             <object class="Uniplay.Storage.NG2DGamePlayerPosition">
+             <object class="Uniplay.Storage.NG2DGameObjectPosition">
               <void property="x">
                <double>6.0</double>
               </void>
               <void property="y">
                <double>13.0</double>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="Uniwork.Base.NGSerializePropertyItem">
+            <void property="name">
+             <string>GAMEFIELD.DEFAULT.DOOR.POSITION</string>
+            </void>
+            <void property="value">
+             <object class="Uniplay.Storage.NG2DGameObjectPosition">
+              <void property="x">
+               <double>30.0</double>
+              </void>
+              <void property="y">
+               <double>27.0</double>
               </void>
              </object>
             </void>

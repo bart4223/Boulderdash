@@ -1417,10 +1417,10 @@
        </object>
       </void>
       <void property="imagename">
-       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_6.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_7.png</string>
       </void>
       <void property="name">
-       <string>ID_6</string>
+       <string>ID_7</string>
       </void>
       <void property="objectColor">
        <string>0xffffffff</string>

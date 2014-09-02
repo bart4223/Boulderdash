@@ -103,19 +103,19 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>6</int>
+       <int>7</int>
       </void>
       <void property="description">
        <string>Door</string>
       </void>
       <void property="imagename">
-       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_6.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_7.png</string>
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList"/>
       </void>
       <void property="name">
-       <string>ID_6</string>
+       <string>ID_7</string>
       </void>
       <void property="objectColor">
        <string>0xffffffff</string>

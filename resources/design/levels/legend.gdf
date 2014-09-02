@@ -487,16 +487,6 @@
            <double>3.0</double>
           </void>
           <void property="y">
-           <double>8.0</double>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="Uniwork.Graphics.NGPoint2D">
-          <void property="x">
-           <double>3.0</double>
-          </void>
-          <void property="y">
            <double>16.0</double>
           </void>
          </object>
@@ -534,6 +524,16 @@
       </void>
       <void property="geometryObjects">
        <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>3.0</double>
+          </void>
+          <void property="y">
+           <double>8.0</double>
+          </void>
+         </object>
+        </void>
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -766,7 +766,7 @@
        </object>
       </void>
       <void property="imagename">
-       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_6.png</string>
+       <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_7.png</string>
       </void>
       <void property="name">
        <string>ID_6</string>

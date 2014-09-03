@@ -30,6 +30,7 @@ public class MimicActionDoor extends NGControlMimicPeriodicAction {
                     mm.refreshCell(game.getMemoryName(), address);
                     break;
                 case Close:
+                    // ToDo
                     writeLog("Door.Close");
                     break;
             }

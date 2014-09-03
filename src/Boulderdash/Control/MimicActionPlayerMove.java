@@ -42,6 +42,11 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
             if (value.getObject() instanceof BoulderdashSpriteDiamond) {
                 Boulderdash bd = (Boulderdash)getGame();
                 bd.DiamondCollected();
+            } else if (value.getObject() instanceof BoulderdashSpriteDoor) {
+                BoulderdashSpriteDoor door = (BoulderdashSpriteDoor)value.getObject();
+                if (door.IsOpen()) {
+                    getGame().LevelFinished();
+                }
             }
             if (isObjectRemovably(value)) {
                 value = (BoulderdashMemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);

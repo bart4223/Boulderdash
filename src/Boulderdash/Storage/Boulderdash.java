@@ -154,10 +154,10 @@ public class Boulderdash extends NG2DGame {
     }
 
     @Override
-    protected void DoStart() {
-        super.DoStart();
+    protected void DoBeforeStartLevel() {
+        super.DoBeforeStartLevel();
         assignDiamondCount();
-        assignDoorPositions(getCurrentGameFieldLayer());
+        assignDoors(getCurrentGameFieldLayer());
     }
 
     @Override
@@ -189,7 +189,8 @@ public class Boulderdash extends NG2DGame {
         writeLog(String.format("Level [%s] has %d diamond(s).", FCurrentLevel.getCaption(), FDiamondCount));
     }
 
-    protected void assignDoorPositions(NG2DGameFieldLayer aLayer) {
+    protected void assignDoors(NG2DGameFieldLayer aLayer) {
+        FDoors.clear();
         for (NGPropertyItem prop : aLayer.getProps().getItems()) {
             String obj = NGStrings.getStringPos(prop.getName(), "\\.", 3);
             if (obj.equals("DOOR")) {

@@ -3,7 +3,6 @@ package Boulderdash.Storage;
 import Boulderdash.BoulderdashConsts;
 import Uniplay.NGGameEngineConstants;
 import Uniplay.Sound.NGMediaPlayerSoundItem;
-import Uniplay.Sound.NGSoundManager;
 import Uniplay.Storage.*;
 import Uniwork.Base.NGObjectRequestCaller;
 import Uniwork.Base.NGObjectRequestInvoker;
@@ -132,15 +131,6 @@ public class Boulderdash extends NG2DGame {
 
     protected void stopSound() {
         getSoundManager().stopSound(BoulderdashConsts.SOUND_SPLASH_FEAR);
-    }
-
-    @Override
-    protected void DoInitialize() {
-        super.DoInitialize();
-        NGSoundManager soundManager = getSoundManager();
-        if (soundManager != null) {
-            soundManager.addSound(BoulderdashConsts.SOUND_SPLASH_FEAR, "resources/sound/fear.mp3");
-        }
     }
 
     @Override

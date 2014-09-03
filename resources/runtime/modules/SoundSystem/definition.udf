@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_25" class="java.beans.XMLDecoder">
+ <object class="Uniplay.Sound.NGSoundSystemDefinition">
+  <void property="sounds">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="Uniplay.Sound.NGSoundSystemDefinitionSoundItem">
+      <void property="filename">
+       <string>resources/sound/source.mp3</string>
+      </void>
+      <void property="name">
+       <string>Source</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Sound.NGSoundSystemDefinitionSoundItem">
+      <void property="filename">
+       <string>resources/sound/fear.mp3</string>
+      </void>
+      <void property="name">
+       <string>Fear</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

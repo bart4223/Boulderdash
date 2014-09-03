@@ -8,6 +8,9 @@
       <void property="classname">
        <string>Uniplay.Sound.NGSoundSystemModule</string>
       </void>
+      <void property="configurationFilename">
+       <string>resources/runtime/modules/SoundSystem/config.ucf</string>
+      </void>
       <void property="name">
        <string>SoundSystem</string>
       </void>

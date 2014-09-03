@@ -77,7 +77,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
 
     public MimicActionPlayerMove(NGControlMimicManager aManager, NGCustomGame aGame, String aName) {
         super(aManager, aGame, aName);
-        Mode = Mode.Up;
+        Mode = Movemode.Up;
     }
 
     public Movemode Mode;

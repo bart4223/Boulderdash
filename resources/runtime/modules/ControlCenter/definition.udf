@@ -6,33 +6,6 @@
     <void method="add">
      <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
       <void property="classname">
-       <string>Boulderdash.Control.MimicActionPlayerStomp</string>
-      </void>
-      <void property="name">
-       <string>Player.Stomp</string>
-      </void>
-      <void property="game">
-       <string>Boulderdash</string>
-      </void>
-      <void property="props">
-       <object class="java.util.ArrayList">
-        <void method="add">
-         <object class="Uniwork.Base.NGSerializePropertyItem">
-          <void property="name">
-           <string>Interval</string>
-          </void>
-          <void property="value">
-           <int>50</int>
-          </void>
-         </object>
-        </void>
-       </object>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
-      <void property="classname">
        <string>Boulderdash.Control.MimicActionPlayerMove</string>
       </void>
       <void property="name">
@@ -177,7 +150,33 @@
       </void>
      </object>
     </void>
-
+    <void method="add">
+     <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
+      <void property="classname">
+       <string>Boulderdash.Control.MimicActionPlayerStomp</string>
+      </void>
+      <void property="name">
+       <string>Player.Stomp</string>
+      </void>
+      <void property="game">
+       <string>Boulderdash</string>
+      </void>
+      <void property="props">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>Interval</string>
+          </void>
+          <void property="value">
+           <int>50</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
    </object>
   </void>
  </object>

@@ -2,7 +2,6 @@ package Boulderdash.Storage;
 
 import Boulderdash.BoulderdashConsts;
 import Uniplay.NGGameEngineConstants;
-import Uniplay.Sound.NGMediaPlayerSoundItem;
 import Uniplay.Storage.*;
 import Uniwork.Base.NGObjectRequestCaller;
 import Uniwork.Base.NGObjectRequestInvoker;
@@ -125,10 +124,6 @@ public class Boulderdash extends NG2DGame {
         return (NGObjectRequestInvoker)ResolveObject(NGObjectRequestInvoker.class);
     }
 
-    protected void playSound() {
-        getSoundManager().playSound(BoulderdashConsts.SOUND_SPLASH_FEAR, NGMediaPlayerSoundItem.Mode.repetitive);
-    }
-
     protected void stopSound() {
         getSoundManager().stopSound(BoulderdashConsts.SOUND_SPLASH_FEAR);
     }
@@ -148,14 +143,6 @@ public class Boulderdash extends NG2DGame {
         super.DoBeforeStartLevel();
         assignDiamondCount();
         assignDoors(getCurrentGameFieldLayer());
-    }
-
-    @Override
-    protected void DoAfterStart() {
-        super.DoAfterStart();
-        if (getSoundManager() != null && FPlaySound) {
-            playSound();
-        }
     }
 
     @Override
@@ -228,7 +215,7 @@ public class Boulderdash extends NG2DGame {
         super(aManager, aName);
         FGameFieldGridSize = 16;
         FShowGameFieldGrid = false;
-        FPlaySound = false;
+        FPlaySound = true;
         FCaller = new NGObjectRequestCaller(getInvoker());
         FCaller.setLogManager(aManager.getLogManager());
         CreateControlStage();

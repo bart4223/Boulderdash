@@ -11,6 +11,20 @@
       <void property="name">
        <string>Source</string>
       </void>
+      <void property="runeventnames">
+       <object class="java.util.ArrayList">
+        <void method="add">
+   		 <string>Kernel.Splash.Run</string>
+        </void>
+       </object>
+      </void>
+      <void property="stopeventnames">
+       <object class="java.util.ArrayList">
+        <void method="add">
+   		 <string>Game.Start</string>
+        </void>
+       </object>
+      </void>
      </object>
     </void>
     <void method="add">
@@ -20,6 +34,17 @@
       </void>
       <void property="name">
        <string>Fear</string>
+      </void>
+      <void property="runeventnames">
+       <object class="java.util.ArrayList">
+        <void method="add">
+   		 <string>Game.Start</string>
+        </void>
+       </object>
+      </void>
+      <void property="stopeventnames">
+       <object class="java.util.ArrayList">
+       </object>
       </void>
      </object>
     </void>

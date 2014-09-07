@@ -46,6 +46,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                 BoulderdashSpriteDoor door = (BoulderdashSpriteDoor)value.getObject();
                 if (door.IsOpen()) {
                     getGame().LevelFinished();
+                    return;
                 }
             }
             if (isObjectRemovably(value)) {

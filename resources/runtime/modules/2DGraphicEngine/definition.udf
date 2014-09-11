@@ -74,7 +74,17 @@
            <string>RenderEngine.ValuePropname</string>
           </void>
           <void property="value">
-           <string>Background.ImageNumber</string>
+           <string>ImageNumber</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>RenderEngine.ValueLayername</string>
+          </void>
+          <void property="value">
+           <string>Background</string>
           </void>
          </object>
         </void>

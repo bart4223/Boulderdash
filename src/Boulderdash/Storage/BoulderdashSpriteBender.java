@@ -8,10 +8,12 @@ public class BoulderdashSpriteBender extends BoulderdashCustomSprite {
     public final static Integer ID_UP = 3;
 
     protected Mode FMode;
+    protected Boolean FInDoor;
 
     public BoulderdashSpriteBender() {
         super();
         setMode(Mode.footdown);
+        FInDoor = false;
     }
 
     public Mode getMode() {
@@ -37,6 +39,14 @@ public class BoulderdashSpriteBender extends BoulderdashCustomSprite {
                 FID = ID_UP;
                 break;
         }
+    }
+
+    public void setInDoor(Boolean aValue) {
+        FInDoor = aValue;
+    }
+
+    public Boolean getInDoor() {
+        return FInDoor;
     }
 
 }

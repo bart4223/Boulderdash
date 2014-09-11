@@ -41,7 +41,7 @@
             <void method="add">
              <object class="Uniwork.Base.NGSerializePropertyItem">
               <void property="name">
-               <string>MaxImageNumber</string>
+               <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
                <int>28</int>
@@ -74,7 +74,7 @@
            <string>RenderEngine.ValuePropname</string>
           </void>
           <void property="value">
-           <string>ImageNumber</string>
+           <string>Background.ImageNumber</string>
           </void>
          </object>
         </void>

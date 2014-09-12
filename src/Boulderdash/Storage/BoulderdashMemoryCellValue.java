@@ -66,4 +66,15 @@ public class BoulderdashMemoryCellValue extends NGGameEngineMemoryCustomCellValu
         setInteger(0);
     }
 
+    @Override
+    public Object getPropValue(String aName) {
+        if (aName.equals("DisplayControllerName")) {
+            if (getSprite() instanceof BoulderdashSpriteBender) {
+                return "BENDER";
+            }
+            return "DEFAULT";
+        }
+        return super.getPropValue(aName);
+    }
+
 }

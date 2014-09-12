@@ -1,6 +1,9 @@
 package Boulderdash.Storage;
 
 import Uniplay.Base.NGUniplayObject;
+import Uniplay.Graphics.NGDisplayControllerLayerProp;
+
+import java.util.ArrayList;
 
 public abstract class BoulderdashCustomSprite extends NGUniplayObject {
 
@@ -19,6 +22,10 @@ public abstract class BoulderdashCustomSprite extends NGUniplayObject {
 
     public void setID(Integer aID) {
         FID = aID;
+    }
+
+    public ArrayList<NGDisplayControllerLayerProp> getDisplayControllerPropValues() {
+        return new ArrayList<NGDisplayControllerLayerProp>();
     }
 
 }

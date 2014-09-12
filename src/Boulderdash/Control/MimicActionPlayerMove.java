@@ -20,7 +20,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
     protected void DoExecute() {
         super.DoExecute();
         Boolean InDoor = false;
-        Boolean SetDoor = false;
+        Boolean resetDoor = false;
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
         for (NGCustomGamePlayerItem item : game.getPlayers()) {
@@ -62,7 +62,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                 }
                 else {
                     if (bender.getDoor() == BoulderdashSpriteBender.Door.close) {
-                        SetDoor = true;
+                        resetDoor = true;
                     }
                     bender.setDoor(BoulderdashSpriteBender.Door.none);
                 }
@@ -82,7 +82,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                         game.setPlayerPosition(player, pos.getX() + 1, pos.getY());
                         break;
                 }
-                if (SetDoor) {
+                if (resetDoor) {
                     mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new BoulderdashSpriteDoor());
                 }
                 else {

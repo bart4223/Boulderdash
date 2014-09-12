@@ -2,18 +2,19 @@ package Boulderdash.Storage;
 
 public class BoulderdashSpriteBender extends BoulderdashCustomSprite {
 
-    public enum Mode {footdown, footup};
+    public enum Mode {footdown, footup}
+    public enum Door {none, open, close}
 
     public final static Integer ID    = 1;
     public final static Integer ID_UP = 3;
 
     protected Mode FMode;
-    protected Boolean FInDoor;
+    protected Door FDoor;
 
     public BoulderdashSpriteBender() {
         super();
         setMode(Mode.footdown);
-        FInDoor = false;
+        FDoor = Door.none;
     }
 
     public Mode getMode() {
@@ -41,12 +42,12 @@ public class BoulderdashSpriteBender extends BoulderdashCustomSprite {
         }
     }
 
-    public void setInDoor(Boolean aValue) {
-        FInDoor = aValue;
+    public void setDoor(Door aValue) {
+        FDoor = aValue;
     }
 
-    public Boolean getInDoor() {
-        return FInDoor;
+    public Door getDoor() {
+        return FDoor;
     }
 
 }

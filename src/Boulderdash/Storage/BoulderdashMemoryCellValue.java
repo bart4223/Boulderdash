@@ -1,6 +1,9 @@
 package Boulderdash.Storage;
 
+import Uniplay.Graphics.NGDisplayControllerLayerProp;
 import Uniplay.Kernel.NGGameEngineMemoryCustomCellValue;
+
+import java.util.ArrayList;
 
 public class BoulderdashMemoryCellValue extends NGGameEngineMemoryCustomCellValue {
 
@@ -73,6 +76,37 @@ public class BoulderdashMemoryCellValue extends NGGameEngineMemoryCustomCellValu
                 return "BENDER";
             }
             return "DEFAULT";
+        }
+        else if (aName.equals("DisplayControllerLayerPropValues")) {
+            if (getSprite() instanceof BoulderdashSpriteBender) {
+                BoulderdashSpriteBender bender = (BoulderdashSpriteBender)getSprite();
+                ArrayList<NGDisplayControllerLayerProp> props = new ArrayList<NGDisplayControllerLayerProp>();
+                if (bender.getDoor() == BoulderdashSpriteBender.Door.none) {
+                    if (bender.getMode() == BoulderdashSpriteBender.Mode.footdown ) {
+                        props.add(new NGDisplayControllerLayerProp("Background", 1));
+                    }
+                    else
+                        props.add(new NGDisplayControllerLayerProp("Background", 3));
+                    props.add(new NGDisplayControllerLayerProp("LAYER01", 0));
+                }
+                else if (bender.getDoor() == BoulderdashSpriteBender.Door.open) {
+                    props.add(new NGDisplayControllerLayerProp("Background", 6));
+                    if (bender.getMode() == BoulderdashSpriteBender.Mode.footdown ) {
+                        props.add(new NGDisplayControllerLayerProp("LAYER01", 1));
+                    }
+                    else
+                        props.add(new NGDisplayControllerLayerProp("LAYER01", 3));
+                }
+                else {
+                    props.add(new NGDisplayControllerLayerProp("Background", 7));
+                    if (bender.getMode() == BoulderdashSpriteBender.Mode.footdown ) {
+                        props.add(new NGDisplayControllerLayerProp("LAYER01", 1));
+                    }
+                    else
+                        props.add(new NGDisplayControllerLayerProp("LAYER01", 3));
+                }
+                return props;
+            }
         }
         return super.getPropValue(aName);
     }

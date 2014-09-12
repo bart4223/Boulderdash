@@ -12,12 +12,15 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
     public enum Movemode {Up, Down, Left, Right};
 
     protected Boolean isObjectRemovably(BoulderdashMemoryCellValue aCellValue) {
-        return aCellValue.getObject() instanceof BoulderdashSpriteEarth || aCellValue.getObject() instanceof BoulderdashSpriteAir || aCellValue.getObject() instanceof BoulderdashSpriteDiamond;
+        return aCellValue.getObject() instanceof BoulderdashSpriteEarth || aCellValue.getObject() instanceof BoulderdashSpriteAir ||
+            aCellValue.getObject() instanceof BoulderdashSpriteDiamond || aCellValue.getObject() instanceof BoulderdashSpriteDoor;
     }
 
     @Override
     protected void DoExecute() {
         super.DoExecute();
+        Boolean InDoor = false;
+        Boolean SetDoor = false;
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
         for (NGCustomGamePlayerItem item : game.getPlayers()) {
@@ -48,9 +51,21 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                     getGame().FinishLevel();
                     return;
                 }
+                else
+                    InDoor = true;
             }
             if (isObjectRemovably(value)) {
                 value = (BoulderdashMemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
+                BoulderdashSpriteBender bender = (BoulderdashSpriteBender)value.getObject();
+                if (InDoor) {
+                    bender.setDoor(BoulderdashSpriteBender.Door.close);
+                }
+                else {
+                    if (bender.getDoor() == BoulderdashSpriteBender.Door.close) {
+                        SetDoor = true;
+                    }
+                    bender.setDoor(BoulderdashSpriteBender.Door.none);
+                }
                 mm.setCellValueAsObject(game.getMemoryName(), playerNewAddress, value.getObject());
                 NG2DGamePlayerPosition pos = player.getPosition();
                 switch (Mode) {
@@ -67,7 +82,12 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                         game.setPlayerPosition(player, pos.getX() + 1, pos.getY());
                         break;
                 }
-                mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new BoulderdashSpriteAir());
+                if (SetDoor) {
+                    mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new BoulderdashSpriteDoor());
+                }
+                else {
+                    mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new BoulderdashSpriteAir());
+                }
             }
         }
     }

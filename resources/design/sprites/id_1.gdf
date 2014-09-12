@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_25" class="java.beans.XMLDecoder">
+<java version="1.7.0_67" class="java.beans.XMLDecoder">
  <object class="Grids.XMLGrid">
   <void property="currentLayer">
    <string>LAYER2</string>
@@ -8,14 +8,14 @@
    <string>0xd3d3d3ff</string>
   </void>
   <void property="gridDistance">
-   <int>2</int>
+   <int>4</int>
   </void>
   <void property="layers">
    <object class="java.util.ArrayList">
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>1</int>
+       <int>14</int>
       </void>
       <void property="description">
        <string>Layer 1</string>
@@ -1236,14 +1236,14 @@
        <string>LAYER1</string>
       </void>
       <void property="objectColor">
-       <string>0x000000ff</string>
+       <string>0x045406ff</string>
       </void>
      </object>
     </void>
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>6</int>
+       <int>15</int>
       </void>
       <void property="description">
        <string>Layer 2</string>
@@ -1266,14 +1266,14 @@
        <string>LAYER2</string>
       </void>
       <void property="objectColor">
-       <string>0xff8080ff</string>
+       <string>0xe64d4dff</string>
       </void>
      </object>
     </void>
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>5</int>
+       <int>12</int>
       </void>
       <void property="description">
        <string>Layer 3</string>
@@ -1326,14 +1326,14 @@
        <string>LAYER3</string>
       </void>
       <void property="objectColor">
-       <string>0xb3e6b3ff</string>
+       <string>0x000000ff</string>
       </void>
      </object>
     </void>
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>4</int>
+       <int>11</int>
       </void>
       <void property="description">
        <string>Layer 4</string>

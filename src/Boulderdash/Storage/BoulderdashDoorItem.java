@@ -3,14 +3,14 @@ package Boulderdash.Storage;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Storage.*;
 
-public class BoulderdashDoorItem extends NGCustomGameObjectItem {
+public class BoulderdashDoorItem extends NGCustomGameObject {
 
-    protected NG2DGameObjectPosition FPosition;
+    protected NG2DObjectPosition FPosition;
     protected Integer FLayer;
 
     public BoulderdashDoorItem(NGCustomGame aGame, Integer aLayer) {
         super(aGame);
-        FPosition = new NG2DGameObjectPosition();
+        FPosition = new NG2DObjectPosition();
         FLayer = aLayer;
     }
 
@@ -19,7 +19,7 @@ public class BoulderdashDoorItem extends NGCustomGameObjectItem {
         FPosition.setY(aY);
     }
 
-    public NG2DGameObjectPosition getPosition() {
+    public NG2DObjectPosition getPosition() {
         return FPosition;
     }
 

@@ -18244,7 +18244,7 @@
              <string>GAMEFIELD.DEFAULT.PLAYER.POSITION</string>
             </void>
             <void property="value">
-             <object class="Uniplay.Storage.NG2DGameObjectPosition">
+             <object class="Uniplay.Storage.NG2DObjectPosition">
               <void property="x">
                <double>22.0</double>
               </void>
@@ -18261,7 +18261,7 @@
              <string>GAMEFIELD.DEFAULT.DOOR.POSITION</string>
             </void>
             <void property="value">
-             <object class="Uniplay.Storage.NG2DGameObjectPosition">
+             <object class="Uniplay.Storage.NG2DObjectPosition">
               <void property="x">
                <double>1.0</double>
               </void>

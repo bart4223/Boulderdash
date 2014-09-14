@@ -13,7 +13,7 @@
     <void method="add">
      <object class="Uniplay.Graphics.NGGraphicEngineDefinitionEventHandlerItem">
       <void property="classname">
-       <string>Uniplay.Graphics.NG2DGraphicEngineEventHandlerGamePlayerPositionChanged</string>
+       <string>Uniplay.Graphics.NG2DGraphicEngineEventHandlerGameCharacterPositionChanged</string>
       </void>
      </object>
     </void>

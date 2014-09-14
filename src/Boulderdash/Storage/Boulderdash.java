@@ -134,8 +134,8 @@ public class Boulderdash extends NG2DGame {
         if (getSoundManager() != null && FPlaySound) {
             stopSound();
         }
-        removeAllPlayers();
-        add2DGamePlayer(getPlayerManager().getCurrentPlayer());
+        removeAllPCs();
+        add2DGamePC(getPlayerManager().getCurrentPlayer());
     }
 
     @Override
@@ -148,6 +148,11 @@ public class Boulderdash extends NG2DGame {
     @Override
     protected Class getMemoryCellValueClass() {
         return BoulderdashMemoryCellValue.class;
+    }
+
+    @Override
+    protected Class getGameCharacterClass() {
+        return Bender.class;
     }
 
     protected void assignDiamondCount() {
@@ -173,14 +178,14 @@ public class Boulderdash extends NG2DGame {
             if (obj.equals("DOOR")) {
                 String op = NGStrings.getStringPos(prop.getName(), "\\.", 4);
                 if (op.equals("POSITION")) {
-                    NG2DGameObjectPosition pos = (NG2DGameObjectPosition)prop.getValue();
+                    NG2DObjectPosition pos = (NG2DObjectPosition)prop.getValue();
                     addDoor(pos, 1);
                 }
             }
         }
     }
 
-    protected void addDoor(NG2DGameObjectPosition aPosition, Integer aLayerIndex) {
+    protected void addDoor(NG2DObjectPosition aPosition, Integer aLayerIndex) {
         BoulderdashDoorItem item = new BoulderdashDoorItem(this, aLayerIndex);
         item.setPosition(aPosition.getX(), aPosition.getY());
         FDoors.add(item);
@@ -256,6 +261,15 @@ public class Boulderdash extends NG2DGame {
 
     public ArrayList<BoulderdashDoorItem> getDoors() {
         return FDoors;
+    }
+
+    public void addTestPlayers() {
+        NGPlayerManager pm = getPlayerManager();
+        pm.newPlayer(NGPlayer.class, "BART4223", "Bart4223");
+        pm.newPlayer(NGPlayer.class, "SEPPI", "Seppi");
+        pm.newPlayer(NGPlayer.class, "XMEN", "XMen");
+        pm.newPlayer(NGPlayer.class, "SKYGENERATION", "Sky");
+        pm.setCurrentPlayer("BART4223");
     }
 
     // ToDo

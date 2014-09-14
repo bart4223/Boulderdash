@@ -23,8 +23,8 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
         Boolean resetDoor = false;
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
-        for (NGCustomGamePlayerItem item : game.getPlayers()) {
-            NG2DGamePlayerItem player = (NG2DGamePlayerItem)item;
+        for (NGCustomGameCharacter pc : game.getPCs()) {
+            NG2DGameCharacter player = (NG2DGameCharacter)pc;
             NGGameEngineMemoryAddress playerAddress = player.getMemoryAddress();
             NGGameEngineMemoryAddress playerNewAddress = null;
             switch (Mode) {
@@ -67,19 +67,19 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                     bender.setDoor(BoulderdashSpriteBender.Door.none);
                 }
                 mm.setCellValueAsObject(game.getMemoryName(), playerNewAddress, value.getObject());
-                NG2DGamePlayerPosition pos = player.getPosition();
+                NG2DGameCharacterPosition pos = player.getPosition();
                 switch (Mode) {
                     case Up:
-                        game.setPlayerPosition(player, pos.getX(), pos.getY() - 1);
+                        game.setPCPosition(player, pos.getX(), pos.getY() - 1);
                         break;
                     case Down:
-                        game.setPlayerPosition(player, pos.getX(), pos.getY() + 1);
+                        game.setPCPosition(player, pos.getX(), pos.getY() + 1);
                         break;
                     case Left:
-                        game.setPlayerPosition(player, pos.getX() - 1, pos.getY());
+                        game.setPCPosition(player, pos.getX() - 1, pos.getY());
                         break;
                     case Right:
-                        game.setPlayerPosition(player, pos.getX() + 1, pos.getY());
+                        game.setPCPosition(player, pos.getX() + 1, pos.getY());
                         break;
                 }
                 if (resetDoor) {

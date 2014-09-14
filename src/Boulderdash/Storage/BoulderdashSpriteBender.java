@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class BoulderdashSpriteBender extends BoulderdashCustomSprite {
 
     public enum Mode {footdown, footup}
-
     public enum Door {none, open, close}
 
     public final static Integer ID = 1;

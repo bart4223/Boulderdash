@@ -12,15 +12,13 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
     public enum Movemode {Up, Down, Left, Right};
 
     protected Boolean isObjectRemovably(BoulderdashMemoryCellValue aCellValue) {
-        return aCellValue.getObject() instanceof BoulderdashSpriteEarth || aCellValue.getObject() instanceof BoulderdashSpriteAir ||
-            aCellValue.getObject() instanceof BoulderdashSpriteDiamond || aCellValue.getObject() instanceof BoulderdashSpriteDoor;
+        return aCellValue.getObject() instanceof SpriteEarth || aCellValue.getObject() instanceof SpriteAir ||
+            aCellValue.getObject() instanceof SpriteDiamond;
     }
 
     @Override
     protected void DoExecute() {
         super.DoExecute();
-        Boolean InDoor = false;
-        Boolean resetDoor = false;
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
         for (NGCustomGameCharacter pc : game.getPCs()) {
@@ -42,30 +40,18 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                     break;
             }
             BoulderdashMemoryCellValue value = (BoulderdashMemoryCellValue)mm.getCellValue(game.getMemoryName(), playerNewAddress);
-            if (value.getObject() instanceof BoulderdashSpriteDiamond) {
+            if (value.getObject() instanceof SpriteDiamond) {
                 Boulderdash bd = (Boulderdash)getGame();
                 bd.DiamondCollected();
-            } else if (value.getObject() instanceof BoulderdashSpriteDoor) {
-                BoulderdashSpriteDoor door = (BoulderdashSpriteDoor)value.getObject();
+            } else if (value.getObject() instanceof SpriteDoor) {
+                SpriteDoor door = (SpriteDoor)value.getObject();
                 if (door.IsOpen()) {
                     getGame().FinishLevel();
                     return;
                 }
-                else
-                    InDoor = true;
             }
             if (isObjectRemovably(value)) {
                 value = (BoulderdashMemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
-                BoulderdashSpriteBender bender = (BoulderdashSpriteBender)value.getObject();
-                if (InDoor) {
-                    bender.setDoor(BoulderdashSpriteBender.Door.close);
-                }
-                else {
-                    if (bender.getDoor() == BoulderdashSpriteBender.Door.close) {
-                        resetDoor = true;
-                    }
-                    bender.setDoor(BoulderdashSpriteBender.Door.none);
-                }
                 mm.setCellValueAsObject(game.getMemoryName(), playerNewAddress, value.getObject());
                 NG2DGameCharacterPosition pos = player.getPosition();
                 switch (Mode) {
@@ -82,12 +68,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                         game.setPCPosition(player, pos.getX() + 1, pos.getY());
                         break;
                 }
-                if (resetDoor) {
-                    mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new BoulderdashSpriteDoor());
-                }
-                else {
-                    mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new BoulderdashSpriteAir());
-                }
+                mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new SpriteAir());
             }
         }
     }

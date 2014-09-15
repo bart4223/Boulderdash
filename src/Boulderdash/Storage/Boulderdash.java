@@ -1,6 +1,9 @@
 package Boulderdash.Storage;
 
 import Boulderdash.BoulderdashConsts;
+import Uniplay.Kernel.NGGameEngineMemoryAddress;
+import Uniplay.Kernel.NGGameEngineMemoryIntegerCellValue;
+import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
 import Uniplay.NGGameEngineConstants;
 import Uniplay.Storage.*;
 import Uniwork.Base.NGObjectRequestCaller;
@@ -29,7 +32,7 @@ public class Boulderdash extends NG2DGame {
     protected NGObjectRequestCaller FCaller;
     protected Boolean FPlaySound;
     protected Integer FDiamondCount;
-    protected ArrayList<BoulderdashDoorItem> FDoors;
+    protected ArrayList<Door> FDoors;
 
     protected void CreateControlStage(){
         FGameControlStage = new Stage();
@@ -139,10 +142,15 @@ public class Boulderdash extends NG2DGame {
     }
 
     @Override
-    protected void DoBeforeStartLevel() {
-        super.DoBeforeStartLevel();
+    protected void assignGameObjects() {
+        super.assignGameObjects();
         assignDiamondCount();
         assignDoors(getCurrentGameFieldLayer());
+    }
+
+    @Override
+    protected Class getGameCharacterClass() {
+        return Bender.class;
     }
 
     @Override
@@ -151,8 +159,38 @@ public class Boulderdash extends NG2DGame {
     }
 
     @Override
-    protected Class getGameCharacterClass() {
-        return Bender.class;
+    protected void assignMemoryCellValueFrom(NGGameEngineMemoryAddress aAddress, NGGameEngineMemoryObjectCellValue aCellValue, Object aObject) {
+        if (aObject instanceof NGGameEngineMemoryIntegerCellValue) {
+            NGGameEngineMemoryIntegerCellValue cellValue = (NGGameEngineMemoryIntegerCellValue)aObject;
+            CustomSprite sprite = getSpriteFrom(aAddress, cellValue.getInteger());
+            aCellValue.setObject(sprite);
+        }
+    }
+
+    protected CustomSprite getSpriteFrom(NGGameEngineMemoryAddress aAddress, Integer aID)  {
+        switch (aID) {
+            case 0:
+                return new SpriteAir();
+            case 1:
+                return new SpriteBender((Bender)getPCfromAddress(aAddress));
+            case 2:
+                return new SpriteDiamond();
+            case 4:
+                return new SpriteBoulder();
+            case 5:
+                return new SpriteEarth();
+            case 7:
+                return new SpriteDoor(getDoorfromAddress(aAddress));
+            case 12:
+                return new SpriteMonster();
+            case 14 :case 15 :case 16 :case 17 :case 18 :case 19 :case 20 :case 21 :case 22 :case 23 :case 24 :case 25 :case 26:
+                SpriteBrick brick = new SpriteBrick();
+                brick.setID(aID);
+                return brick;
+            case 27:
+                return new SpriteBomb();
+        }
+        return null;
     }
 
     protected void assignDiamondCount() {
@@ -185,8 +223,17 @@ public class Boulderdash extends NG2DGame {
         }
     }
 
+    public Door getDoorfromAddress(NGGameEngineMemoryAddress aAddress) {
+        for (Door door : FDoors) {
+            if (door.IsDoorFromAddress(aAddress)) {
+                return door;
+            }
+        }
+        return null;
+    }
+
     protected void addDoor(NG2DObjectPosition aPosition, Integer aLayerIndex) {
-        BoulderdashDoorItem item = new BoulderdashDoorItem(this, aLayerIndex);
+        Door item = new Door(this, aLayerIndex);
         item.setPosition(aPosition.getX(), aPosition.getY());
         FDoors.add(item);
         writeLog(String.format("Door at (%.1f/%.1f) added.", aPosition.getX(), aPosition.getY()));
@@ -226,7 +273,7 @@ public class Boulderdash extends NG2DGame {
         CreateControlStage();
         CreateGameFieldStage();
         FDiamondCount = 0;
-        FDoors = new ArrayList<BoulderdashDoorItem>();
+        FDoors = new ArrayList<Door>();
     }
 
     public Canvas getGameFieldCanvas() {
@@ -259,7 +306,7 @@ public class Boulderdash extends NG2DGame {
         }
     }
 
-    public ArrayList<BoulderdashDoorItem> getDoors() {
+    public ArrayList<Door> getDoors() {
         return FDoors;
     }
 

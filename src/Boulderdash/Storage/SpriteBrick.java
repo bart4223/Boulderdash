@@ -1,10 +1,10 @@
 package Boulderdash.Storage;
 
-public class BoulderdashSpriteBrick extends BoulderdashCustomSprite {
+public class SpriteBrick extends CustomSprite {
 
     public final static Integer ID = 14;
 
-    public BoulderdashSpriteBrick() {
+    public SpriteBrick() {
         super();
         FID = ID;
     }

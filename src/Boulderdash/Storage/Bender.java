@@ -12,7 +12,7 @@ public class Bender extends NG2DGameCharacter {
 
     public Bender(NGCustomGame aGame, NGCustomPlayer aPlayer) {
         super(aGame, aPlayer);
-        setMode(Mode.footdown);
+        FMode = Mode.footdown;
     }
 
     public Mode getMode() {
@@ -21,6 +21,7 @@ public class Bender extends NG2DGameCharacter {
 
     public void setMode(Mode aMode) {
         FMode = aMode;
+        getGame().refreshMemoryCell(getMemoryAddress());
     }
 
     public void ToggleMode() {

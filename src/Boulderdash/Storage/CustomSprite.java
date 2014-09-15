@@ -5,13 +5,13 @@ import Uniplay.Graphics.NGDisplayControllerLayerProp;
 
 import java.util.ArrayList;
 
-public abstract class BoulderdashCustomSprite extends NGUniplayObject {
+public abstract class CustomSprite extends NGUniplayObject {
 
     protected Integer FID;
 
     public final static Integer ID  = -1;
 
-    public BoulderdashCustomSprite() {
+    public CustomSprite() {
         super();
         FID = ID;
     }
@@ -26,6 +26,16 @@ public abstract class BoulderdashCustomSprite extends NGUniplayObject {
 
     public ArrayList<NGDisplayControllerLayerProp> getDisplayControllerPropValues() {
         return new ArrayList<NGDisplayControllerLayerProp>();
+    }
+
+    @Override
+    public Object getProperty(Object aObject, String aName) {
+        if (aName.equals("DisplayControllerName")) {
+            return "DEFAULT";
+        }
+        else {
+            return super.getProperty(aObject, aName);
+        }
     }
 
 }

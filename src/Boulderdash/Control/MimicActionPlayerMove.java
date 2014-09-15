@@ -11,7 +11,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
 
     public enum Movemode {Up, Down, Left, Right};
 
-    protected Boolean isObjectRemovably(BoulderdashMemoryCellValue aCellValue) {
+    protected Boolean isObjectRemovably(MemoryCellValue aCellValue) {
         return aCellValue.getObject() instanceof SpriteEarth || aCellValue.getObject() instanceof SpriteAir ||
             aCellValue.getObject() instanceof SpriteDiamond;
     }
@@ -39,7 +39,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                     playerNewAddress = new NGGameEngineMemoryAddress(playerAddress.getPage(), playerAddress.getBase(), playerAddress.getOffset() +  1);
                     break;
             }
-            BoulderdashMemoryCellValue value = (BoulderdashMemoryCellValue)mm.getCellValue(game.getMemoryName(), playerNewAddress);
+            MemoryCellValue value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), playerNewAddress);
             if (value.getObject() instanceof SpriteDiamond) {
                 Boulderdash bd = (Boulderdash)getGame();
                 bd.DiamondCollected();
@@ -51,7 +51,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                 }
             }
             if (isObjectRemovably(value)) {
-                value = (BoulderdashMemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
+                value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
                 mm.setCellValueAsObject(game.getMemoryName(), playerNewAddress, value.getObject());
                 NG2DGameCharacterPosition pos = player.getPosition();
                 switch (Mode) {

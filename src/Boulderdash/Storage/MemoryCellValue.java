@@ -2,13 +2,13 @@ package Boulderdash.Storage;
 
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
 
-public class BoulderdashMemoryCellValue extends NGGameEngineMemoryObjectCellValue {
+public class MemoryCellValue extends NGGameEngineMemoryObjectCellValue {
 
     protected CustomSprite getSprite() {
         return (CustomSprite)getObject();
     }
 
-    public BoulderdashMemoryCellValue() {
+    public MemoryCellValue() {
         super();
     }
 

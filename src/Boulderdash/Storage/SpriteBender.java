@@ -2,7 +2,7 @@ package Boulderdash.Storage;
 
 import Boulderdash.BoulderdashConsts;
 
-public class SpriteBender extends CustomSprite {
+public class SpriteBender extends BoulderdashSprite {
 
     protected Bender FBender;
 

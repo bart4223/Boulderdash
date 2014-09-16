@@ -4,8 +4,8 @@ import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
 
 public class MemoryCellValue extends NGGameEngineMemoryObjectCellValue {
 
-    protected CustomSprite getSprite() {
-        return (CustomSprite)getObject();
+    protected BoulderdashSprite getSprite() {
+        return (BoulderdashSprite)getObject();
     }
 
     public MemoryCellValue() {

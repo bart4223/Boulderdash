@@ -2,7 +2,7 @@ package Boulderdash.Storage;
 
 import Boulderdash.BoulderdashConsts;
 
-public class SpriteDoor extends CustomSprite {
+public class SpriteDoor extends BoulderdashSprite {
 
     protected Door FDoor;
 

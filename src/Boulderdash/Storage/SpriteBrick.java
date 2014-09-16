@@ -2,7 +2,7 @@ package Boulderdash.Storage;
 
 import Boulderdash.BoulderdashConsts;
 
-public class SpriteBrick extends CustomSprite {
+public class SpriteBrick extends BoulderdashSprite {
 
     public SpriteBrick() {
         super();

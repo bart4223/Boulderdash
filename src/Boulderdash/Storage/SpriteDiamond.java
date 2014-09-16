@@ -2,7 +2,7 @@ package Boulderdash.Storage;
 
 import Boulderdash.BoulderdashConsts;
 
-public class SpriteDiamond extends CustomSprite {
+public class SpriteDiamond extends BoulderdashSprite {
 
     public SpriteDiamond() {
         super();

@@ -162,12 +162,12 @@ public class Boulderdash extends NG2DGame {
     protected void assignMemoryCellValueFrom(NGGameEngineMemoryAddress aAddress, NGGameEngineMemoryObjectCellValue aCellValue, Object aObject) {
         if (aObject instanceof NGGameEngineMemoryIntegerCellValue) {
             NGGameEngineMemoryIntegerCellValue cellValue = (NGGameEngineMemoryIntegerCellValue)aObject;
-            CustomSprite sprite = getSpriteFrom(aAddress, cellValue.getInteger());
+            BoulderdashSprite sprite = getSpriteFrom(aAddress, cellValue.getInteger());
             aCellValue.setObject(sprite);
         }
     }
 
-    protected CustomSprite getSpriteFrom(NGGameEngineMemoryAddress aAddress, Integer aID)  {
+    protected BoulderdashSprite getSpriteFrom(NGGameEngineMemoryAddress aAddress, Integer aID)  {
         switch (aID) {
             case 0:
                 return new SpriteAir();

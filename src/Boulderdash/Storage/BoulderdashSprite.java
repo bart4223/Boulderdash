@@ -10,11 +10,9 @@ import java.util.ArrayList;
 
 public class BoulderdashSprite extends NG2DCustomSprite {
 
-    public final static Integer ID = BoulderdashConsts.SPRITE_NONE;
-
     public BoulderdashSprite() {
         super();
-        FID = ID;
+        FID = BoulderdashConsts.SPRITE_NONE;
     }
 
     @Override

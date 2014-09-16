@@ -105,9 +105,6 @@
       <void property="layername">
        <string>Boulderdash.Gamefield.Layer1</string>
       </void>
-      <void property="layerIndex">
-       <int>0</int>
-      </void>
       <void property="classname">
        <string>Uniplay.Graphics.NG2DRenderEngine</string>
       </void>

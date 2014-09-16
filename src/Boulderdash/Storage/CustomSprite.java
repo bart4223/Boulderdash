@@ -3,12 +3,17 @@ package Boulderdash.Storage;
 import Uniplay.Base.NGUniplayObject;
 import Uniplay.Graphics.NGDisplayControllerLayerProp;
 import Boulderdash.BoulderdashConsts;
+import Uniplay.NGGameEngineConstants;
 
 import java.util.ArrayList;
 
 public abstract class CustomSprite extends NGUniplayObject {
 
     protected Integer FID;
+
+    protected String getRenderEngineName() {
+        return "DEFAULT";
+    }
 
     protected String getDisplayControllerName() {
         return "DEFAULT";
@@ -35,10 +40,13 @@ public abstract class CustomSprite extends NGUniplayObject {
 
     @Override
     public Object getProperty(Object aObject, String aName) {
-        if (aName.equals("DisplayControllerName")) {
+        if (aName.equals(NGGameEngineConstants.PROP_GRAPHIC_RENDERENGINE_NAME)) {
+            return getRenderEngineName();
+        }
+        else if (aName.equals(NGGameEngineConstants.PROP_GRAPHIC_DISPLAYCONTROLLER_NAME)) {
             return getDisplayControllerName();
         }
-        else if (aName.equals("DisplayControllerLayerProps")) {
+        else if (aName.equals(NGGameEngineConstants.PROP_GRAPHIC_DISPLAYCONTROLLER_LAYER_PROPS)) {
             return getDisplayControllerLayerProps();
         }
         else {

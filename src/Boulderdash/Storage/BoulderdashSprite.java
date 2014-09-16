@@ -26,8 +26,13 @@ public class BoulderdashSprite extends NG2DCustomSprite {
     }
 
     @Override
-    public ArrayList<NGDisplayControllerLayerProp> getDisplayControllerLayerProps(NGDisplayController aDisplayController) {
+    public ArrayList<NGDisplayControllerLayerProp> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
         return new ArrayList<NGDisplayControllerLayerProp>();
+    }
+
+    @Override
+    public Integer getValueForDisplayController(String aRenderEngine, NGDisplayController aDisplayController) {
+        return getID();
     }
 
 }

@@ -51,5 +51,4 @@ public class SpriteBender extends BoulderdashSprite {
         }
     }
 
-
 }

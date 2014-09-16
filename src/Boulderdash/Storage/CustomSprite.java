@@ -2,6 +2,7 @@ package Boulderdash.Storage;
 
 import Uniplay.Base.NGUniplayObject;
 import Uniplay.Graphics.NGDisplayControllerLayerProp;
+import Boulderdash.BoulderdashConsts;
 
 import java.util.ArrayList;
 
@@ -9,7 +10,15 @@ public abstract class CustomSprite extends NGUniplayObject {
 
     protected Integer FID;
 
-    public final static Integer ID  = -1;
+    protected String getDisplayControllerName() {
+        return "DEFAULT";
+    }
+
+    protected ArrayList<NGDisplayControllerLayerProp> getDisplayControllerLayerProps() {
+        return new ArrayList<NGDisplayControllerLayerProp>();
+    }
+
+    public final static Integer ID = BoulderdashConsts.SPRITE_NONE;
 
     public CustomSprite() {
         super();
@@ -24,14 +33,13 @@ public abstract class CustomSprite extends NGUniplayObject {
         FID = aID;
     }
 
-    public ArrayList<NGDisplayControllerLayerProp> getDisplayControllerPropValues() {
-        return new ArrayList<NGDisplayControllerLayerProp>();
-    }
-
     @Override
     public Object getProperty(Object aObject, String aName) {
         if (aName.equals("DisplayControllerName")) {
-            return "DEFAULT";
+            return getDisplayControllerName();
+        }
+        else if (aName.equals("DisplayControllerLayerProps")) {
+            return getDisplayControllerLayerProps();
         }
         else {
             return super.getProperty(aObject, aName);

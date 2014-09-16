@@ -5,7 +5,7 @@ import Uniplay.Storage.*;
 
 public class Door extends NGCustomGameObject {
 
-    public enum State {close, quarter, half, threequarter, open};
+    public enum State {close, none, quarter, half, threequarter, open};
 
     protected NG2DObjectPosition FPosition;
     protected Integer FLayer;
@@ -34,6 +34,9 @@ public class Door extends NGCustomGameObject {
     public void Open() {
         switch (FState) {
             case close:
+                setState(State.none);
+                break;
+            case none:
                 setState(State.quarter);
                 break;
             case quarter:
@@ -50,17 +53,20 @@ public class Door extends NGCustomGameObject {
 
     public void Close() {
         switch (FState) {
-            case quarter:
-                setState(State.close);
-                break;
-            case half:
-                setState(State.quarter);
+            case open:
+                setState(State.threequarter);
                 break;
             case threequarter:
                 setState(State.half);
                 break;
-            case open:
-                setState(State.threequarter);
+            case half:
+                setState(State.quarter);
+                break;
+            case quarter:
+                setState(State.none);
+                break;
+            case none:
+                setState(State.close);
                 break;
         }
     }

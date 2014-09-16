@@ -1,12 +1,12 @@
 package Boulderdash.Storage;
 
+import Boulderdash.BoulderdashConsts;
+
 public class SpriteBomb extends CustomSprite {
 
-    public final static Integer ID = 27;
-
-    public SpriteBomb() {
+   public SpriteBomb() {
         super();
-        FID = ID;
+        FID = BoulderdashConsts.SPRITE_BOMB;
     }
 
 }

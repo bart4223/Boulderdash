@@ -1,12 +1,12 @@
 package Boulderdash.Storage;
 
-public class SpriteMonster extends CustomSprite {
+import Boulderdash.BoulderdashConsts;
 
-    public final static Integer ID = 12;
+public class SpriteMonster extends CustomSprite {
 
     public SpriteMonster() {
         super();
-        FID = ID;
+        FID = BoulderdashConsts.SPRITE_MONSTER;
     }
 
 }

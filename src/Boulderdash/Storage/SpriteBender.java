@@ -1,14 +1,14 @@
 package Boulderdash.Storage;
 
-public class SpriteBender extends CustomSprite {
+import Boulderdash.BoulderdashConsts;
 
-    public final static Integer ID = 1;
+public class SpriteBender extends CustomSprite {
 
     protected Bender FBender;
 
     public SpriteBender(Bender aBender) {
         super();
-        FID = ID;
+        FID = BoulderdashConsts.SPRITE_BENDER_FOOT_DOWN;
         FBender = aBender;
     }
 
@@ -19,10 +19,10 @@ public class SpriteBender extends CustomSprite {
     public Integer getID() {
         switch (FBender.getMode()) {
             case footdown:
-                FID = ID;
+                FID = BoulderdashConsts.SPRITE_BENDER_FOOT_DOWN;
                 break;
             case footup:
-                FID = 3;
+                FID = BoulderdashConsts.SPRITE_BENDER_FOOT_UP;
                 break;
         }
         return FID;

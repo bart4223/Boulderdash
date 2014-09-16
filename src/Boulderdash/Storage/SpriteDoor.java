@@ -1,14 +1,14 @@
 package Boulderdash.Storage;
 
-public class SpriteDoor extends CustomSprite {
+import Boulderdash.BoulderdashConsts;
 
-    public final static Integer ID = 7;
+public class SpriteDoor extends CustomSprite {
 
     protected Door FDoor;
 
     public SpriteDoor(Door aDoor) {
         super();
-        FID = ID;
+        FID = BoulderdashConsts.SPRITE_DOOR_CLOSE;
         FDoor = aDoor;
     }
 
@@ -19,19 +19,22 @@ public class SpriteDoor extends CustomSprite {
     public Integer getID() {
         switch (FDoor.getState()) {
             case close:
-                FID = ID;
+                FID = BoulderdashConsts.SPRITE_DOOR_CLOSE;
+                break;
+            case none:
+                FID = BoulderdashConsts.SPRITE_DOOR_OPEN_NONE;
                 break;
             case quarter:
-                FID = 8;
+                FID = BoulderdashConsts.SPRITE_DOOR_OPEN_QUARTER;
                 break;
             case half:
-                FID = 9;
+                FID = BoulderdashConsts.SPRITE_DOOR_OPEN_HALF;
                 break;
             case threequarter:
-                FID = 10;
+                FID = BoulderdashConsts.SPRITE_DOOR_OPEN_THREEQUARTER;
                 break;
             case open:
-                FID = 11;
+                FID = BoulderdashConsts.SPRITE_DOOR_OPEN;
                 break;
         }
         return FID;

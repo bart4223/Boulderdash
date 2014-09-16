@@ -56,47 +56,6 @@
           </void>
          </object>
         </void>
-        <void method="add">
-         <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerItem">
-          <void property="name">
-           <string>BENDER</string>
-          </void>
-          <void property="classname">
-           <string>Uniwork.Visuals.NGImageDisplayController</string>
-          </void>
-          <void property="imagename">
-           <string>resources/sprites/id_%d.png</string>
-          </void>
-          <void property="props">
-           <object class="java.util.ArrayList">
-            <void method="add">
-             <object class="Uniwork.Base.NGSerializePropertyItem">
-              <void property="name">
-               <string>Background.MaxImageNumber</string>
-              </void>
-              <void property="value">
-               <int>28</int>
-              </void>
-             </object>
-            </void>
-           </object>
-          </void>
-          <void property="layers">
-           <object class="java.util.ArrayList">
-            <void method="add">
-             <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerLayerItem">
-              <void property="name">
-               <string>LAYER01</string>
-              </void>
-              <void property="imagename">
-               <string>resources/sprites/id_%d.png</string>
-              </void>
-             </object>
-            </void>
-           </object>
-          </void>
-         </object>
-        </void>
        </object>
       </void>
       <void property="name">

@@ -1,5 +1,6 @@
 package Boulderdash.Control;
 
+import Boulderdash.Graphics.*;
 import Boulderdash.Storage.*;
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicORBAction;
@@ -16,14 +17,37 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
             aCellValue.getObject() instanceof SpriteDiamond;
     }
 
+    protected Boolean isObjectAccessible(MemoryCellValue aCellValue) {
+        return aCellValue.getObject() instanceof SpriteDoor;
+    }
+
+    protected void setNewCharacterPosition(NG2DGameCharacter aCharacter) {
+        NG2DGame game = getGame();
+        NG2DGameCharacterPosition pos = aCharacter.getPosition();
+        switch (Mode) {
+            case Up:
+                game.setPCPosition(aCharacter, pos.getX(), pos.getY() - 1);
+                break;
+            case Down:
+                game.setPCPosition(aCharacter, pos.getX(), pos.getY() + 1);
+                break;
+            case Left:
+                game.setPCPosition(aCharacter, pos.getX() - 1, pos.getY());
+                break;
+            case Right:
+                game.setPCPosition(aCharacter, pos.getX() + 1, pos.getY());
+                break;
+        }
+    }
+
     @Override
     protected void DoExecute() {
         super.DoExecute();
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
         for (NGCustomGameCharacter pc : game.getPCs()) {
-            NG2DGameCharacter player = (NG2DGameCharacter)pc;
-            NGGameEngineMemoryAddress playerAddress = player.getMemoryAddress();
+            NG2DGameCharacter character = (NG2DGameCharacter)pc;
+            NGGameEngineMemoryAddress playerAddress = character.getMemoryAddress();
             NGGameEngineMemoryAddress playerNewAddress = null;
             switch (Mode) {
                 case Up:
@@ -49,25 +73,26 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                     getGame().FinishLevel();
                     return;
                 }
+                else {
+                    door.setBender((Bender)character);
+                }
             }
             if (isObjectRemovably(value)) {
                 value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
-                mm.setCellValueAsObject(game.getMemoryName(), playerNewAddress, value.getObject());
-                NG2DGameCharacterPosition pos = player.getPosition();
-                switch (Mode) {
-                    case Up:
-                        game.setPCPosition(player, pos.getX(), pos.getY() - 1);
-                        break;
-                    case Down:
-                        game.setPCPosition(player, pos.getX(), pos.getY() + 1);
-                        break;
-                    case Left:
-                        game.setPCPosition(player, pos.getX() - 1, pos.getY());
-                        break;
-                    case Right:
-                        game.setPCPosition(player, pos.getX() + 1, pos.getY());
-                        break;
+                if (value.getObject() instanceof SpriteDoor) {
+                    SpriteDoor door = (SpriteDoor)value.getObject();
+                    door.setBender(null);
+                    setNewCharacterPosition(character);
+                    mm.setCellValueAsObject(game.getMemoryName(), playerNewAddress, new SpriteBender((Bender)pc));
                 }
+                else {
+                    mm.setCellValueAsObject(game.getMemoryName(), playerNewAddress, value.getObject());
+                    setNewCharacterPosition(character);
+                    mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new SpriteAir());
+                }
+            }
+            else if (isObjectAccessible(value)) {
+                setNewCharacterPosition(character);
                 mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new SpriteAir());
             }
         }

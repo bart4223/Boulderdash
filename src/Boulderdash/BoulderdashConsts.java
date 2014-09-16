@@ -3,7 +3,6 @@ package Boulderdash;
 public abstract class BoulderdashConsts {
 
     // --------------------- Sprites -----------------------------------
-    public final static Integer SPRITE_NONE                          = -1;
     public final static Integer SPRITE_AIR                           = 0;
     public final static Integer SPRITE_BENDER_FOOT_DOWN              = 1;
     public final static Integer SPRITE_DIAMOND                       = 2;

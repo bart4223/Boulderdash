@@ -1,9 +1,9 @@
-package Boulderdash.Storage;
+package Boulderdash.Graphics;
 
 import Uniplay.Graphics.NG2DCustomSprite;
 import Uniplay.Graphics.NGCustomRenderEngineItem;
-import Uniplay.Graphics.NGDisplayControllerLayerProp;
 import Boulderdash.BoulderdashConsts;
+import Uniplay.Graphics.NGDisplayControllerLayerProp;
 import Uniwork.Visuals.NGDisplayController;
 
 import java.util.ArrayList;
@@ -12,12 +12,11 @@ public class BoulderdashSprite extends NG2DCustomSprite {
 
     public BoulderdashSprite() {
         super();
-        FID = BoulderdashConsts.SPRITE_NONE;
     }
 
     @Override
     public Boolean IsRenderEngineResponsible(NGCustomRenderEngineItem aRenderEngine) {
-        return aRenderEngine.getName().equals("DEFAULT");
+        return aRenderEngine.getName().equals("BACK") || aRenderEngine.getName().equals("BENDER");
     }
 
     @Override
@@ -32,7 +31,12 @@ public class BoulderdashSprite extends NG2DCustomSprite {
 
     @Override
     public Integer getValueForDisplayController(String aRenderEngine, NGDisplayController aDisplayController) {
-        return getID();
+        if (aRenderEngine.equals("BENDER")) {
+            return BoulderdashConsts.SPRITE_AIR;
+        }
+        else {
+            return getID();
+        }
     }
 
 }

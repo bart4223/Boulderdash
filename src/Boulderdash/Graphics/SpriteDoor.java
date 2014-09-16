@@ -1,21 +1,35 @@
-package Boulderdash.Storage;
+package Boulderdash.Graphics;
 
 import Boulderdash.BoulderdashConsts;
+import Boulderdash.Storage.Bender;
+import Boulderdash.Storage.Door;
+import Uniwork.Visuals.NGDisplayController;
 
 public class SpriteDoor extends BoulderdashSprite {
 
     protected Door FDoor;
+    protected Bender FBender;
 
     public SpriteDoor(Door aDoor) {
         super();
         FID = BoulderdashConsts.SPRITE_DOOR_CLOSE;
         FDoor = aDoor;
+        FBender = null;
     }
 
     public Door getDoor() {
         return FDoor;
     }
 
+    public Bender getBender() {
+        return FBender;
+    }
+
+    public void setBender(Bender aBender) {
+        FBender = aBender;
+    }
+
+    @Override
     public Integer getID() {
         switch (FDoor.getState()) {
             case close:
@@ -46,6 +60,16 @@ public class SpriteDoor extends BoulderdashSprite {
 
     public Boolean IsClose() {
         return FDoor.IsClose();
+    }
+
+    @Override
+    public Integer getValueForDisplayController(String aRenderEngine, NGDisplayController aDisplayController) {
+        if (aRenderEngine.equals("BENDER") && (FBender != null)) {
+            return SpriteBender.getID(FBender);
+        }
+        else {
+            return super.getValueForDisplayController(aRenderEngine, aDisplayController);
+        }
     }
 
 }

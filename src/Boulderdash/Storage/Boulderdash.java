@@ -1,6 +1,7 @@
 package Boulderdash.Storage;
 
 import Boulderdash.BoulderdashConsts;
+import Boulderdash.Graphics.*;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryIntegerCellValue;
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
@@ -61,7 +62,7 @@ public class Boulderdash extends NG2DGame {
             FGameFieldController.Game = this;
             FGameFieldController.Initialize();
             Parent lRoot = lXMLLoader.getRoot();
-            FGameFieldStage.setTitle("Boulderdash.Field");
+            FGameFieldStage.setTitle("Boulderdash.GameField");
             Scene scene = new Scene(lRoot, 800, 800, Color.LIGHTGRAY);
             FGameFieldStage.setScene(scene);
             FGameFieldStage.setResizable(false);
@@ -276,8 +277,16 @@ public class Boulderdash extends NG2DGame {
         FDoors = new ArrayList<Door>();
     }
 
-    public Canvas getGameFieldCanvas() {
-        return FGameFieldController.Layer1;
+    public Canvas getGameFieldLayerBack() {
+        return FGameFieldController.LayerBack;
+    }
+
+    public Canvas getGameFieldLayerBender() {
+        return FGameFieldController.LayerBender;
+    }
+
+    public Canvas getGameFieldLayerFront() {
+        return FGameFieldController.LayerFront;
     }
 
     public void setGameFieldGridSize(Integer aValue) {

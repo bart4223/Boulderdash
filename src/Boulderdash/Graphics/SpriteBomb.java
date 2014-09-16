@@ -1,4 +1,4 @@
-package Boulderdash.Storage;
+package Boulderdash.Graphics;
 
 import Boulderdash.BoulderdashConsts;
 

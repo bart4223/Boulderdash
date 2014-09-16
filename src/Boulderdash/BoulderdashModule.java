@@ -32,7 +32,9 @@ public class BoulderdashModule extends NGGameEngineModule {
         Boulderdash game = (Boulderdash)manager.addGame(aName, Boulderdash.class);
         game.setGameFieldGridSize(Integer.parseInt(getConfigurationProperty("GameFieldGridSize")));
         game.setShowGameFieldGrid(Boolean.valueOf(getConfigurationProperty("ShowGameFieldGrid")));
-        registerObject(String.format("%s.Gamefield.Layer1",aName), game.getGameFieldCanvas());
+        registerObject(String.format("%s.GameField.LayerBack",aName), game.getGameFieldLayerBack());
+        registerObject(String.format("%s.GameField.LayerBender",aName), game.getGameFieldLayerBender());
+        registerObject(String.format("%s.GameField.LayerFront",aName), game.getGameFieldLayerFront());
         return game;
     }
 

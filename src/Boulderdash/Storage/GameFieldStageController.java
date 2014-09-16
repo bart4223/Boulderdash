@@ -1,6 +1,5 @@
 package Boulderdash.Storage;
 
-import Boulderdash.Storage.Boulderdash;
 import Uniwork.Visuals.NGGrid2DDisplayController;
 import Uniwork.Visuals.NGStageController;
 import javafx.fxml.FXML;
@@ -14,10 +13,16 @@ public class GameFieldStageController extends NGStageController {
     public Boulderdash Game;
 
     @FXML
-    public Canvas Layer1;
+    public Canvas Layer0;
 
     @FXML
-    public Canvas Layer0;
+    public Canvas LayerBack;
+
+    @FXML
+    public Canvas LayerBender;
+
+    @FXML
+    public Canvas LayerFront;
 
     @Override
     protected void CreateDisplayController() {

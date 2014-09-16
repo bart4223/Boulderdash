@@ -1,5 +1,6 @@
 package Boulderdash.Storage;
 
+import Boulderdash.Graphics.BoulderdashSprite;
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
 
 public class MemoryCellValue extends NGGameEngineMemoryObjectCellValue {

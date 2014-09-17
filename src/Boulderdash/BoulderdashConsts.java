@@ -33,7 +33,8 @@ public abstract class BoulderdashConsts {
     public final static Integer SPRITE_BOMB                          = 27;
 
     // --------------------- Mimics ------------------------------------
-    public final static String MIMIC_ACTION_PLAYER_STOMP             = "PLayer.Stomp";
+    public final static String MIMIC_TYPE_PLAYER_MOVE                = "Player.Move";
+    public final static String MIMIC_ACTION_PLAYER_STOMP             = "Player.Stomp";
     public final static String MIMIC_ACTION_PLAYER_UP                = "Player.Up";
     public final static String MIMIC_ACTION_PLAYER_DOWN              = "Player.Down";
     public final static String MIMIC_ACTION_PLAYER_LEFT              = "Player.Left";

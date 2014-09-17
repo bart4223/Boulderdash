@@ -8,13 +8,11 @@ import Uniwork.Visuals.NGDisplayController;
 public class SpriteDoor extends BoulderdashSprite {
 
     protected Door FDoor;
-    protected Bender FBender;
 
     public SpriteDoor(Door aDoor) {
         super();
         FID = BoulderdashConsts.SPRITE_DOOR_CLOSE;
         FDoor = aDoor;
-        FBender = null;
     }
 
     public Door getDoor() {
@@ -22,11 +20,11 @@ public class SpriteDoor extends BoulderdashSprite {
     }
 
     public Bender getBender() {
-        return FBender;
+        return FDoor.getBender();
     }
 
     public void setBender(Bender aBender) {
-        FBender = aBender;
+        FDoor.setBender(aBender);
     }
 
     @Override
@@ -64,8 +62,8 @@ public class SpriteDoor extends BoulderdashSprite {
 
     @Override
     public Integer getValueForDisplayController(String aRenderEngine, NGDisplayController aDisplayController) {
-        if (aRenderEngine.equals("BENDER") && (FBender != null)) {
-            return SpriteBender.getID(FBender);
+        if (aRenderEngine.equals("BENDER") && (getBender() != null)) {
+            return SpriteBender.getID(getBender());
         }
         else {
             return super.getValueForDisplayController(aRenderEngine, aDisplayController);

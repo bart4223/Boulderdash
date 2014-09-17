@@ -7,6 +7,7 @@ import Uniplay.Control.NGControlMimicORBAction;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryManager;
 import Uniplay.Storage.*;
+import Boulderdash.BoulderdashConsts;
 
 public class MimicActionPlayerMove extends NGControlMimicORBAction {
 
@@ -69,13 +70,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                 bd.DiamondCollected();
             } else if (value.getObject() instanceof SpriteDoor) {
                 SpriteDoor door = (SpriteDoor)value.getObject();
-                if (door.IsOpen()) {
-                    getGame().FinishLevel();
-                    return;
-                }
-                else {
-                    door.setBender((Bender)character);
-                }
+                door.setBender((Bender)character);
             }
             if (isObjectRemovably(value)) {
                 value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
@@ -94,6 +89,13 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
             else if (isObjectAccessible(value)) {
                 setNewCharacterPosition(character);
                 mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new SpriteAir());
+                if (value.getObject() instanceof SpriteDoor) {
+                    SpriteDoor door = (SpriteDoor) value.getObject();
+                    if (door.IsOpen()) {
+                        FManager.DeactivateMimics(BoulderdashConsts.MIMIC_TYPE_PLAYER_MOVE);
+                        FManager.ActivateMimic(BoulderdashConsts.MIMIC_ACTION_DOOR_CLOSE);
+                    }
+                }
             }
         }
     }

@@ -10,6 +10,7 @@ public class Door extends NGCustomGameObject {
     protected NG2DObjectPosition FPosition;
     protected Integer FLayer;
     protected State FState;
+    protected Bender FBender;
 
     public Door(NGCustomGame aGame, Integer aLayer) {
         super(aGame);
@@ -67,6 +68,9 @@ public class Door extends NGCustomGameObject {
                 break;
             case none:
                 setState(State.close);
+                if (FBender != null) {
+                    FGame.FinishLevel();
+                }
                 break;
         }
     }
@@ -77,7 +81,7 @@ public class Door extends NGCustomGameObject {
 
     public void setState(State aState) {
         FState = aState;
-        getGame().refreshMemoryCell(getMemoryAddress());
+        FGame.refreshMemoryCell(getMemoryAddress());
     }
 
     public Boolean IsOpen() {
@@ -90,6 +94,14 @@ public class Door extends NGCustomGameObject {
 
     public Boolean IsDoorFromAddress(NGGameEngineMemoryAddress aAddress) {
         return getMemoryAddress().equals(aAddress);
+    }
+
+    public Bender getBender() {
+        return FBender;
+    }
+
+    public void setBender(Bender aBender) {
+        FBender = aBender;
     }
 
 }

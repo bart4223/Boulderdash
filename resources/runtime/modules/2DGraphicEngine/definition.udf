@@ -44,7 +44,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>28</int>
+               <int>33</int>
               </void>
              </object>
             </void>
@@ -116,7 +116,17 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>28</int>
+               <int>33</int>
+              </void>
+             </object>
+            </void>
+            <void method="add">
+             <object class="Uniwork.Base.NGSerializePropertyItem">
+              <void property="name">
+               <string>ClearComplete</string>
+              </void>
+              <void property="value">
+               <boolean>true</boolean>
               </void>
              </object>
             </void>
@@ -188,7 +198,17 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>28</int>
+               <int>33</int>
+              </void>
+             </object>
+            </void>
+            <void method="add">
+             <object class="Uniwork.Base.NGSerializePropertyItem">
+              <void property="name">
+               <string>ClearComplete</string>
+              </void>
+              <void property="value">
+               <boolean>true</boolean>
               </void>
              </object>
             </void>

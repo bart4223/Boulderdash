@@ -9,10 +9,17 @@ public class Bender extends NG2DGameCharacter {
     public enum Mode {footdown, footup}
 
     protected Mode FMode;
+    protected Boolean FInDoor;
+
+    protected void DoReset() {
+        super.DoReset();
+        FInDoor = false;
+    }
 
     public Bender(NGCustomGame aGame, NGCustomPlayer aPlayer) {
         super(aGame, aPlayer);
         FMode = Mode.footdown;
+        FInDoor = false;
     }
 
     public Mode getMode() {
@@ -31,6 +38,14 @@ public class Bender extends NG2DGameCharacter {
             setMode(Mode.footdown);
         }
         getGame().refreshMemoryCell(getMemoryAddress());
+    }
+
+    public Boolean getInDoor() {
+        return FInDoor;
+    }
+
+    public void setInDoor(Boolean aInDoor) {
+        FInDoor = aInDoor;
     }
 
 }

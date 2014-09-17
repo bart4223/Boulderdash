@@ -92,6 +92,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                 if (value.getObject() instanceof SpriteDoor) {
                     SpriteDoor door = (SpriteDoor) value.getObject();
                     if (door.IsOpen()) {
+                        door.getBender().setInDoor(true);
                         FManager.DeactivateMimics(BoulderdashConsts.MIMIC_TYPE_PLAYER_MOVE);
                         FManager.ActivateMimic(BoulderdashConsts.MIMIC_ACTION_DOOR_CLOSE);
                     }

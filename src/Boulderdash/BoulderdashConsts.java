@@ -31,6 +31,11 @@ public abstract class BoulderdashConsts {
     public final static Integer SPRITE_BRICK_RIGHT_END_TOP           = 25;
     public final static Integer SPRITE_BRICK_FULL                    = 26;
     public final static Integer SPRITE_BOMB                          = 27;
+    public final static Integer SPRITE_DOOR_BACK                     = 28;
+    public final static Integer SPRITE_DOOR_OPEN_QUARTER_FRONT       = 29;
+    public final static Integer SPRITE_DOOR_OPEN_HALF_FRONT          = 30;
+    public final static Integer SPRITE_DOOR_OPEN_THREEQUARTER_FRONT  = 31;
+    public final static Integer SPRITE_DOOR_OPEN_FRONT               = 32;
 
     // --------------------- Mimics ------------------------------------
     public final static String MIMIC_TYPE_PLAYER_MOVE                = "Player.Move";

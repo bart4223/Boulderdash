@@ -47,7 +47,7 @@ public class SpriteBender extends BoulderdashSprite {
             return BoulderdashConsts.SPRITE_AIR;
         }
         else {
-            return getID();
+            return super.getValueForDisplayController(aRenderEngine, aDisplayController);
         }
     }
 

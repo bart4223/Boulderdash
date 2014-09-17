@@ -3,6 +3,7 @@ package Boulderdash.Graphics;
 import Boulderdash.BoulderdashConsts;
 import Boulderdash.Storage.Bender;
 import Boulderdash.Storage.Door;
+import Uniplay.Graphics.NGCustomRenderEngineItem;
 import Uniwork.Visuals.NGDisplayController;
 
 public class SpriteDoor extends BoulderdashSprite {
@@ -29,25 +30,49 @@ public class SpriteDoor extends BoulderdashSprite {
 
     @Override
     public Integer getID() {
-        switch (FDoor.getState()) {
-            case close:
-                FID = BoulderdashConsts.SPRITE_DOOR_CLOSE;
-                break;
-            case none:
-                FID = BoulderdashConsts.SPRITE_DOOR_OPEN_NONE;
-                break;
-            case quarter:
-                FID = BoulderdashConsts.SPRITE_DOOR_OPEN_QUARTER;
-                break;
-            case half:
-                FID = BoulderdashConsts.SPRITE_DOOR_OPEN_HALF;
-                break;
-            case threequarter:
-                FID = BoulderdashConsts.SPRITE_DOOR_OPEN_THREEQUARTER;
-                break;
-            case open:
-                FID = BoulderdashConsts.SPRITE_DOOR_OPEN;
-                break;
+        if (getBender() != null && getBender().getInDoor()) {
+            switch (FDoor.getState()) {
+                case close:
+                    FID = BoulderdashConsts.SPRITE_DOOR_CLOSE;
+                    break;
+                case none:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN_NONE;
+                    break;
+                case quarter:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN_FRONT;
+                    break;
+                case half:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN_THREEQUARTER_FRONT;
+                    break;
+                case threequarter:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN_HALF_FRONT;
+                    break;
+                case open:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN_QUARTER_FRONT;
+                    break;
+            }
+        }
+        else {
+            switch (FDoor.getState()) {
+                case close:
+                    FID = BoulderdashConsts.SPRITE_DOOR_CLOSE;
+                    break;
+                case none:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN_NONE;
+                    break;
+                case quarter:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN_QUARTER;
+                    break;
+                case half:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN_HALF;
+                    break;
+                case threequarter:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN_THREEQUARTER;
+                    break;
+                case open:
+                    FID = BoulderdashConsts.SPRITE_DOOR_OPEN;
+                    break;
+            }
         }
         return FID;
     }
@@ -61,12 +86,39 @@ public class SpriteDoor extends BoulderdashSprite {
     }
 
     @Override
+    public Boolean IsRenderEngineResponsible(NGCustomRenderEngineItem aRenderEngine) {
+        Boolean res = aRenderEngine.getName().equals("BACK");
+        if (!res && getBender() != null) {
+            res = aRenderEngine.getName().equals("BENDER") || aRenderEngine.getName().equals("FRONT");
+        }
+        return res;
+    }
+
+    @Override
     public Integer getValueForDisplayController(String aRenderEngine, NGDisplayController aDisplayController) {
-        if (aRenderEngine.equals("BENDER") && (getBender() != null)) {
-            return SpriteBender.getID(getBender());
+        if (aRenderEngine.equals("BACK")) {
+            if (getBender() != null && getBender().getInDoor()) {
+                return BoulderdashConsts.SPRITE_DOOR_BACK;
+            }
+            else {
+                return super.getValueForDisplayController(aRenderEngine, aDisplayController);
+            }
+        }
+        else if (aRenderEngine.equals("BENDER")) {
+            if (getBender() != null) {
+                return SpriteBender.getID(getBender());
+            }
+            else {
+                return BoulderdashConsts.SPRITE_AIR;
+            }
         }
         else {
-            return super.getValueForDisplayController(aRenderEngine, aDisplayController);
+            if (getBender() != null && getBender().getInDoor()) {
+                return super.getValueForDisplayController(aRenderEngine, aDisplayController);
+            }
+            else {
+                return BoulderdashConsts.SPRITE_AIR;
+            }
         }
     }
 

@@ -2,8 +2,18 @@ package Boulderdash.Storage;
 
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Storage.*;
+import javafx.application.Platform;
 
 public class Door extends NGCustomGameObject {
+
+    public static void LevelFinished(final NGCustomGame aGame) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                aGame.FinishLevel();
+            }
+        });
+    }
 
     public enum State {close, none, quarter, half, threequarter, open};
 
@@ -69,7 +79,7 @@ public class Door extends NGCustomGameObject {
             case none:
                 setState(State.close);
                 if (FBender != null) {
-                    FGame.FinishLevel();
+                    LevelFinished(getGame());
                 }
                 break;
         }

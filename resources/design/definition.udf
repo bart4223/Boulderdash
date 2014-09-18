@@ -6,6 +6,22 @@
     <void method="add">
      <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
       <void property="classname">
+       <string>Uniplay.Physics.NG2DPhysicsEngine</string>
+      </void>
+      <void property="configurationFilename">
+       <string>resources/runtime/modules/PhysicsEngine/config.ucf</string>
+      </void>
+      <void property="name">
+       <string>2DPhysicsEngine</string>
+      </void>
+      <void property="caption">
+       <string>2D Physics Engine</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Kernel.NGGameEngineDefinitionModuleItem">
+      <void property="classname">
        <string>Uniplay.Sound.NGSoundSystemModule</string>
       </void>
       <void property="configurationFilename">

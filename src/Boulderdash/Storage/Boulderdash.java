@@ -66,7 +66,7 @@ public class Boulderdash extends NG2DGame {
             Scene scene = new Scene(lRoot, 800, 800, Color.DARKGRAY);
             FGameFieldStage.setScene(scene);
             FGameFieldStage.setResizable(false);
-            scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
                 @Override
                 public void handle(KeyEvent keyEvent) {
                     handleKeyPressed(keyEvent);

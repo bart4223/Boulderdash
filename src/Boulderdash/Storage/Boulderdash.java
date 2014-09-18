@@ -45,7 +45,7 @@ public class Boulderdash extends NG2DGame {
             FGameControlController.Initialize();
             Parent lRoot = lXMLLoader.getRoot();
             FGameControlStage.setTitle("Boulderdash.Control");
-            FGameControlStage.setScene(new Scene(lRoot, 800, 50, Color.LIGHTGRAY));
+            FGameControlStage.setScene(new Scene(lRoot, 800, 50, Color.DARKGRAY));
             FGameControlStage.setResizable(false);
         }
         catch (Exception e) {
@@ -63,7 +63,7 @@ public class Boulderdash extends NG2DGame {
             FGameFieldController.Initialize();
             Parent lRoot = lXMLLoader.getRoot();
             FGameFieldStage.setTitle("Boulderdash.GameField");
-            Scene scene = new Scene(lRoot, 800, 800, Color.LIGHTGRAY);
+            Scene scene = new Scene(lRoot, 800, 800, Color.DARKGRAY);
             FGameFieldStage.setScene(scene);
             FGameFieldStage.setResizable(false);
             scene.setOnKeyPressed(new EventHandler<KeyEvent>() {

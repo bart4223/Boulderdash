@@ -218,7 +218,8 @@ public class Boulderdash extends NG2DGame {
                 String op = NGStrings.getStringPos(prop.getName(), "\\.", 4);
                 if (op.equals("POSITION")) {
                     NG2DObjectPosition pos = (NG2DObjectPosition)prop.getValue();
-                    addDoor(pos, 1);
+                    Door door = addDoor(pos);
+                    door.setLayer(1);
                 }
             }
         }
@@ -226,18 +227,19 @@ public class Boulderdash extends NG2DGame {
 
     public Door getDoorfromAddress(NGGameEngineMemoryAddress aAddress) {
         for (Door door : FDoors) {
-            if (door.IsDoorFromAddress(aAddress)) {
+            if (door.IsFromAddress(aAddress)) {
                 return door;
             }
         }
         return null;
     }
 
-    protected void addDoor(NG2DObjectPosition aPosition, Integer aLayerIndex) {
-        Door item = new Door(this, aLayerIndex);
-        item.setPosition(aPosition.getX(), aPosition.getY());
-        FDoors.add(item);
+    protected Door addDoor(NG2DObjectPosition aPosition) {
+        Door door = new Door(this);
+        door.setPosition(aPosition.getX(), aPosition.getY());
+        FDoors.add(door);
         writeLog(String.format("Door at (%.1f/%.1f) added.", aPosition.getX(), aPosition.getY()));
+        return door;
     }
 
     protected void PlayerDown() {

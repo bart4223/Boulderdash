@@ -1,10 +1,9 @@
 package Boulderdash.Storage;
 
-import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Storage.*;
 import javafx.application.Platform;
 
-public class Door extends NGCustomGameObject {
+public class Door extends NG2DGameObject {
 
     public static void LevelFinished(final NGCustomGame aGame) {
         Platform.runLater(new Runnable() {
@@ -17,29 +16,12 @@ public class Door extends NGCustomGameObject {
 
     public enum State {close, none, quarter, half, threequarter, open};
 
-    protected NG2DObjectPosition FPosition;
-    protected Integer FLayer;
     protected State FState;
     protected Bender FBender;
 
-    public Door(NGCustomGame aGame, Integer aLayer) {
+    public Door(NGCustomGame aGame) {
         super(aGame);
-        FPosition = new NG2DObjectPosition();
-        FLayer = aLayer;
         FState = State.close;
-    }
-
-    public void setPosition(double aX, double aY) {
-        FPosition.setX(aX);
-        FPosition.setY(aY);
-    }
-
-    public NG2DObjectPosition getPosition() {
-        return FPosition;
-    }
-
-    public NGGameEngineMemoryAddress getMemoryAddress() {
-        return new NGGameEngineMemoryAddress(FLayer, (int)FPosition.getY(), (int)FPosition.getX());
     }
 
     public void Open() {
@@ -100,10 +82,6 @@ public class Door extends NGCustomGameObject {
 
     public Boolean IsClose() {
         return FState == State.close;
-    }
-
-    public Boolean IsDoorFromAddress(NGGameEngineMemoryAddress aAddress) {
-        return getMemoryAddress().equals(aAddress);
     }
 
     public Bender getBender() {

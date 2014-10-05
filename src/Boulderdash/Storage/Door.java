@@ -22,6 +22,7 @@ public class Door extends NG2DGameObject {
     public Door(NGCustomGame aGame) {
         super(aGame);
         FState = State.close;
+        FPhysics.Mass = 100.0;
     }
 
     public void Open() {

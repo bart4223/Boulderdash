@@ -20,6 +20,7 @@ public class Bender extends NG2DGameCharacter {
         super(aGame, aPlayer);
         FMode = Mode.footdown;
         FInDoor = false;
+        FPhysics.Mass = 1.0;
     }
 
     public Mode getMode() {

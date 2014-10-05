@@ -1,6 +1,7 @@
 package Boulderdash.Graphics;
 
 import Boulderdash.BoulderdashConsts;
+import Boulderdash.Storage.Boulder;
 import Uniplay.Graphics.NGCustomRenderEngineItem;
 import Uniplay.Graphics.NGDisplayControllerLayerProp;
 import Uniwork.Visuals.NGDisplayController;
@@ -9,12 +10,12 @@ import java.util.ArrayList;
 
 public class SpriteBoulder extends BoulderdashSprite {
 
-    protected Boolean FInEarth;
+    protected Boulder FBoulder;
 
-    public SpriteBoulder() {
+    public SpriteBoulder(Boulder aBoulder) {
         super();
         FID = BoulderdashConsts.SPRITE_BOULDER;
-        FInEarth = true;
+        FBoulder = aBoulder;
     }
 
     @Override
@@ -43,11 +44,11 @@ public class SpriteBoulder extends BoulderdashSprite {
     }
 
     public Boolean getInEarth() {
-        return FInEarth;
+        return FBoulder.getInEarth();
     }
 
     public void setInEarth(Boolean aInEarth) {
-        FInEarth = aInEarth;
+        FBoulder.setInEarth(aInEarth);
     }
 
 }

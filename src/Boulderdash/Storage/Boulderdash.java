@@ -177,7 +177,7 @@ public class Boulderdash extends NG2DGame {
             case 2:
                 return new SpriteDiamond();
             case 4:
-                return new SpriteBoulder();
+                return new SpriteBoulder(new Boulder(this));
             case 5:
                 return new SpriteEarth();
             case 7:

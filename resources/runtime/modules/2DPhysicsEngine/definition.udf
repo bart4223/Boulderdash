@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_25" class="java.beans.XMLDecoder">
+ <object class="Uniplay.Physics.NGPhysicsEngineDefinition">
+  <void property="behaviours">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="Uniplay.Physics.NGPhysicsEngineDefinitionBehaviourItem">
+      <void property="classname">
+       <string>Boulderdash.Storage.Boulder</string>
+      </void>
+      <void property="physicsPrinciple">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniplay.Physics.NGPhysicsEngineDefinitionPhysicsPrincipleItem">
+          <void property="classname">
+           <string>Uniplay.Physics.NG2DNewtonPhysicsPrincipleMomentumConservation</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniplay.Physics.NGPhysicsEngineDefinitionPhysicsPrincipleItem">
+          <void property="classname">
+           <string>Uniplay.Physics.NG2DNewtonPhysicsPrincipleGravitation</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

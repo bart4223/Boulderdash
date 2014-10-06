@@ -9,7 +9,7 @@
        <string>Uniplay.Physics.NG2DPhysicsEngine</string>
       </void>
       <void property="configurationFilename">
-       <string>resources/runtime/modules/PhysicsEngine/config.ucf</string>
+       <string>resources/runtime/modules/2DPhysicsEngine/config.ucf</string>
       </void>
       <void property="name">
        <string>2DPhysicsEngine</string>

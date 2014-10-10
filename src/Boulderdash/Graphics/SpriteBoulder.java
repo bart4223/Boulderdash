@@ -25,7 +25,7 @@ public class SpriteBoulder extends BoulderdashSprite {
                 return "TWOLAYERS";
             }
             else {
-                return "";
+                return "DEFAULT";
             }
         }
         else {
@@ -41,6 +41,10 @@ public class SpriteBoulder extends BoulderdashSprite {
             res.add(new NGDisplayControllerLayerProp("Front", FID));
         }
         return res;
+    }
+
+    public Boulder getBoulder() {
+        return FBoulder;
     }
 
     public Boolean getInEarth() {

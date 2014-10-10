@@ -177,7 +177,11 @@ public class Boulderdash extends NG2DGame {
             case 2:
                 return new SpriteDiamond();
             case 4:
-                return new SpriteBoulder(new Boulder(this));
+                Boulder boulder = new Boulder(this);
+                boulder.setPosition(aAddress.getOffset(), aAddress.getBase());
+                boulder.setLayer(1);
+                boulder.setInEarth(true);
+                return new SpriteBoulder(boulder);
             case 5:
                 return new SpriteEarth();
             case 7:

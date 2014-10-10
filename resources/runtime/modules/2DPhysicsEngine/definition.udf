@@ -13,14 +13,14 @@
         <void method="add">
          <object class="Uniplay.Physics.NGPhysicsEngineDefinitionPhysicsPrincipleItem">
           <void property="classname">
-           <string>Uniplay.Physics.NG2DNewtonPhysicsPrincipleMomentumConservation</string>
+           <string>Boulderdash.Physics.PhysicsPrincipleMomentumConservation</string>
           </void>
          </object>
         </void>
         <void method="add">
          <object class="Uniplay.Physics.NGPhysicsEngineDefinitionPhysicsPrincipleItem">
           <void property="classname">
-           <string>Uniplay.Physics.NG2DNewtonPhysicsPrincipleGravitation</string>
+           <string>Boulderdash.Physics.PhysicsPrincipleGravitation</string>
           </void>
          </object>
         </void>

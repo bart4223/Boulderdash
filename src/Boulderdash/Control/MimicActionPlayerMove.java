@@ -6,8 +6,13 @@ import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicORBAction;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryManager;
+import Uniplay.NGGameEngineConstants;
+import Uniplay.Physics.NGGameObjectPhysicsAction;
+import Uniplay.Physics.NGObjectPhysicsProcessor;
+import Uniplay.Physics.NGPhysicsAction2DImpuls;
 import Uniplay.Storage.*;
 import Boulderdash.BoulderdashConsts;
+import Uniwork.Graphics.NGVector2D;
 
 public class MimicActionPlayerMove extends NGControlMimicORBAction {
 
@@ -20,6 +25,10 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
 
     protected Boolean isObjectAccessible(MemoryCellValue aCellValue) {
         return aCellValue.getObject() instanceof SpriteDoor;
+    }
+
+    protected Boolean isObjectMoveable(MemoryCellValue aCellValue) {
+        return aCellValue.getObject() instanceof SpriteBoulder;
     }
 
     protected void setNewCharacterPosition(NG2DGameCharacter aCharacter) {
@@ -95,6 +104,20 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                         door.getBender().setInDoor(true);
                         FManager.DeactivateMimics(BoulderdashConsts.MIMIC_TYPE_PLAYER_MOVE);
                         FManager.ActivateMimic(BoulderdashConsts.MIMIC_ACTION_DOOR_CLOSE);
+                    }
+                }
+            }
+            else if (isObjectMoveable(value)) {
+                NGObjectPhysicsProcessor pp = (NGObjectPhysicsProcessor)ResolveObject(NGGameEngineConstants.CMP_PHYSICS_PROCESSOR, NGObjectPhysicsProcessor.class);
+                if (value.getObject() instanceof SpriteBoulder) {
+                    Boulder boulder = ((SpriteBoulder)(value.getObject())).getBoulder();
+                    switch (Mode) {
+                        case Right:
+                            pp.addQueue(new NGGameObjectPhysicsAction(character, boulder, new NGPhysicsAction2DImpuls(1.0, new NGVector2D(1.0, 0.0))));
+                            break;
+                        case Left:
+                            pp.addQueue(new NGGameObjectPhysicsAction(character, boulder, new NGPhysicsAction2DImpuls(1.0, new NGVector2D(-1.0, 0.0))));
+                            break;
                     }
                 }
             }

@@ -21,4 +21,10 @@ public class Boulder extends NG2DGameObject {
         FInEarth = aInEarth;
     }
 
+    @Override
+    public void setPosition(double aX, double aY) {
+        super.setPosition(aX, aY);
+        FInEarth = false;
+    }
+
 }

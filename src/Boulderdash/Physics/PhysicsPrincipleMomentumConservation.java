@@ -1,8 +1,6 @@
 package Boulderdash.Physics;
 
 import Boulderdash.Graphics.SpriteAir;
-import Boulderdash.Graphics.SpriteBender;
-import Boulderdash.Storage.Bender;
 import Boulderdash.Storage.MemoryCellValue;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryManager;

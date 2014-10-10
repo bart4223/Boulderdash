@@ -6,6 +6,11 @@ import Uniplay.Physics.NGPhysicsAction2DMovement;
 
 public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
 
+    @Override
+    protected void DoExecute() {
+        super.DoExecute();
+    }
+
     public PhysicsPrincipleGravitation() {
         super();
     }

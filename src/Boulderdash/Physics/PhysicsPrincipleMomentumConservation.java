@@ -38,8 +38,8 @@ public class PhysicsPrincipleMomentumConservation extends NG2DNewtonPhysicsPrinc
                     game.setObjectPosition(go, x1, y1);
                     NGGameEngineMemoryObjectCellValue cellvalue = (NGGameEngineMemoryObjectCellValue)mm.getCellValue(game.getMemoryName(), objectAddress);
                     mm.setCellValueAsObject(game.getMemoryName(), objectNewAddress, cellvalue.getObject());
-                    if (FCurrentGOPhysicsAction.getTriggeredObject() instanceof NG2DGameCharacter) {
-                        NG2DGameCharacter character = (NG2DGameCharacter)FCurrentGOPhysicsAction.getTriggeredObject();
+                    if (FCurrentGOPhysicsAction.getTriggerObject() instanceof NG2DGameCharacter) {
+                        NG2DGameCharacter character = (NG2DGameCharacter)FCurrentGOPhysicsAction.getTriggerObject();
                         NGGameEngineMemoryAddress playerAddress = character.getMemoryAddress();
                         value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
                         mm.setCellValueAsObject(game.getMemoryName(), objectAddress, value.getObject());

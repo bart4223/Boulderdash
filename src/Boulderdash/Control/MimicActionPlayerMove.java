@@ -108,8 +108,8 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                 }
             }
             else if (isObjectMoveable(value)) {
-                NGObjectPhysicsProcessor pp = (NGObjectPhysicsProcessor)ResolveObject(NGGameEngineConstants.CMP_PHYSICS_PROCESSOR, NGObjectPhysicsProcessor.class);
                 if (value.getObject() instanceof SpriteBoulder) {
+                    NGObjectPhysicsProcessor pp = getPhysicsProcessor();
                     Boulder boulder = ((SpriteBoulder)(value.getObject())).getBoulder();
                     switch (Mode) {
                         case Right:

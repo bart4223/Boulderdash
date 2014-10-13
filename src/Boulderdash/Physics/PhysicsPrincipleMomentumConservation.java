@@ -5,9 +5,7 @@ import Boulderdash.Storage.MemoryCellValue;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryManager;
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
-import Uniplay.Physics.NG2DNewtonPhysicsPrinciple;
-import Uniplay.Physics.NGCustomPhysicsAction;
-import Uniplay.Physics.NGPhysicsAction2DImpuls;
+import Uniplay.Physics.*;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NG2DGameCharacter;
 import Uniplay.Storage.NG2DGameObject;
@@ -36,6 +34,8 @@ public class PhysicsPrincipleMomentumConservation extends NG2DNewtonPhysicsPrinc
                 MemoryCellValue value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), objectNewAddress);
                 if (isObjectAccessible(value)) {
                     game.setObjectPosition(go, x1, y1);
+                    NGObjectPhysicsProcessor pp = getPhysicsProcessor();
+                    pp.addQueue(new NGGameObjectPhysicsAction(FCurrentGOPhysicsAction.getTriggerObject(), go, new NGPhysicsAction2DMovement(go.getPosition())));
                     NGGameEngineMemoryObjectCellValue cellvalue = (NGGameEngineMemoryObjectCellValue)mm.getCellValue(game.getMemoryName(), objectAddress);
                     mm.setCellValueAsObject(game.getMemoryName(), objectNewAddress, cellvalue.getObject());
                     if (FCurrentGOPhysicsAction.getTriggerObject() instanceof NG2DGameCharacter) {

@@ -2,6 +2,7 @@ package Boulderdash.Physics;
 
 import Boulderdash.Graphics.SpriteAir;
 import Boulderdash.Graphics.SpriteBoulder;
+import Boulderdash.Graphics.SpriteDiamond;
 import Boulderdash.Storage.MemoryCellValue;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryManager;
@@ -17,7 +18,7 @@ public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
     }
 
     protected Boolean isObjectSlippery(MemoryCellValue aCellValue) {
-        return aCellValue.getObject() instanceof SpriteBoulder;
+        return aCellValue.getObject() instanceof SpriteBoulder || aCellValue.getObject() instanceof SpriteDiamond;
     }
 
     protected void moveObject(NG2DGameObject aGameObject, NGGameEngineMemoryAddress aObjectAddress, NGGameEngineMemoryAddress aObjectNewAddress) {

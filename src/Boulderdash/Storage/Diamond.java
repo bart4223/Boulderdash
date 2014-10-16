@@ -3,13 +3,13 @@ package Boulderdash.Storage;
 import Uniplay.Storage.NG2DGameObject;
 import Uniplay.Storage.NGCustomGame;
 
-public class Boulder extends NG2DGameObject {
+public class Diamond extends NG2DGameObject {
 
     protected Boolean FInEarth;
 
-    public Boulder(NGCustomGame aGame) {
+    public Diamond(NGCustomGame aGame) {
         super(aGame);
-        FPhysics.Mass = 4.0;
+        FPhysics.Mass = 2.0;
         FInEarth = true;
     }
 

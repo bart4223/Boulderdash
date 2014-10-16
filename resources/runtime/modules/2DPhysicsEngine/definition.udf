@@ -28,6 +28,24 @@
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="Uniplay.Physics.NGPhysicsEngineDefinitionBehaviourItem">
+      <void property="classname">
+       <string>Boulderdash.Storage.Diamond</string>
+      </void>
+      <void property="physicsPrinciple">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniplay.Physics.NGPhysicsEngineDefinitionPhysicsPrincipleItem">
+          <void property="classname">
+           <string>Boulderdash.Physics.PhysicsPrincipleGravitation</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
    </object>
   </void>
  </object>

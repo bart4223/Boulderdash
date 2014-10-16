@@ -19,33 +19,32 @@ public class PhysicsPrincipleMomentumConservation extends NG2DNewtonPhysicsPrinc
     @Override
     protected void DoExecute() {
         super.DoExecute();
-        if (FCurrentGOPhysicsAction.getPhysicsAction() instanceof NGPhysicsAction2DImpuls) {
-            NGPhysicsAction2DImpuls impuls = (NGPhysicsAction2DImpuls)FCurrentGOPhysicsAction.getPhysicsAction();
-            if (FCurrentGOPhysicsAction.getAffectedObject() instanceof NG2DGameObject) {
-                NG2DGameObject go = (NG2DGameObject)FCurrentGOPhysicsAction.getAffectedObject();
-                NG2DGame game = (NG2DGame)go.getGame();
-                NGGameEngineMemoryManager mm = game.getMemoryManager();
-                NGGameEngineMemoryAddress objectAddress = go.getMemoryAddress();
-                double x0 = go.getPosition().getX();
-                double y0 = go.getPosition().getY();
-                double x1 =  x0 + (int)(impuls.getDirection().getX() * impuls.getAmount());
-                double y1 =  y0 + (int)(impuls.getDirection().getY() * impuls.getAmount());
-                NGGameEngineMemoryAddress objectNewAddress = new NGGameEngineMemoryAddress(objectAddress.getPage(), (int)y1, (int)x1);
-                MemoryCellValue value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), objectNewAddress);
-                if (isObjectAccessible(value)) {
-                    game.setObjectPosition(go, x1, y1);
-                    NGObjectPhysicsProcessor pp = getPhysicsProcessor();
-                    pp.addQueue(new NGGameObjectPhysicsAction(FCurrentGOPhysicsAction.getTriggerObject(), go, new NGPhysicsAction2DMovement(go.getPosition())));
-                    NGGameEngineMemoryObjectCellValue cellvalue = (NGGameEngineMemoryObjectCellValue)mm.getCellValue(game.getMemoryName(), objectAddress);
-                    mm.setCellValueAsObject(game.getMemoryName(), objectNewAddress, cellvalue.getObject());
-                    if (FCurrentGOPhysicsAction.getTriggerObject() instanceof NG2DGameCharacter) {
-                        NG2DGameCharacter character = (NG2DGameCharacter)FCurrentGOPhysicsAction.getTriggerObject();
-                        NGGameEngineMemoryAddress playerAddress = character.getMemoryAddress();
-                        value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
-                        mm.setCellValueAsObject(game.getMemoryName(), objectAddress, value.getObject());
-                        game.setPCPosition(character, x0, y0);
-                        mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new SpriteAir());
-                    }
+        NGPhysicsAction2DImpuls impuls = (NGPhysicsAction2DImpuls)FCurrentGOPhysicsAction.getPhysicsAction();
+        if (FCurrentGOPhysicsAction.getAffectedObject() instanceof NG2DGameObject) {
+            NG2DGameObject go = (NG2DGameObject)FCurrentGOPhysicsAction.getAffectedObject();
+            NG2DGame game = (NG2DGame)go.getGame();
+            NGGameEngineMemoryManager mm = game.getMemoryManager();
+            NGGameEngineMemoryAddress objectAddress = go.getMemoryAddress();
+            double x0 = go.getPosition().getX();
+            double y0 = go.getPosition().getY();
+            double x1 =  x0 + (int)(impuls.getDirection().getX() * impuls.getAmount());
+            double y1 =  y0 + (int)(impuls.getDirection().getY() * impuls.getAmount());
+            NGGameEngineMemoryAddress objectNewAddress = new NGGameEngineMemoryAddress(objectAddress.getPage(), (int)y1, (int)x1);
+            MemoryCellValue value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), objectNewAddress);
+            if (isObjectAccessible(value)) {
+                game.setObjectPosition(go, x1, y1);
+                NGObjectPhysicsProcessor pp = getPhysicsProcessor();
+                pp.addQueue(new NGGameObjectPhysicsAction(FCurrentGOPhysicsAction.getTriggerObject(), go, new NGPhysicsAction2DMovement(go.getPosition())));
+                NGGameEngineMemoryObjectCellValue cellvalue = (NGGameEngineMemoryObjectCellValue)mm.getCellValue(game.getMemoryName(), objectAddress);
+                mm.setCellValueAsObject(game.getMemoryName(), objectNewAddress, cellvalue.getObject());
+                if (FCurrentGOPhysicsAction.getTriggerObject() instanceof NG2DGameCharacter) {
+                    NG2DGameCharacter character = (NG2DGameCharacter)FCurrentGOPhysicsAction.getTriggerObject();
+                    NGGameEngineMemoryAddress playerAddress = character.getMemoryAddress();
+                    value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), playerAddress);
+                    mm.setCellValueAsObject(game.getMemoryName(), objectAddress, value.getObject());
+                    game.setPCPosition(character, x0, y0);
+                    PhysicsActionMisc.DetectObjectTouchObject(game, getPhysicsProcessor(), character, objectAddress);
+                    mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new SpriteAir());
                 }
             }
         }

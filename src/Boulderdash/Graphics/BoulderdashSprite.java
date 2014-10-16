@@ -3,6 +3,7 @@ package Boulderdash.Graphics;
 import Uniplay.Graphics.NG2DCustomSprite;
 import Uniplay.Graphics.NGCustomRenderEngineItem;
 import Uniplay.Graphics.NGDisplayControllerLayerProp;
+import Uniplay.Storage.NGCustomGameObject;
 import Uniwork.Visuals.NGDisplayController;
 
 import java.util.ArrayList;
@@ -31,6 +32,10 @@ public class BoulderdashSprite extends NG2DCustomSprite {
     @Override
     public Integer getValueForDisplayController(String aRenderEngine, NGDisplayController aDisplayController) {
         return getID();
+    }
+
+    public NGCustomGameObject getGameObject() {
+        return null;
     }
 
 }

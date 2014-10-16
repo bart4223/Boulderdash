@@ -4,6 +4,7 @@ import Boulderdash.BoulderdashConsts;
 import Boulderdash.Storage.Boulder;
 import Uniplay.Graphics.NGCustomRenderEngineItem;
 import Uniplay.Graphics.NGDisplayControllerLayerProp;
+import Uniplay.Storage.NGCustomGameObject;
 import Uniwork.Visuals.NGDisplayController;
 
 import java.util.ArrayList;
@@ -41,6 +42,11 @@ public class SpriteBoulder extends BoulderdashSprite {
             res.add(new NGDisplayControllerLayerProp("Front", FID));
         }
         return res;
+    }
+
+    @Override
+    public NGCustomGameObject getGameObject() {
+        return FBoulder;
     }
 
     public Boulder getBoulder() {

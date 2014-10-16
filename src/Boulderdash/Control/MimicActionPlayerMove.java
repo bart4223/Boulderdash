@@ -1,12 +1,12 @@
 package Boulderdash.Control;
 
 import Boulderdash.Graphics.*;
+import Boulderdash.Physics.PhysicsActionMisc;
 import Boulderdash.Storage.*;
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicORBAction;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryManager;
-import Uniplay.NGGameEngineConstants;
 import Uniplay.Physics.NGGameObjectPhysicsAction;
 import Uniplay.Physics.NGObjectPhysicsProcessor;
 import Uniplay.Physics.NGPhysicsAction2DImpuls;
@@ -18,16 +18,16 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
 
     public enum Movemode {Up, Down, Left, Right};
 
-    protected Boolean isObjectRemovably(MemoryCellValue aCellValue) {
+    protected static Boolean isObjectRemovably(MemoryCellValue aCellValue) {
         return aCellValue.getObject() instanceof SpriteEarth || aCellValue.getObject() instanceof SpriteAir ||
             aCellValue.getObject() instanceof SpriteDiamond;
     }
 
-    protected Boolean isObjectAccessible(MemoryCellValue aCellValue) {
+    protected static Boolean isObjectAccessible(MemoryCellValue aCellValue) {
         return aCellValue.getObject() instanceof SpriteDoor;
     }
 
-    protected Boolean isObjectMoveable(MemoryCellValue aCellValue) {
+    protected static Boolean isObjectMoveable(MemoryCellValue aCellValue) {
         return aCellValue.getObject() instanceof SpriteBoulder;
     }
 
@@ -94,6 +94,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
                     setNewCharacterPosition(character);
                     mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new SpriteAir());
                 }
+                PhysicsActionMisc.DetectObjectTouchObject(game, getPhysicsProcessor(), character, playerAddress);
             }
             else if (isObjectAccessible(value)) {
                 setNewCharacterPosition(character);

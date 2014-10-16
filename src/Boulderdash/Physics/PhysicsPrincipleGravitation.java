@@ -9,7 +9,6 @@ import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
 import Uniplay.Physics.*;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NG2DGameObject;
-import Uniplay.Storage.NGCustomGameObject;
 
 public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
 

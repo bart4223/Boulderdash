@@ -14,7 +14,8 @@ public class MimicActionDoor extends NGControlMimicPeriodicAction {
     protected void DoHandleTick() {
         super.DoHandleTick();
         Boulderdash game = (Boulderdash)getGame();
-        for (Door door : game.getDoors()) {
+        for (DoorItem item : game.getDoors()) {
+            Door door = item.getDoor();
             switch (Mode) {
                 case Open:
                     if (!door.IsOpen()) {

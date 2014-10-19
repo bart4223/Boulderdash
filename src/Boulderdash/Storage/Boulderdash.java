@@ -32,8 +32,8 @@ public class Boulderdash extends NG2DGame {
     protected GameControlStageController FGameControlController;
     protected NGObjectRequestCaller FCaller;
     protected Boolean FPlaySound;
-    protected Integer FDiamondCount;
-    protected ArrayList<Door> FDoors;
+    protected ArrayList<DoorItem> FDoors;
+    protected ArrayList<DiamondItem> FDiamonds;
 
     protected void CreateControlStage(){
         FGameControlStage = new Stage();
@@ -145,7 +145,6 @@ public class Boulderdash extends NG2DGame {
     @Override
     protected void assignGameObjects() {
         super.assignGameObjects();
-        assignDiamondCount();
         assignDoors(getCurrentGameFieldLayer());
     }
 
@@ -175,11 +174,10 @@ public class Boulderdash extends NG2DGame {
             case 1:
                 return new SpriteBender((Bender)getPCfromAddress(aAddress));
             case 2:
-                Diamond diamond = new Diamond(this);
-                diamond.setPosition(aAddress.getOffset(), aAddress.getBase());
-                diamond.setLayer(1);
-                diamond.setInEarth(true);
-                return new SpriteDiamond(diamond);
+                DiamondItem item = addDiamond(aAddress);
+                item.getDiamond().setLayer(1);
+                item.getDiamond().setInEarth(true);
+                return new SpriteDiamond(item.getDiamond());
             case 4:
                 Boulder boulder = new Boulder(this);
                 boulder.setPosition(aAddress.getOffset(), aAddress.getBase());
@@ -202,20 +200,22 @@ public class Boulderdash extends NG2DGame {
         return null;
     }
 
-    protected void assignDiamondCount() {
-        FDiamondCount = 0;
-        for (NG2DGameFieldLayer layer : FCurrentLevel.getGameField().getLayers()) {
-            for (NGPropertyItem prop : layer.getProps().getItems()) {
-                String obj = NGStrings.getStringPos(prop.getName(), "\\.", 3);
-                if (obj.equals("DIAMOND")) {
-                    String op = NGStrings.getStringPos(prop.getName(), "\\.", 4);
-                    if (op.equals("COUNT")) {
-                        FDiamondCount = FDiamondCount + (Integer)prop.getValue();
-                    }
-                }
+    protected DiamondItem addDiamond(NGGameEngineMemoryAddress aAddress) {
+        Diamond diamond = new Diamond(this);
+        diamond.setPosition(aAddress.getOffset(), aAddress.getBase());
+        DiamondItem item = new DiamondItem(diamond);
+        FDiamonds.add(item);
+        return item;
+    }
+
+    protected Integer getCollectedDiamondCount() {
+        Integer res = 0;
+        for (DiamondItem item : FDiamonds) {
+            if (item.getCollected()) {
+                res++;
             }
         }
-        writeLog(String.format("Level [%s] has %d diamond(s).", FCurrentLevel.getCaption(), FDiamondCount));
+        return res;
     }
 
     protected void assignDoors(NG2DGameFieldLayer aLayer) {
@@ -234,9 +234,9 @@ public class Boulderdash extends NG2DGame {
     }
 
     public Door getDoorfromAddress(NGGameEngineMemoryAddress aAddress) {
-        for (Door door : FDoors) {
-            if (door.IsFromAddress(aAddress)) {
-                return door;
+        for (DoorItem item : FDoors) {
+            if (item.getDoor().IsFromAddress(aAddress)) {
+                return item.getDoor();
             }
         }
         return null;
@@ -245,7 +245,7 @@ public class Boulderdash extends NG2DGame {
     protected Door addDoor(NG2DObjectPosition aPosition) {
         Door door = new Door(this);
         door.setPosition(aPosition.getX(), aPosition.getY());
-        FDoors.add(door);
+        FDoors.add(new DoorItem(door));
         writeLog(String.format("Door at (%.1f/%.1f) added.", aPosition.getX(), aPosition.getY()));
         return door;
     }
@@ -283,8 +283,8 @@ public class Boulderdash extends NG2DGame {
         FCaller.setLogManager(aManager.getLogManager());
         CreateControlStage();
         CreateGameFieldStage();
-        FDiamondCount = 0;
-        FDoors = new ArrayList<Door>();
+        FDoors = new ArrayList<DoorItem>();
+        FDiamonds = new ArrayList<DiamondItem>();
     }
 
     public Canvas getGameFieldLayerBack() {
@@ -315,18 +315,23 @@ public class Boulderdash extends NG2DGame {
         return FShowGameFieldGrid;
     }
 
-    public void DiamondCollected() {
-        FDiamondCount--;
-        if (FDiamondCount == 0) {
+    public void setDiamondCollected(Diamond aDiamond) {
+        aDiamond.setCollected(true);
+        Integer collected = getCollectedDiamondCount();
+        if (FDiamonds.size() == collected) {
             getMimicManager().ActivateMimic(BoulderdashConsts.MIMIC_ACTION_DOOR_OPEN);
         }
         else {
-            writeLog(String.format("Diamond collected. [%d] diamond(s) to be collect...", FDiamondCount));
+            writeLog(String.format("Diamond collected. %d diamond(s) to be collect...", FDiamonds.size() - collected));
         }
     }
 
-    public ArrayList<Door> getDoors() {
+    public ArrayList<DoorItem> getDoors() {
         return FDoors;
+    }
+
+    public ArrayList<DiamondItem> getDiamonds() {
+        return FDiamonds;
     }
 
     public void addTestPlayers() {

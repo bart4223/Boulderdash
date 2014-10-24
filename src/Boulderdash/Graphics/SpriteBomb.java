@@ -2,7 +2,7 @@ package Boulderdash.Graphics;
 
 import Boulderdash.BoulderdashConsts;
 import Uniplay.Graphics.NGCustomRenderEngineItem;
-import Uniplay.Graphics.NGDisplayControllerLayerProp;
+import Uniwork.Base.NGPropertyItem;
 import Uniwork.Visuals.NGDisplayController;
 
 import java.util.ArrayList;
@@ -25,11 +25,11 @@ public class SpriteBomb extends BoulderdashSprite {
     }
 
     @Override
-    public ArrayList<NGDisplayControllerLayerProp> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
-        ArrayList<NGDisplayControllerLayerProp> res = super.getDisplayControllerLayerProps(aRenderEngine, aDisplayController);
+    public ArrayList<NGPropertyItem> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
+        ArrayList<NGPropertyItem> res = super.getDisplayControllerLayerProps(aRenderEngine, aDisplayController);
         if (aDisplayController.getName().equals("TWOLAYERS")) {
-            res.add(new NGDisplayControllerLayerProp("Background", BoulderdashConsts.SPRITE_EARTH));
-            res.add(new NGDisplayControllerLayerProp("Front", FID));
+            res.add(new NGPropertyItem("Background", BoulderdashConsts.SPRITE_EARTH));
+            res.add(new NGPropertyItem("Front", FID));
         }
         return res;
     }

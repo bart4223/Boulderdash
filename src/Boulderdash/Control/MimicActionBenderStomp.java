@@ -5,7 +5,7 @@ import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicPeriodicAction;
 import Uniplay.Storage.*;
 
-public class MimicActionPlayerStomp extends NGControlMimicPeriodicAction {
+public class MimicActionBenderStomp extends NGControlMimicPeriodicAction {
 
     @Override
     protected void DoHandleTick() {
@@ -22,7 +22,7 @@ public class MimicActionPlayerStomp extends NGControlMimicPeriodicAction {
         return (NG2DGame)super.getGame();
     }
 
-    public MimicActionPlayerStomp(NGControlMimicManager aManager, NGCustomGame aGame, String aName) {
+    public MimicActionBenderStomp(NGControlMimicManager aManager, NGCustomGame aGame, String aName) {
         super(aManager, aGame, aName);
     }
 

@@ -6,7 +6,7 @@
     <void method="add">
      <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
       <void property="classname">
-       <string>Boulderdash.Control.MimicActionPlayerMove</string>
+       <string>Boulderdash.Control.MimicActionBenderMove</string>
       </void>
       <void property="name">
        <string>Player.Up</string>
@@ -23,7 +23,7 @@
           </void>
           <void property="value">
            <object class="java.lang.Enum" method="valueOf">
-            <class>Boulderdash.Control.MimicActionPlayerMove$Movemode</class>
+            <class>Boulderdash.Control.MimicActionBenderMove$Movemode</class>
             <string>Up</string>
            </object>
           </void>
@@ -46,7 +46,7 @@
     <void method="add">
      <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
       <void property="classname">
-       <string>Boulderdash.Control.MimicActionPlayerMove</string>
+       <string>Boulderdash.Control.MimicActionBenderMove</string>
       </void>
       <void property="name">
        <string>Player.Down</string>
@@ -63,7 +63,7 @@
           </void>
           <void property="value">
            <object class="java.lang.Enum" method="valueOf">
-            <class>Boulderdash.Control.MimicActionPlayerMove$Movemode</class>
+            <class>Boulderdash.Control.MimicActionBenderMove$Movemode</class>
             <string>Down</string>
            </object>
           </void>
@@ -86,7 +86,7 @@
     <void method="add">
      <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
       <void property="classname">
-       <string>Boulderdash.Control.MimicActionPlayerMove</string>
+       <string>Boulderdash.Control.MimicActionBenderMove</string>
       </void>
       <void property="name">
        <string>Player.Left</string>
@@ -103,7 +103,7 @@
           </void>
           <void property="value">
            <object class="java.lang.Enum" method="valueOf">
-            <class>Boulderdash.Control.MimicActionPlayerMove$Movemode</class>
+            <class>Boulderdash.Control.MimicActionBenderMove$Movemode</class>
             <string>Left</string>
            </object>
           </void>
@@ -126,7 +126,7 @@
     <void method="add">
      <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
       <void property="classname">
-       <string>Boulderdash.Control.MimicActionPlayerMove</string>
+       <string>Boulderdash.Control.MimicActionBenderMove</string>
       </void>
       <void property="name">
        <string>Player.Right</string>
@@ -143,7 +143,7 @@
           </void>
           <void property="value">
            <object class="java.lang.Enum" method="valueOf">
-            <class>Boulderdash.Control.MimicActionPlayerMove$Movemode</class>
+            <class>Boulderdash.Control.MimicActionBenderMove$Movemode</class>
             <string>Right</string>
            </object>
           </void>
@@ -246,7 +246,7 @@
     <void method="add">
      <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
       <void property="classname">
-       <string>Boulderdash.Control.MimicActionPlayerStomp</string>
+       <string>Boulderdash.Control.MimicActionBenderStomp</string>
       </void>
       <void property="name">
        <string>Player.Stomp</string>
@@ -263,6 +263,33 @@
           </void>
           <void property="value">
            <int>50</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Control.NGControlCenterDefinitionMimicItem">
+      <void property="classname">
+       <string>Boulderdash.Control.MimicActionDiamondFlicker</string>
+      </void>
+      <void property="name">
+       <string>Diamond.Flicker</string>
+      </void>
+      <void property="game">
+       <string>Boulderdash</string>
+      </void>
+      <void property="props">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Base.NGSerializePropertyItem">
+          <void property="name">
+           <string>Interval</string>
+          </void>
+          <void property="value">
+           <int>5</int>
           </void>
          </object>
         </void>

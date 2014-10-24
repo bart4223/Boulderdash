@@ -14,7 +14,7 @@ import Uniplay.Storage.*;
 import Boulderdash.BoulderdashConsts;
 import Uniwork.Graphics.NGVector2D;
 
-public class MimicActionPlayerMove extends NGControlMimicORBAction {
+public class MimicActionBenderMove extends NGControlMimicORBAction {
 
     public enum Movemode {Up, Down, Left, Right};
 
@@ -130,7 +130,7 @@ public class MimicActionPlayerMove extends NGControlMimicORBAction {
         return (NG2DGame)super.getGame();
     }
 
-    public MimicActionPlayerMove(NGControlMimicManager aManager, NGCustomGame aGame, String aName) {
+    public MimicActionBenderMove(NGControlMimicManager aManager, NGCustomGame aGame, String aName) {
         super(aManager, aGame, aName);
         Mode = Movemode.Up;
     }

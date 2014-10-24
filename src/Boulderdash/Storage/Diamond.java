@@ -7,12 +7,14 @@ public class Diamond extends NG2DGameObject {
 
     protected Boolean FInEarth;
     protected Boolean FCollected;
+    protected Integer FFlickerIndex;
 
     public Diamond(NGCustomGame aGame) {
         super(aGame);
         FPhysics.Mass = 2.0;
         FInEarth = true;
         FCollected = false;
+        FFlickerIndex = 0;
     }
 
     public Boolean getInEarth() {
@@ -35,6 +37,17 @@ public class Diamond extends NG2DGameObject {
 
     public Boolean getCollected() {
         return FCollected;
+    }
+
+    public void incFlickerIndex() {
+        FFlickerIndex++;
+        if (FFlickerIndex > 6) {
+            FFlickerIndex = 0;
+        }
+    }
+
+    public Integer getFlickerIndex() {
+        return FFlickerIndex;
     }
 
 }

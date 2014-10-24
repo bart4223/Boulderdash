@@ -2,7 +2,7 @@
 <java version="1.7.0_67" class="java.beans.XMLDecoder">
  <object class="Grids.XMLGrid">
   <void property="currentLayer">
-   <string>LAYER1</string>
+   <string>LAYER2</string>
   </void>
   <void property="gridColor">
    <string>0xd3d3d3ff</string>
@@ -15,7 +15,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>19</int>
+       <int>24</int>
       </void>
       <void property="description">
        <string>Layer 1</string>
@@ -529,30 +529,10 @@
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
-           <double>6.0</double>
-          </void>
-          <void property="y">
-           <double>13.0</double>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="Uniwork.Graphics.NGPoint2D">
-          <void property="x">
            <double>8.0</double>
           </void>
           <void property="y">
            <double>12.0</double>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="Uniwork.Graphics.NGPoint2D">
-          <void property="x">
-           <double>8.0</double>
-          </void>
-          <void property="y">
-           <double>13.0</double>
           </void>
          </object>
         </void>
@@ -563,16 +543,6 @@
           </void>
           <void property="y">
            <double>12.0</double>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="Uniwork.Graphics.NGPoint2D">
-          <void property="x">
-           <double>7.0</double>
-          </void>
-          <void property="y">
-           <double>14.0</double>
           </void>
          </object>
         </void>
@@ -629,7 +599,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>18</int>
+       <int>25</int>
       </void>
       <void property="description">
        <string>Layer 2</string>
@@ -956,6 +926,16 @@
           </void>
          </object>
         </void>
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>7.0</double>
+          </void>
+          <void property="y">
+           <double>13.0</double>
+          </void>
+         </object>
+        </void>
        </object>
       </void>
       <void property="name">
@@ -969,7 +949,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>17</int>
+       <int>23</int>
       </void>
       <void property="description">
        <string>Layer 3</string>
@@ -1079,7 +1059,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>16</int>
+       <int>22</int>
       </void>
       <void property="description">
        <string>Layer 4</string>
@@ -1213,6 +1193,56 @@
       </void>
       <void property="objectColor">
        <string>0xffffffff</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Grids.XMLLayer">
+      <void property="ZOrder">
+       <int>20</int>
+      </void>
+      <void property="description">
+       <string>Layer 5</string>
+      </void>
+      <void property="geometryObjects">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>7.0</double>
+          </void>
+          <void property="y">
+           <double>14.0</double>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>6.0</double>
+          </void>
+          <void property="y">
+           <double>13.0</double>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>8.0</double>
+          </void>
+          <void property="y">
+           <double>13.0</double>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="name">
+       <string>LAYER5</string>
+      </void>
+      <void property="objectColor">
+       <string>0x001a80ff</string>
       </void>
      </object>
     </void>

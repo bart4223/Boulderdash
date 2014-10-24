@@ -18,7 +18,7 @@ public class MimicActionDiamondFlicker extends NGControlMimicPeriodicAction {
         for (DiamondItem di : game.getDiamonds()) {
             Diamond diamond = di.getDiamond();
             if (!diamond.getCollected()) {
-                diamond.incFlickerIndex();
+                diamond.Flicker();
                 NGGameEngineMemoryManager mm = game.getMemoryManager();
                 mm.refreshCell(game.getMemoryName(), diamond.getMemoryAddress());
             }

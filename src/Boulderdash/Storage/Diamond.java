@@ -2,6 +2,7 @@ package Boulderdash.Storage;
 
 import Uniplay.Storage.NG2DGameObject;
 import Uniplay.Storage.NGCustomGame;
+import Uniwork.Misc.NGRandomGenerator;
 
 import java.util.Random;
 
@@ -11,10 +12,9 @@ public class Diamond extends NG2DGameObject {
     protected Boolean FCollected;
     protected Integer FFlickerIndex;
     protected Integer FFlickerDirection;
-    protected Random FGenerator;
 
     protected Integer getFlickerDirection() {
-        if (FGenerator.nextBoolean()) {
+        if (NGRandomGenerator.GlobalRandomGenerator.getBoolean()) {
             return 1;
         }
         else {
@@ -24,7 +24,6 @@ public class Diamond extends NG2DGameObject {
 
     public Diamond(NGCustomGame aGame) {
         super(aGame);
-        FGenerator = new Random();
         FFlickerDirection = getFlickerDirection();
         FPhysics.Mass = 2.0;
         FInEarth = true;

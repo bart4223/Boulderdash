@@ -23,36 +23,40 @@ public abstract class PhysicsActionMisc {
     }
 
     public static void DetectObjectTouchObject(NGCustomGame aGame, NGObjectPhysicsProcessor aPhysicsProcessor, NGCustomGameObject aTriggerObject, NGGameEngineMemoryAddress aPlayerAddress) {
+        DetectObjectTouchObject(aGame, aPhysicsProcessor, aTriggerObject, aPlayerAddress, 0);
+    }
+
+    public static void DetectObjectTouchObject(NGCustomGame aGame, NGObjectPhysicsProcessor aPhysicsProcessor, NGCustomGameObject aTriggerObject, NGGameEngineMemoryAddress aPlayerAddress, Integer aDelay) {
         NGGameEngineMemoryManager mm = aGame.getMemoryManager();;
         NGGameEngineMemoryAddress objectAddress = new NGGameEngineMemoryAddress(aPlayerAddress.getPage(), aPlayerAddress.getBase() - 1, aPlayerAddress.getOffset() - 1);
         MemoryCellValue value = (MemoryCellValue)mm.getCellValue(aGame.getMemoryName(), objectAddress);
         if (isObjectTouchable(value)) {
             NGCustomGameObject go = ((BoulderdashSprite)value.getObject()).getGameObject();
-            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()));
+            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()), aDelay);
         }
         objectAddress = new NGGameEngineMemoryAddress(aPlayerAddress.getPage(), aPlayerAddress.getBase() - 1, aPlayerAddress.getOffset());
         value = (MemoryCellValue)mm.getCellValue(aGame.getMemoryName(), objectAddress);
         if (isObjectTouchable(value)) {
             NGCustomGameObject go = ((BoulderdashSprite)value.getObject()).getGameObject();
-            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()));
+            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()), aDelay);
         }
         objectAddress = new NGGameEngineMemoryAddress(aPlayerAddress.getPage(), aPlayerAddress.getBase() - 1, aPlayerAddress.getOffset() + 1);
         value = (MemoryCellValue)mm.getCellValue(aGame.getMemoryName(), objectAddress);
         if (isObjectTouchable(value)) {
             NGCustomGameObject go = ((BoulderdashSprite)value.getObject()).getGameObject();
-            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()));
+            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()), aDelay);
         }
         objectAddress = new NGGameEngineMemoryAddress(aPlayerAddress.getPage(), aPlayerAddress.getBase(), aPlayerAddress.getOffset() - 1);
         value = (MemoryCellValue)mm.getCellValue(aGame.getMemoryName(), objectAddress);
         if (isObjectTouchable(value)) {
             NGCustomGameObject go = ((BoulderdashSprite)value.getObject()).getGameObject();
-            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()));
+            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()), aDelay);
         }
         objectAddress = new NGGameEngineMemoryAddress(aPlayerAddress.getPage(), aPlayerAddress.getBase(), aPlayerAddress.getOffset() + 1);
         value = (MemoryCellValue)mm.getCellValue(aGame.getMemoryName(), objectAddress);
         if (isObjectTouchable(value)) {
             NGCustomGameObject go = ((BoulderdashSprite)value.getObject()).getGameObject();
-            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()));
+            aPhysicsProcessor.addQueue(new NGGameObjectPhysicsAction(aTriggerObject, go, new NGPhysicsActionTouch()), aDelay);
         }
     }
 

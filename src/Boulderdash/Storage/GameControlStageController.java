@@ -1,6 +1,5 @@
 package Boulderdash.Storage;
 
-import Boulderdash.Storage.Boulderdash;
 import Uniplay.Storage.NGPlayer;
 import Uniplay.Storage.NGPlayerItem;
 import Uniwork.Visuals.NGStageController;
@@ -29,6 +28,11 @@ public class GameControlStageController extends NGStageController {
     @FXML
     protected void handleTest(){
         Game.Test();
+    }
+
+    @FXML
+    protected void handleExit(){
+        Game.Shutdown();
     }
 
     @FXML

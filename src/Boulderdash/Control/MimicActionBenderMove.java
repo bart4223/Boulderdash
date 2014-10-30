@@ -95,7 +95,7 @@ public class MimicActionBenderMove extends NGControlMimicORBAction {
                     setNewCharacterPosition(character);
                     mm.setCellValueAsObject(game.getMemoryName(), playerAddress, new SpriteAir());
                 }
-                PhysicsActionMisc.DetectObjectTouchObject(game, getPhysicsProcessor(), character, playerAddress);
+                PhysicsActionMisc.DetectObjectTouchObject(game, getPhysicsProcessor(), character, playerAddress, 200);
             }
             else if (isObjectAccessible(value)) {
                 setNewCharacterPosition(character);
@@ -115,10 +115,10 @@ public class MimicActionBenderMove extends NGControlMimicORBAction {
                     Boulder boulder = ((SpriteBoulder)(value.getObject())).getBoulder();
                     switch (Mode) {
                         case Right:
-                            pp.addQueue(new NGGameObjectPhysicsAction(character, boulder, new NGPhysicsAction2DImpuls(1.0, new NGVector2D(1.0, 0.0))));
+                            pp.addQueue(new NGGameObjectPhysicsAction(character, boulder, new NGPhysicsAction2DImpuls(1.0, new NGVector2D(1.0, 0.0))), 200);
                             break;
                         case Left:
-                            pp.addQueue(new NGGameObjectPhysicsAction(character, boulder, new NGPhysicsAction2DImpuls(1.0, new NGVector2D(-1.0, 0.0))));
+                            pp.addQueue(new NGGameObjectPhysicsAction(character, boulder, new NGPhysicsAction2DImpuls(1.0, new NGVector2D(-1.0, 0.0))), 200);
                             break;
                     }
                 }

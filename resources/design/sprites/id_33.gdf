@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_71" class="java.beans.XMLDecoder">
+ <object class="Grids.XMLGrid">
+  <void property="currentLayer">
+   <string>LAYER1</string>
+  </void>
+  <void property="gridColor">
+   <string>0xd3d3d3ff</string>
+  </void>
+  <void property="gridDistance">
+   <int>2</int>
+  </void>
+  <void property="layers">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="Grids.XMLLayer">
+      <void property="ZOrder">
+       <int>6</int>
+      </void>
+      <void property="description">
+       <string>Layer 1</string>
+      </void>
+      <void property="geometryObjects">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>7.0</double>
+          </void>
+          <void property="y">
+           <double>7.0</double>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>7.0</double>
+          </void>
+          <void property="y">
+           <double>8.0</double>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>8.0</double>
+          </void>
+          <void property="y">
+           <double>8.0</double>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>8.0</double>
+          </void>
+          <void property="y">
+           <double>7.0</double>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="name">
+       <string>LAYER1</string>
+      </void>
+      <void property="objectColor">
+       <string>0x000000ff</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

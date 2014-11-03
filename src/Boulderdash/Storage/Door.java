@@ -5,7 +5,7 @@ import javafx.application.Platform;
 
 public class Door extends NG2DGameObject {
 
-    public static void LevelFinished(final NGCustomGame aGame) {
+    private static void LevelFinished(final NGCustomGame aGame) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {

@@ -15,11 +15,11 @@ public class MimicActionDiamondFlicker extends NGControlMimicPeriodicAction {
     protected void DoHandleTick() {
         super.DoHandleTick();
         Boulderdash game = (Boulderdash)getGame();
+        NGGameEngineMemoryManager mm = game.getMemoryManager();
         for (DiamondItem di : game.getDiamonds()) {
             Diamond diamond = di.getDiamond();
             if (!diamond.getCollected()) {
                 diamond.Flicker();
-                NGGameEngineMemoryManager mm = game.getMemoryManager();
                 mm.refreshCell(game.getMemoryName(), diamond.getMemoryAddress());
             }
         }

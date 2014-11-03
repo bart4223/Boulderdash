@@ -1,6 +1,8 @@
 package Boulderdash.Physics;
 
+import Boulderdash.BoulderdashConsts;
 import Boulderdash.Graphics.SpriteAir;
+import Boulderdash.Graphics.SpriteBender;
 import Boulderdash.Graphics.SpriteBoulder;
 import Boulderdash.Graphics.SpriteDiamond;
 import Boulderdash.Storage.MemoryCellValue;
@@ -10,8 +12,19 @@ import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
 import Uniplay.Physics.*;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NG2DGameObject;
+import Uniplay.Storage.NGCustomGame;
 
 public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
+
+    protected void PlayerKilled(NGCustomGame aGame) {
+        aGame.DeactivateMimicActions(BoulderdashConsts.MIMIC_ACTION_PLAYER_MOVE);
+        aGame.DeactivateMimicAction(BoulderdashConsts.MIMIC_ACTION_PLAYER_STOMP);
+        aGame.ActivateMimicAction(BoulderdashConsts.MIMIC_ACTION_PLAYER_KILLED);
+    }
+
+    protected Boolean isObjectDestructible(MemoryCellValue aCellValue) {
+        return aCellValue.getObject() instanceof SpriteBender;
+    }
 
     protected Boolean isObjectAccessible(MemoryCellValue aCellValue) {
         return aCellValue.getObject() instanceof SpriteAir;
@@ -68,6 +81,9 @@ public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
                         }
                     }
                 }
+            }
+            else if (FCurrentGOPhysicsAction.getPhysicsAction() instanceof NGPhysicsAction2DMovement && isObjectDestructible(value)) {
+                PlayerKilled(game);
             }
         }
     }

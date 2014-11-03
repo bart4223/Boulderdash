@@ -36,16 +36,19 @@ public abstract class BoulderdashConsts {
     public final static Integer SPRITE_DOOR_OPEN_HALF_FRONT          = 30;
     public final static Integer SPRITE_DOOR_OPEN_THREEQUARTER_FRONT  = 31;
     public final static Integer SPRITE_DOOR_OPEN_FRONT               = 32;
+    public final static Integer SPRITE_EXPLOSION                     = 33;
 
     // --------------------- Mimics ------------------------------------
-    public final static String MIMIC_TYPE_PLAYER_MOVE                = "Player.Move";
+    public final static String MIMIC_ACTION_PLAYER_MOVE              = "Player.Move";
     public final static String MIMIC_ACTION_PLAYER_STOMP             = "Player.Stomp";
     public final static String MIMIC_ACTION_PLAYER_UP                = "Player.Up";
     public final static String MIMIC_ACTION_PLAYER_DOWN              = "Player.Down";
     public final static String MIMIC_ACTION_PLAYER_LEFT              = "Player.Left";
     public final static String MIMIC_ACTION_PLAYER_RIGHT             = "Player.Right";
+    public final static String MIMIC_ACTION_PLAYER_KILLED            = "Player.Killed";
     public final static String MIMIC_ACTION_DOOR_OPEN                = "Door.Open";
     public final static String MIMIC_ACTION_DOOR_CLOSE               = "Door.Close";
+    public final static String MIMIC_ACTION_EXPLOSION                = "Explosion";
 
     // --------------------- SOUNDS ---------------------------------
     public final static String SOUND_SPLASH_FEAR                     = "Fear";

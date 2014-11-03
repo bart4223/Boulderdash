@@ -1,7 +1,7 @@
 package Boulderdash.Graphics;
 
 import Boulderdash.BoulderdashConsts;
-import Boulderdash.Storage.Diamond;
+import Boulderdash.Storage.ExplosionCenter;
 import Uniplay.Graphics.NGCustomRenderEngineItem;
 import Uniplay.Storage.NGCustomGameObject;
 import Uniwork.Base.NGPropertyItem;
@@ -9,14 +9,14 @@ import Uniwork.Visuals.NGDisplayController;
 
 import java.util.ArrayList;
 
-public class SpriteDiamond extends BoulderdashSprite {
+public class SpriteExplosion extends BoulderdashSprite {
 
-    protected Diamond FDiamond;
+    protected ExplosionCenter FExplosionCenter;
 
-    public SpriteDiamond(Diamond aDiamond) {
+    public SpriteExplosion(ExplosionCenter aExplosionCenter) {
         super();
-        FDiamond = aDiamond;
-        FID = BoulderdashConsts.SPRITE_DIAMOND;
+        FExplosionCenter = aExplosionCenter;
+        FID = BoulderdashConsts.SPRITE_EXPLOSION;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class SpriteDiamond extends BoulderdashSprite {
     public ArrayList<NGPropertyItem> getDisplayControllerProps(String aRenderEngine, NGDisplayController aDisplayController) {
         ArrayList<NGPropertyItem> res = super.getDisplayControllerProps(aRenderEngine, aDisplayController);
         if (aDisplayController.getName().equals("ANIMATION")) {
-            res.add(new NGPropertyItem("AnimationIndex", FDiamond.getFlickerIndex()));
+            res.add(new NGPropertyItem("AnimationIndex", FExplosionCenter.getExplosionIndex()));
         }
         return res;
     }
@@ -42,32 +42,19 @@ public class SpriteDiamond extends BoulderdashSprite {
     public ArrayList<NGPropertyItem> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
         ArrayList<NGPropertyItem> res = super.getDisplayControllerLayerProps(aRenderEngine, aDisplayController);
         if (aDisplayController.getName().equals("ANIMATION")) {
-            if (FDiamond.getInEarth()) {
-                res.add(new NGPropertyItem("Background", BoulderdashConsts.SPRITE_EARTH));
-            }
-            else {
-                res.add(new NGPropertyItem("Background", BoulderdashConsts.SPRITE_AIR));
-            }
+            res.add(new NGPropertyItem("Background", BoulderdashConsts.SPRITE_AIR));
             res.add(new NGPropertyItem("Front", FID));
         }
         return res;
     }
 
+    public ExplosionCenter getExplosionCenter() {
+        return FExplosionCenter;
+    }
+
     @Override
     public NGCustomGameObject getGameObject() {
-        return FDiamond;
-    }
-
-    public Diamond getDiamond() {
-        return FDiamond;
-    }
-
-    public Boolean getInEarth() {
-        return FDiamond.getInEarth();
-    }
-
-    public void setInEarth(Boolean aInEarth) {
-        FDiamond.setInEarth(aInEarth);
+        return FExplosionCenter;
     }
 
 }

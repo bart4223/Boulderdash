@@ -44,7 +44,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>33</int>
+               <int>34</int>
               </void>
              </object>
             </void>
@@ -75,7 +75,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>33</int>
+               <int>34</int>
               </void>
              </object>
             </void>
@@ -100,10 +100,10 @@
         <void method="add">
          <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerItem">
           <void property="name">
-           <string>DIAMOND</string>
+           <string>ANIMATION</string>
           </void>
           <void property="classname">
-           <string>Boulderdash.Graphics.DisplayControllerDiamond</string>
+           <string>Uniwork.Visuals.NGAnimatedImageDisplayController</string>
           </void>
           <void property="imagename">
            <string>resources/sprites/id_%d.png</string>
@@ -116,7 +116,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>33</int>
+               <int>34</int>
               </void>
              </object>
             </void>
@@ -198,7 +198,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>33</int>
+               <int>34</int>
               </void>
              </object>
             </void>
@@ -280,7 +280,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>33</int>
+               <int>34</int>
               </void>
              </object>
             </void>

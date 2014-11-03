@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class MimicActionExplosion extends NGControlMimicPeriodicAction {
 
     protected ArrayList<NGGameEngineMemoryCellValueItem> FExplosionCenters;
+    protected ExplosionCenter FExplosionCenter;
 
     protected static Boolean isObjectRupturable(MemoryCellValue aCellValue) {
         return aCellValue.getObject() instanceof SpriteAir || aCellValue.getObject() instanceof SpriteEarth || aCellValue.getObject() instanceof SpriteDiamond || aCellValue.getObject() instanceof SpriteBoulder;
@@ -29,7 +30,7 @@ public class MimicActionExplosion extends NGControlMimicPeriodicAction {
         NGGameEngineMemoryManager mm = game.getMemoryManager();
         MemoryCellValue value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), aAddress);
         if (isObjectRupturable(value)) {
-            FExplosionCenters.add(new NGGameEngineMemoryCellValueItem(aAddress, new NGGameEngineMemoryObjectCellValue(new SpriteExplosion(new ExplosionCenter(game)))));
+            FExplosionCenters.add(new NGGameEngineMemoryCellValueItem(aAddress, new NGGameEngineMemoryObjectCellValue(new SpriteExplosion(FExplosionCenter))));
         }
     }
 
@@ -65,13 +66,9 @@ public class MimicActionExplosion extends NGControlMimicPeriodicAction {
         super.DoHandleTick();
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
+        FExplosionCenter.Explosion();
         for (NGGameEngineMemoryCellValueItem item : FExplosionCenters) {
-            MemoryCellValue value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), item.getAddress());
-            if (value.getObject() instanceof SpriteExplosion) {
-                ExplosionCenter explosionCenter = ((SpriteExplosion)value.getObject()).getExplosionCenter();
-                explosionCenter.Explosion();
-                mm.refreshCell(game.getMemoryName(), item.getAddress());
-            }
+            mm.refreshCell(game.getMemoryName(), item.getAddress());
         }
     }
 
@@ -83,6 +80,7 @@ public class MimicActionExplosion extends NGControlMimicPeriodicAction {
     public MimicActionExplosion(NGControlMimicManager aManager, NGCustomGame aGame, String aName) {
         super(aManager, aGame, aName, Kind.temporary);
         FExplosionCenters = new ArrayList<NGGameEngineMemoryCellValueItem>();
+        FExplosionCenter = new ExplosionCenter(aGame);
         StartObject = null;
         Intensity = 3;
     }

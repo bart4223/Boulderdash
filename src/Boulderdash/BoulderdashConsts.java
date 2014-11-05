@@ -52,5 +52,7 @@ public abstract class BoulderdashConsts {
 
     // --------------------- SOUNDS ---------------------------------
     public final static String SOUND_SPLASH_FEAR                     = "Fear";
+    public final static String SOUND_ROLLING_STONE                   = "RollingStone";
+    public final static String SOUND_BENDER_WALK                     = "Walk";
 
 }

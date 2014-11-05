@@ -334,6 +334,14 @@ public class Boulderdash extends NG2DGame {
         return FDiamonds;
     }
 
+    @Override
+    public void setPCPosition(NG2DGameCharacter aPlayerItem, double aX, double aY) {
+        super.setPCPosition(aPlayerItem, aX, aY);
+        if (!getSoundManager().IsPlaySound(BoulderdashConsts.SOUND_BENDER_WALK)) {
+            getSoundManager().playSound(BoulderdashConsts.SOUND_BENDER_WALK, 0.0, 100.0);
+        }
+    }
+
     public void addTestPlayers() {
         NGPlayerManager pm = getPlayerManager();
         pm.newPlayer(NGPlayer.class, "BART4223", "Bart4223");

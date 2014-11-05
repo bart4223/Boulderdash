@@ -51,6 +51,42 @@
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="Uniplay.Sound.NGSoundSystemDefinitionSoundItem">
+      <void property="filename">
+       <string>resources/sound/rollingstone.mp3</string>
+      </void>
+      <void property="name">
+       <string>RollingStone</string>
+      </void>
+      <void property="runeventnames">
+       <object class="java.util.ArrayList">
+       </object>
+      </void>
+      <void property="stopeventnames">
+       <object class="java.util.ArrayList">
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Uniplay.Sound.NGSoundSystemDefinitionSoundItem">
+      <void property="filename">
+       <string>resources/sound/walk.mp3</string>
+      </void>
+      <void property="name">
+       <string>Walk</string>
+      </void>
+      <void property="runeventnames">
+       <object class="java.util.ArrayList">
+       </object>
+      </void>
+      <void property="stopeventnames">
+       <object class="java.util.ArrayList">
+       </object>
+      </void>
+     </object>
+    </void>
    </object>
   </void>
  </object>

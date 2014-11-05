@@ -29,7 +29,7 @@ public class MimicActionExplosion extends NGControlMimicPeriodicAction {
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
         MemoryCellValue value = (MemoryCellValue)mm.getCellValue(game.getMemoryName(), aAddress);
-        if (isObjectRupturable(value)) {
+        if (value != null && isObjectRupturable(value)) {
             FExplosionCenters.add(new NGGameEngineMemoryCellValueItem(aAddress, new NGGameEngineMemoryObjectCellValue(new SpriteExplosion(FExplosionCenter))));
         }
     }

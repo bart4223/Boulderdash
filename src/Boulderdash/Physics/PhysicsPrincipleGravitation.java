@@ -9,12 +9,23 @@ import Boulderdash.Storage.MemoryCellValue;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryManager;
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
+import Uniplay.NGGameEngineConstants;
 import Uniplay.Physics.*;
+import Uniplay.Sound.NGSoundManager;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NG2DGameObject;
 import Uniplay.Storage.NGCustomGame;
 
 public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
+
+    protected NGSoundManager FSoundManager;
+
+    protected NGSoundManager getSoundManager() {
+        if (FSoundManager == null) {
+            FSoundManager = (NGSoundManager)ResolveObject(NGGameEngineConstants.CMP_SOUND_MANAGER, NGSoundManager.class);
+        }
+        return FSoundManager;
+    }
 
     protected void PlayerKilled(NGCustomGame aGame) {
         aGame.DeactivateMimicActions(BoulderdashConsts.MIMIC_ACTION_PLAYER_MOVE);
@@ -46,6 +57,9 @@ public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
         NGObjectPhysicsProcessor pp = getPhysicsProcessor();
         pp.addQueue(new NGGameObjectPhysicsAction(FCurrentGOPhysicsAction.getTriggerObject(), aGameObject, new NGPhysicsAction2DMovement(aGameObject.getPosition())));
         PhysicsActionMisc.DetectObjectTouchObject(game, getPhysicsProcessor(), aGameObject, aObjectAddress);
+        if (!getSoundManager().IsPlaySound(BoulderdashConsts.SOUND_ROLLING_STONE)) {
+            getSoundManager().playSound(BoulderdashConsts.SOUND_ROLLING_STONE, 0.0, 250.0);
+        }
     }
 
     @Override
@@ -90,6 +104,7 @@ public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
 
     public PhysicsPrincipleGravitation() {
         super();
+        FSoundManager = null;
     }
 
     @Override

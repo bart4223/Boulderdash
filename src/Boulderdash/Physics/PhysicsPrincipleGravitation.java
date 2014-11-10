@@ -11,6 +11,7 @@ import Uniplay.Kernel.NGGameEngineMemoryManager;
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
 import Uniplay.NGGameEngineConstants;
 import Uniplay.Physics.*;
+import Uniplay.Sound.NGMediaPlayerSoundItem;
 import Uniplay.Sound.NGSoundManager;
 import Uniplay.Storage.NG2DGame;
 import Uniplay.Storage.NG2DGameObject;
@@ -57,8 +58,8 @@ public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
         NGObjectPhysicsProcessor pp = getPhysicsProcessor();
         pp.addQueue(new NGGameObjectPhysicsAction(FCurrentGOPhysicsAction.getTriggerObject(), aGameObject, new NGPhysicsAction2DMovement(aGameObject.getPosition())));
         PhysicsActionMisc.DetectObjectTouchObject(game, getPhysicsProcessor(), aGameObject, aObjectAddress);
-        if (!getSoundManager().IsPlaySound(BoulderdashConsts.SOUND_ROLLING_STONE)) {
-            getSoundManager().playSound(BoulderdashConsts.SOUND_ROLLING_STONE, 0.0, 250.0);
+        if (!getSoundManager().IsPlayingSound(BoulderdashConsts.SOUND_ROLLING_STONE)) {
+            getSoundManager().playSound(BoulderdashConsts.SOUND_ROLLING_STONE, NGMediaPlayerSoundItem.Mode.several, 0.0, 250.0);
         }
     }
 

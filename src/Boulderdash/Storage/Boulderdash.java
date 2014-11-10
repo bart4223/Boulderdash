@@ -115,6 +115,12 @@ public class Boulderdash extends NG2DGame {
     }
 
     @Override
+    protected void BeforeLoadLevel() {
+        super.BeforeLoadLevel();
+        FDiamonds.clear();
+    }
+
+    @Override
     protected void DoShowStages() {
         super.DoShowStages();
         perfectLayout();
@@ -337,7 +343,7 @@ public class Boulderdash extends NG2DGame {
     @Override
     public void setPCPosition(NG2DGameCharacter aPlayerItem, double aX, double aY) {
         super.setPCPosition(aPlayerItem, aX, aY);
-        if (!getSoundManager().IsPlaySound(BoulderdashConsts.SOUND_BENDER_WALK)) {
+        if (!getSoundManager().IsPlayingSound(BoulderdashConsts.SOUND_BENDER_WALK)) {
             getSoundManager().playSound(BoulderdashConsts.SOUND_BENDER_WALK, 0.0, 100.0);
         }
     }

@@ -34,6 +34,7 @@ public class Boulderdash extends NG2DGame {
     protected Boolean FPlaySound;
     protected ArrayList<DoorItem> FDoors;
     protected ArrayList<DiamondItem> FDiamonds;
+    protected Boolean FNewLevelStarted;
 
     protected void CreateControlStage(){
         FGameControlStage = new Stage();
@@ -121,6 +122,32 @@ public class Boulderdash extends NG2DGame {
     }
 
     @Override
+    protected void AfterLoadLevel(NG2DLevel aLevel) {
+        super.AfterLoadLevel(aLevel);
+        if (!FNewLevelStarted) {
+            resetPCs();
+        }
+    }
+
+    @Override
+    protected void InternalStartLevel() {
+        super.InternalStartLevel();
+        FNewLevelStarted = true;
+    }
+
+    @Override
+    protected void DoFinishLevel() {
+        super.DoFinishLevel();
+        FNewLevelStarted = false;
+    }
+
+    @Override
+    protected void DoFinish() {
+        super.DoFinish();
+        FNewLevelStarted = false;
+    }
+
+    @Override
     protected void DoShowStages() {
         super.DoShowStages();
         perfectLayout();
@@ -149,8 +176,8 @@ public class Boulderdash extends NG2DGame {
     }
 
     @Override
-    protected void assignGameObjects() {
-        super.assignGameObjects();
+    protected void assignGameObjects(NG2DLevel aLevel) {
+        super.assignGameObjects(aLevel);
         assignDoors(getCurrentGameFieldLayer());
     }
 
@@ -291,6 +318,7 @@ public class Boulderdash extends NG2DGame {
         CreateGameFieldStage();
         FDoors = new ArrayList<DoorItem>();
         FDiamonds = new ArrayList<DiamondItem>();
+        FNewLevelStarted = false;
     }
 
     public Canvas getGameFieldLayerBack() {
@@ -344,7 +372,8 @@ public class Boulderdash extends NG2DGame {
     public void setPCPosition(NG2DGameCharacter aPlayerItem, double aX, double aY) {
         super.setPCPosition(aPlayerItem, aX, aY);
         if (!getSoundManager().IsPlayingSound(BoulderdashConsts.SOUND_BENDER_WALK)) {
-            getSoundManager().playSound(BoulderdashConsts.SOUND_BENDER_WALK, 0.0, 100.0);
+            // ToDo
+            //getSoundManager().playSound(BoulderdashConsts.SOUND_BENDER_WALK, 0.0, 100.0);
         }
     }
 

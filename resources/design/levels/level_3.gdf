@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_67" class="java.beans.XMLDecoder">
+<java version="1.7.0_71" class="java.beans.XMLDecoder">
  <object class="Grids.XMLGrid">
   <void property="currentLayer">
-   <string>ID_23</string>
+   <string>ID_26</string>
   </void>
   <void property="gridColor">
    <string>0xd3d3d3ff</string>
@@ -544,7 +544,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>76</int>
+       <int>83</int>
       </void>
       <void property="description">
        <string>Earth</string>
@@ -1824,16 +1824,6 @@
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
-           <double>39.0</double>
-          </void>
-          <void property="y">
-           <double>14.0</double>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="Uniwork.Graphics.NGPoint2D">
-          <void property="x">
            <double>40.0</double>
           </void>
           <void property="y">
@@ -2095,16 +2085,6 @@
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
            <double>39.0</double>
-          </void>
-          <void property="y">
-           <double>15.0</double>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="Uniwork.Graphics.NGPoint2D">
-          <void property="x">
-           <double>40.0</double>
           </void>
           <void property="y">
            <double>15.0</double>
@@ -8567,7 +8547,7 @@
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
-       <int>81</int>
+       <int>84</int>
       </void>
       <void property="description">
        <string>Brick End</string>
@@ -8871,6 +8851,26 @@
           </void>
           <void property="y">
            <double>13.0</double>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>39.0</double>
+          </void>
+          <void property="y">
+           <double>14.0</double>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Uniwork.Graphics.NGPoint2D">
+          <void property="x">
+           <double>40.0</double>
+          </void>
+          <void property="y">
+           <double>15.0</double>
           </void>
          </object>
         </void>

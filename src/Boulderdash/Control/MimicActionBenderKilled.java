@@ -12,12 +12,19 @@ import javafx.application.Platform;
 
 public class MimicActionBenderKilled extends NGControlMimicPeriodicAction {
 
+    protected Boolean FStartGame;
+
     @Override
     protected void DoActivate() {
         super.DoActivate();
+        FStartGame = false;
         NG2DGame game = getGame();
         for (NGCustomGameCharacter pc : game.getPCs()) {
             Bender Bender = (Bender)pc;
+            pc.subCurrentLives();
+            if (pc.getCurrentLives() == 0) {
+                FStartGame = true;
+            }
             NGPropertyList props = new NGPropertyList();
             props.set("StartObject", Bender);
             FManager.ActivateMimic(BoulderdashConsts.MIMIC_ACTION_EXPLOSION, props);
@@ -30,7 +37,12 @@ public class MimicActionBenderKilled extends NGControlMimicPeriodicAction {
         Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    getGame().RestartLevel();
+                    if (FStartGame) {
+                        getGame().Restart();
+                    }
+                    else {
+                        getGame().RestartLevel();
+                    }
                 }
             });
     }
@@ -42,6 +54,7 @@ public class MimicActionBenderKilled extends NGControlMimicPeriodicAction {
 
     public MimicActionBenderKilled(NGControlMimicManager aManager, NGCustomGame aGame, String aName) {
         super(aManager, aGame, aName, Kind.temporary);
+        FStartGame = false;
     }
 
 }

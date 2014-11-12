@@ -13872,7 +13872,18 @@
    <string>Level1</string>
   </void>
   <void property="props">
-   <object class="java.util.ArrayList"/>
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="Uniwork.Base.NGSerializePropertyItem">
+      <void property="name">
+       <string>LIVES</string>
+      </void>
+      <void property="value">
+       <int>3</int>
+      </void>
+     </object>
+    </void>
+   </object>
   </void>
  </object>
 </java>

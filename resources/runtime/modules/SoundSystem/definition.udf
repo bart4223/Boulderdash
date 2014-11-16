@@ -21,7 +21,7 @@
       <void property="stopeventnames">
        <object class="java.util.ArrayList">
         <void method="add">
-   		 <string>Game.Start</string>
+   		 <string>Kernel.Splash.Finish</string>
         </void>
        </object>
       </void>
@@ -41,14 +41,14 @@
       <void property="runeventnames">
        <object class="java.util.ArrayList">
         <void method="add">
-   		 <string>Game.Level.Start</string>
+   		 <string>Kernel.Started</string>
         </void>
        </object>
       </void>
       <void property="stopeventnames">
        <object class="java.util.ArrayList">
         <void method="add">
-   		 <string>Game.Level.Finish</string>
+   		 <string>Game.Start</string>
         </void>
        </object>
       </void>

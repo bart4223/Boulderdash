@@ -6,6 +6,7 @@ import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryIntegerCellValue;
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
 import Uniplay.NGGameEngineConstants;
+import Uniplay.Sound.NGMediaPlayerSoundItem;
 import Uniplay.Storage.*;
 import Uniwork.Base.NGObjectRequestCaller;
 import Uniwork.Base.NGObjectRequestInvoker;
@@ -372,8 +373,7 @@ public class Boulderdash extends NG2DGame {
     public void setPCPosition(NG2DGameCharacter aPlayerItem, double aX, double aY) {
         super.setPCPosition(aPlayerItem, aX, aY);
         if (!getSoundManager().IsPlayingSound(BoulderdashConsts.SOUND_BENDER_WALK)) {
-            // ToDo
-            //getSoundManager().playSound(BoulderdashConsts.SOUND_BENDER_WALK, 0.0, 100.0);
+            getSoundManager().playSound(BoulderdashConsts.SOUND_BENDER_WALK, NGMediaPlayerSoundItem.Mode.several);
         }
     }
 

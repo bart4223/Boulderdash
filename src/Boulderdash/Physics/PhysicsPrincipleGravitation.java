@@ -59,7 +59,7 @@ public class PhysicsPrincipleGravitation extends NG2DNewtonPhysicsPrinciple {
         pp.addQueue(new NGGameObjectPhysicsAction(FCurrentGOPhysicsAction.getTriggerObject(), aGameObject, new NGPhysicsAction2DMovement(aGameObject.getPosition())));
         PhysicsActionMisc.DetectObjectTouchObject(game, getPhysicsProcessor(), aGameObject, aObjectAddress);
         if (!getSoundManager().IsPlayingSound(BoulderdashConsts.SOUND_ROLLING_STONE)) {
-            getSoundManager().playSound(BoulderdashConsts.SOUND_ROLLING_STONE, NGMediaPlayerSoundItem.Mode.several, 0.0, 250.0);
+            getSoundManager().playSound(BoulderdashConsts.SOUND_ROLLING_STONE, NGMediaPlayerSoundItem.Mode.several);
         }
     }
 

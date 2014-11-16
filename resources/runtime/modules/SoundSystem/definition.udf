@@ -25,6 +25,9 @@
         </void>
        </object>
       </void>
+      <void property="volume">
+       <double>0.5</double>
+      </void>
      </object>
     </void>
     <void method="add">
@@ -49,6 +52,9 @@
         </void>
        </object>
       </void>
+      <void property="volume">
+       <double>0.5</double>
+      </void>
      </object>
     </void>
     <void method="add">
@@ -67,6 +73,12 @@
        <object class="java.util.ArrayList">
        </object>
       </void>
+      <void property="volume">
+       <double>0.25</double>
+      </void>
+      <void property="duration">
+       <int>250</int>
+      </void>
      </object>
     </void>
     <void method="add">
@@ -84,6 +96,12 @@
       <void property="stopeventnames">
        <object class="java.util.ArrayList">
        </object>
+      </void>
+      <void property="volume">
+       <double>0.25</double>
+      </void>
+      <void property="duration">
+       <int>100</int>
       </void>
      </object>
     </void>

@@ -13,7 +13,10 @@ public class GameFieldStageController extends NGStageController {
     public Boulderdash Game;
 
     @FXML
-    public Canvas Layer0;
+    public Canvas LayerNotifyBack;
+
+    @FXML
+    public Canvas LayerGrid;
 
     @FXML
     public Canvas LayerBack;
@@ -27,7 +30,7 @@ public class GameFieldStageController extends NGStageController {
     @Override
     protected void CreateDisplayController() {
         super.CreateDisplayController();
-        FDCGrid = new NGGrid2DDisplayController(Layer0);
+        FDCGrid = new NGGrid2DDisplayController(LayerGrid);
         FDCGrid.DrawGrid = false;
         FDCGrid.GridColor = Color.DARKGRAY;
         registerDisplayController(FDCGrid);

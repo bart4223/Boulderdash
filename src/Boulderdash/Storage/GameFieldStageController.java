@@ -1,8 +1,7 @@
 package Boulderdash.Storage;
 
 import Boulderdash.Graphics.DisplayControllerNotificationArea;
-import Uniwork.Visuals.NGGrid2DDisplayController;
-import Uniwork.Visuals.NGStageController;
+import Uniwork.Visuals.*;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
@@ -11,11 +10,17 @@ public class GameFieldStageController extends NGStageController {
 
     protected NGGrid2DDisplayController FDCGrid;
     protected DisplayControllerNotificationArea FDCNotificationArea;
+    protected NGImageDisplayController FDCBenderLeft;
+    protected NGImageDisplayController FDCBenderRight;
+    protected NGMultiDigitNumberDisplayManager FDCPointsCounter;
 
     public Boulderdash Game;
 
     @FXML
     public Canvas LayerNotifyBack;
+
+    @FXML
+    public Canvas LayerNotify;
 
     @FXML
     public Canvas LayerGrid;
@@ -38,6 +43,17 @@ public class GameFieldStageController extends NGStageController {
         registerDisplayController(FDCGrid);
         FDCNotificationArea = new DisplayControllerNotificationArea(LayerNotifyBack);
         registerDisplayController(FDCNotificationArea);
+        FDCBenderLeft = new NGImageDisplayController(LayerNotify, "BenderLeft", "resources/sprites/id_1.png");
+        FDCBenderLeft.setPosition(4, LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4);
+        registerDisplayController(FDCBenderLeft);
+        FDCBenderRight = new NGImageDisplayController(LayerNotify, "BenderRight", "resources/sprites/id_1.png");
+        FDCBenderRight.setPosition(LayerNotify.getWidth() - FDCNotificationArea.getNotifyWidth() + 4, LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4);
+        registerDisplayController(FDCBenderRight);
+        FDCPointsCounter = new NGMultiDigitNumberDisplayManager("Uniwork.Visuals.NGRetroNumberDisplayController", LayerNotify, 6);
+        FDCPointsCounter.setPixelSize(4);
+        FDCPointsCounter.setBackgroundColor(FDCNotificationArea.getNotifyBackColor());
+        FDCPointsCounter.setPosition((FDCNotificationArea.getNotifyWidth() + 8) / 4, (LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4) / 4);
+        registerDisplayController(FDCPointsCounter);
     }
 
     @Override
@@ -45,6 +61,11 @@ public class GameFieldStageController extends NGStageController {
         super.DoBeforeRenderScene();
         FDCGrid.DrawGrid = Game.getShowGameFieldGrid();
         FDCGrid.GridDistance = Game.getGameFieldGridSize();
+    }
+
+    public void setPointCounter(Integer aValue) {
+        FDCPointsCounter.Count = aValue;
+        FDCPointsCounter.Render();
     }
 
 }

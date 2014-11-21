@@ -2,6 +2,7 @@
 <?import javafx.scene.canvas.Canvas?>
 <AnchorPane fx:controller="Boulderdash.Storage.GameFieldStageController" xmlns:fx="http://javafx.com/fxml" >
     <Canvas id="LayerNotifyBack" height="880" width="880" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" fx:id="LayerNotifyBack" />
+    <Canvas id="LayerNotify" height="880" width="880" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" fx:id="LayerNotify" />
     <Canvas id="LayerBack" height="800" width="800" AnchorPane.leftAnchor="40" AnchorPane.topAnchor="40" fx:id="LayerBack" />
     <Canvas id="LayerBender" height="800" width="800" AnchorPane.leftAnchor="40" AnchorPane.topAnchor="40" fx:id="LayerBender" />
     <Canvas id="LayerFront" height="800" width="800" AnchorPane.leftAnchor="40" AnchorPane.topAnchor="40" fx:id="LayerFront" />

@@ -22,6 +22,8 @@ public class DisplayControllerNotificationArea extends NGDisplayController {
         FGC.setStroke(FNotifyBorderColor);
         FGC.setLineWidth(FNotifyBorderWidth);
         FGC.strokeRect(0, FHeight - FNotifyWidth + 1, FWidth, FHeight);
+        FGC.strokeRect(0, FHeight - FNotifyWidth + 1, FNotifyWidth - 1, FHeight);
+        FGC.strokeRect(FWidth - FNotifyWidth + 1, FHeight - FNotifyWidth + 1, FWidth, FHeight);
         FGC.strokeRect(FNotifyWidth - 1, FNotifyWidth - 1, FWidth - 2 * (FNotifyWidth - 1), FHeight - 2 * (FNotifyWidth - 1));
     }
 
@@ -35,6 +37,14 @@ public class DisplayControllerNotificationArea extends NGDisplayController {
         FNotifyBorderColor = Color.BLACK;
         FNotifyWidth = 40.0;
         FNotifyBorderWidth = 2.0;
+    }
+
+    public Color getNotifyBackColor() {
+        return FNotifyBackColor;
+    }
+
+    public Double getNotifyWidth() {
+        return FNotifyWidth;
     }
 
 }

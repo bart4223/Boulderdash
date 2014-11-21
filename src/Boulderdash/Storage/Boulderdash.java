@@ -36,6 +36,7 @@ public class Boulderdash extends NG2DGame {
     protected ArrayList<DoorItem> FDoors;
     protected ArrayList<DiamondItem> FDiamonds;
     protected Boolean FNewLevelStarted;
+    protected Integer FPoints;
 
     protected void CreateControlStage(){
         FGameControlStage = new Stage();
@@ -131,6 +132,12 @@ public class Boulderdash extends NG2DGame {
     }
 
     @Override
+    protected void DoStart() {
+        super.DoStart();
+        setPoints(0);
+    }
+
+    @Override
     protected void InternalStartLevel() {
         super.InternalStartLevel();
         FNewLevelStarted = true;
@@ -140,6 +147,7 @@ public class Boulderdash extends NG2DGame {
     protected void DoFinishLevel() {
         super.DoFinishLevel();
         FNewLevelStarted = false;
+        addPoints(1000);
     }
 
     @Override
@@ -320,6 +328,7 @@ public class Boulderdash extends NG2DGame {
         FDoors = new ArrayList<DoorItem>();
         FDiamonds = new ArrayList<DiamondItem>();
         FNewLevelStarted = false;
+        FPoints = 0;
     }
 
     public Canvas getGameFieldLayerBack() {
@@ -352,6 +361,7 @@ public class Boulderdash extends NG2DGame {
 
     public void setDiamondCollected(Diamond aDiamond) {
         aDiamond.setCollected(true);
+        addPoints(aDiamond.getValence());
         Integer collected = getCollectedDiamondCount();
         if (FDiamonds.size() == collected) {
             getMimicManager().ActivateMimic(BoulderdashConsts.MIMIC_ACTION_DOOR_OPEN);
@@ -360,6 +370,20 @@ public class Boulderdash extends NG2DGame {
             writeLog(String.format("Diamond collected. %d diamond(s) to be collect...", FDiamonds.size() - collected));
         }
     }
+
+    public void setPoints(Integer aValue) {
+        FPoints = aValue;
+        FGameFieldController.setPointCounter(FPoints);
+    }
+
+    public Integer getPoints() {
+        return FPoints;
+    }
+
+    public void addPoints(Integer aValue) {
+        setPoints(getPoints() + aValue);
+    }
+
 
     public ArrayList<DoorItem> getDoors() {
         return FDoors;

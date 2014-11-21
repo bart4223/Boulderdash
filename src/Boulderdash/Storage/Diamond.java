@@ -12,6 +12,7 @@ public class Diamond extends NG2DGameObject {
     protected Boolean FCollected;
     protected Integer FFlickerIndex;
     protected Integer FFlickerDirection;
+    protected Integer FValence;
 
     protected Integer getFlickerDirection() {
         if (NGRandomGenerator.GlobalRandomGenerator.getBoolean()) {
@@ -29,6 +30,7 @@ public class Diamond extends NG2DGameObject {
         FInEarth = true;
         FCollected = false;
         FFlickerIndex = 0;
+        FValence = new Random().nextInt(100) + 100;
     }
 
     public Boolean getInEarth() {
@@ -73,6 +75,10 @@ public class Diamond extends NG2DGameObject {
 
     public Integer getFlickerIndex() {
         return FFlickerIndex;
+    }
+
+    public Integer getValence() {
+        return FValence;
     }
 
 }

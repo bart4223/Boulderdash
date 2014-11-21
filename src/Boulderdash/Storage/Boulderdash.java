@@ -147,7 +147,7 @@ public class Boulderdash extends NG2DGame {
     protected void DoFinishLevel() {
         super.DoFinishLevel();
         FNewLevelStarted = false;
-        addPoints(1000);
+        addPoints(100);
     }
 
     @Override

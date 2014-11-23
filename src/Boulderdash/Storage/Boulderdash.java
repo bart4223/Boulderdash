@@ -392,10 +392,11 @@ public class Boulderdash extends NG2DGame {
     }
 
     public void subPoints(Integer aValue) {
-        setPoints(getPoints() - aValue);
-        if (FPoints < 0) {
-            FPoints = 0;
+        Integer points = getPoints() - aValue;
+        if (points < 0) {
+            points = 0;
         }
+        setPoints(points);
     }
 
     public ArrayList<DoorItem> getDoors() {

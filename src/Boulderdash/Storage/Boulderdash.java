@@ -137,17 +137,23 @@ public class Boulderdash extends NG2DGame {
         setPoints(0);
     }
 
+    protected void UpdateToBeCollectedDiamondCount() {
+        Integer collected = FDiamonds.size() - getCollectedDiamondCount();
+        FGameFieldController.setDiamondsCounter(collected);
+    }
+
     @Override
     protected void InternalStartLevel() {
         super.InternalStartLevel();
         FNewLevelStarted = true;
+        UpdateToBeCollectedDiamondCount();
     }
 
     @Override
     protected void DoFinishLevel() {
         super.DoFinishLevel();
         FNewLevelStarted = false;
-        addPoints(100);
+        addPoints(1000);
     }
 
     @Override
@@ -369,6 +375,7 @@ public class Boulderdash extends NG2DGame {
         else {
             writeLog(String.format("Diamond collected. %d diamond(s) to be collect...", FDiamonds.size() - collected));
         }
+        UpdateToBeCollectedDiamondCount();
     }
 
     public void setPoints(Integer aValue) {
@@ -384,6 +391,12 @@ public class Boulderdash extends NG2DGame {
         setPoints(getPoints() + aValue);
     }
 
+    public void subPoints(Integer aValue) {
+        setPoints(getPoints() - aValue);
+        if (FPoints < 0) {
+            FPoints = 0;
+        }
+    }
 
     public ArrayList<DoorItem> getDoors() {
         return FDoors;

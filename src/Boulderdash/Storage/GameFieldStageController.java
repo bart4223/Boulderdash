@@ -12,7 +12,9 @@ public class GameFieldStageController extends NGStageController {
     protected DisplayControllerNotificationArea FDCNotificationArea;
     protected NGImageDisplayController FDCBenderLeft;
     protected NGImageDisplayController FDCBenderRight;
+    protected NGImageDisplayController FDCDiamond;
     protected NGMultiDigitNumberDisplayManager FDCPointsCounter;
+    protected NGMultiDigitNumberDisplayManager FDCDiamondsCounter;
 
     public Boulderdash Game;
 
@@ -54,6 +56,14 @@ public class GameFieldStageController extends NGStageController {
         FDCPointsCounter.setBackgroundColor(FDCNotificationArea.getNotifyBackColor());
         FDCPointsCounter.setPosition((FDCNotificationArea.getNotifyWidth() + 8) / 4, (LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4) / 4);
         registerDisplayController(FDCPointsCounter);
+        FDCDiamond = new NGImageDisplayController(LayerNotify, "Diamond", "resources/sprites/id_2.png");
+        FDCDiamond.setPosition(FDCNotificationArea.getNotifyWidth() + 328, LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4);
+        registerDisplayController(FDCDiamond);
+        FDCDiamondsCounter = new NGMultiDigitNumberDisplayManager("Uniwork.Visuals.NGRetroNumberDisplayController", LayerNotify, 2);
+        FDCDiamondsCounter.setPixelSize(4);
+        FDCDiamondsCounter.setBackgroundColor(FDCNotificationArea.getNotifyBackColor());
+        FDCDiamondsCounter.setPosition((FDCNotificationArea.getNotifyWidth() + 360) / 4, (LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4) / 4);
+        registerDisplayController(FDCDiamondsCounter);
     }
 
     @Override
@@ -66,6 +76,11 @@ public class GameFieldStageController extends NGStageController {
     public void setPointCounter(Integer aValue) {
         FDCPointsCounter.Count = aValue;
         FDCPointsCounter.Render();
+    }
+
+    public void setDiamondsCounter(Integer aValue) {
+        FDCDiamondsCounter.Count = aValue;
+        FDCDiamondsCounter.Render();
     }
 
 }

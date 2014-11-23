@@ -2,6 +2,7 @@ package Boulderdash.Control;
 
 import Boulderdash.BoulderdashConsts;
 import Boulderdash.Storage.Bender;
+import Boulderdash.Storage.Boulderdash;
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicPeriodicAction;
 import Uniplay.Storage.NG2DGame;
@@ -18,10 +19,11 @@ public class MimicActionBenderKilled extends NGControlMimicPeriodicAction {
     protected void DoActivate() {
         super.DoActivate();
         FStartGame = false;
-        NG2DGame game = getGame();
+        Boulderdash game = (Boulderdash)getGame();
         for (NGCustomGameCharacter pc : game.getPCs()) {
             Bender Bender = (Bender)pc;
             pc.subCurrentLives();
+            game.subPoints(500);
             if (pc.getCurrentLives() == 0) {
                 FStartGame = true;
             }

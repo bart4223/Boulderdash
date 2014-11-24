@@ -146,6 +146,7 @@ public class Boulderdash extends NG2DGame {
     protected void InternalStartLevel() {
         super.InternalStartLevel();
         FNewLevelStarted = true;
+        setLiveIndicator(getPCs().get(0).getCurrentLives());
         UpdateToBeCollectedDiamondCount();
     }
 
@@ -397,6 +398,10 @@ public class Boulderdash extends NG2DGame {
             points = 0;
         }
         setPoints(points);
+    }
+
+    public void setLiveIndicator(Integer aValue) {
+        FGameFieldController.setLiveIndicator(aValue);
     }
 
     public ArrayList<DoorItem> getDoors() {

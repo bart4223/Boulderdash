@@ -15,6 +15,7 @@ public class GameFieldStageController extends NGStageController {
     protected NGImageDisplayController FDCDiamond;
     protected NGMultiDigitNumberDisplayManager FDCPointsCounter;
     protected NGMultiDigitNumberDisplayManager FDCDiamondsCounter;
+    protected NGImageIndicatorDisplayManager FDCLiveIndicator;
 
     public Boulderdash Game;
 
@@ -54,16 +55,20 @@ public class GameFieldStageController extends NGStageController {
         FDCPointsCounter = new NGMultiDigitNumberDisplayManager("Uniwork.Visuals.NGRetroNumberDisplayController", LayerNotify, 6);
         FDCPointsCounter.setPixelSize(4);
         FDCPointsCounter.setBackgroundColor(FDCNotificationArea.getNotifyBackColor());
-        FDCPointsCounter.setPosition((FDCNotificationArea.getNotifyWidth() + 8) / 4, (LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4) / 4);
+        FDCPointsCounter.setPosition((FDCNotificationArea.getNotifyWidth() + 72) / 4, (LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4) / 4);
         registerDisplayController(FDCPointsCounter);
         FDCDiamond = new NGImageDisplayController(LayerNotify, "Diamond", "resources/sprites/id_2.png");
-        FDCDiamond.setPosition(FDCNotificationArea.getNotifyWidth() + 328, LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4);
+        FDCDiamond.setPosition(FDCNotificationArea.getNotifyWidth() + 392, LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4);
         registerDisplayController(FDCDiamond);
         FDCDiamondsCounter = new NGMultiDigitNumberDisplayManager("Uniwork.Visuals.NGRetroNumberDisplayController", LayerNotify, 2);
         FDCDiamondsCounter.setPixelSize(4);
         FDCDiamondsCounter.setBackgroundColor(FDCNotificationArea.getNotifyBackColor());
-        FDCDiamondsCounter.setPosition((FDCNotificationArea.getNotifyWidth() + 360) / 4, (LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4) / 4);
+        FDCDiamondsCounter.setPosition((FDCNotificationArea.getNotifyWidth() + 424) / 4, (LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4) / 4);
         registerDisplayController(FDCDiamondsCounter);
+        FDCLiveIndicator = new NGImageIndicatorDisplayManager(LayerNotify, 3, "resources/sprites/id_%d.png");
+        FDCLiveIndicator.HighIndicatorIndex = 34;
+        FDCLiveIndicator.setPosition(FDCNotificationArea.getNotifyWidth() + 624, LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4);
+        registerDisplayController(FDCLiveIndicator);
     }
 
     @Override
@@ -81,6 +86,11 @@ public class GameFieldStageController extends NGStageController {
     public void setDiamondsCounter(Integer aValue) {
         FDCDiamondsCounter.Count = aValue;
         FDCDiamondsCounter.Render();
+    }
+
+    public void setLiveIndicator(Integer aValue) {
+        FDCLiveIndicator.Indicator = aValue;
+        FDCLiveIndicator.Render();
     }
 
 }

@@ -44,7 +44,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>35</int>
+               <int>36</int>
               </void>
              </object>
             </void>
@@ -75,7 +75,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>35</int>
+               <int>36</int>
               </void>
              </object>
             </void>
@@ -116,7 +116,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>35</int>
+               <int>36</int>
               </void>
              </object>
             </void>
@@ -198,7 +198,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>35</int>
+               <int>36</int>
               </void>
              </object>
             </void>
@@ -280,7 +280,7 @@
                <string>Background.MaxImageNumber</string>
               </void>
               <void property="value">
-               <int>35</int>
+               <int>36</int>
               </void>
              </object>
             </void>

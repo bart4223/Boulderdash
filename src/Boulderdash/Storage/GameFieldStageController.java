@@ -66,6 +66,7 @@ public class GameFieldStageController extends NGStageController {
         FDCDiamondsCounter.setPosition((FDCNotificationArea.getNotifyWidth() + 424) / 4, (LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4) / 4);
         registerDisplayController(FDCDiamondsCounter);
         FDCLiveIndicator = new NGImageIndicatorDisplayManager(LayerNotify, 3, "resources/sprites/id_%d.png");
+        FDCLiveIndicator.LowIndicatorIndex = 35;
         FDCLiveIndicator.HighIndicatorIndex = 34;
         FDCLiveIndicator.setPosition(FDCNotificationArea.getNotifyWidth() + 624, LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4);
         registerDisplayController(FDCLiveIndicator);

@@ -168,6 +168,7 @@ public class Boulderdash extends NG2DGame {
         super.DoShowStages();
         perfectLayout();
         FGameFieldController.RenderScene();
+        setLiveIndicator(0); // Force second rendering
         updateGameControlControls();
         FGameControlStage.show();
         FGameFieldStage.show();
@@ -180,6 +181,7 @@ public class Boulderdash extends NG2DGame {
     protected void stopSound() {
         getSoundManager().stopSound(BoulderdashConsts.SOUND_SPLASH_FEAR);
     }
+
 
     @Override
     protected void DoBeforeStart() {

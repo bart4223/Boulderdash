@@ -1,6 +1,8 @@
 package Boulderdash.Storage;
 
-import Boulderdash.Graphics.DisplayControllerNotificationArea;
+import Boulderdash.Graphics.NotificationAreaDisplayController;
+import Boulderdash.Graphics.TimeIndicatorDisplayManager;
+import Boulderdash.BoulderdashConsts;
 import Uniwork.Visuals.*;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -9,13 +11,14 @@ import javafx.scene.paint.Color;
 public class GameFieldStageController extends NGStageController {
 
     protected NGGrid2DDisplayController FDCGrid;
-    protected DisplayControllerNotificationArea FDCNotificationArea;
+    protected NotificationAreaDisplayController FDCNotificationArea;
     protected NGImageDisplayController FDCBenderLeft;
     protected NGImageDisplayController FDCBenderRight;
     protected NGImageDisplayController FDCDiamond;
     protected NGMultiDigitNumberDisplayManager FDCPointsCounter;
     protected NGMultiDigitNumberDisplayManager FDCDiamondsCounter;
     protected NGImageIndicatorDisplayManager FDCLiveIndicator;
+    protected TimeIndicatorDisplayManager FDCTimeIndicator;
 
     public Boulderdash Game;
 
@@ -44,7 +47,7 @@ public class GameFieldStageController extends NGStageController {
         FDCGrid.DrawGrid = false;
         FDCGrid.GridColor = Color.DARKGRAY;
         registerDisplayController(FDCGrid);
-        FDCNotificationArea = new DisplayControllerNotificationArea(LayerNotifyBack);
+        FDCNotificationArea = new NotificationAreaDisplayController(LayerNotifyBack);
         registerDisplayController(FDCNotificationArea);
         FDCBenderLeft = new NGImageDisplayController(LayerNotify, "BenderLeft", "resources/sprites/id_1.png");
         FDCBenderLeft.setPosition(4, LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4);
@@ -66,32 +69,49 @@ public class GameFieldStageController extends NGStageController {
         FDCDiamondsCounter.setPosition((FDCNotificationArea.getNotifyWidth() + 424) / 4, (LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4) / 4);
         registerDisplayController(FDCDiamondsCounter);
         FDCLiveIndicator = new NGImageIndicatorDisplayManager(LayerNotify, 3, "resources/sprites/id_%d.png");
-        FDCLiveIndicator.LowIndicatorIndex = 35;
-        FDCLiveIndicator.HighIndicatorIndex = 34;
+        FDCLiveIndicator.LowIndicatorIndex = BoulderdashConsts.SPRITE_HEART_INACTIVE;
+        FDCLiveIndicator.HighIndicatorIndex = BoulderdashConsts.SPRITE_HEART_ACTIVE;
         FDCLiveIndicator.setPosition(FDCNotificationArea.getNotifyWidth() + 624, LayerNotify.getHeight() - FDCNotificationArea.getNotifyWidth() + 4);
         registerDisplayController(FDCLiveIndicator);
+        FDCTimeIndicator = new TimeIndicatorDisplayManager(LayerNotify);
+        registerDisplayController(FDCTimeIndicator);
     }
 
     @Override
-    protected void DoBeforeRenderScene() {
-        super.DoBeforeRenderScene();
+    protected void DoBeforeRenderScene(NGDisplayController aController) {
+        super.DoBeforeRenderScene(aController);
         FDCGrid.DrawGrid = Game.getShowGameFieldGrid();
         FDCGrid.GridDistance = Game.getGameFieldGridSize();
     }
 
+    public GameFieldStageController() {
+        super();
+        FOwnRenderThread = true;
+    }
+
     public void setPointCounter(Integer aValue) {
         FDCPointsCounter.Count = aValue;
-        FDCPointsCounter.Render();
+        RenderScene(FDCPointsCounter);
     }
 
     public void setDiamondsCounter(Integer aValue) {
         FDCDiamondsCounter.Count = aValue;
-        FDCDiamondsCounter.Render();
+        RenderScene(FDCDiamondsCounter);
     }
 
     public void setLiveIndicator(Integer aValue) {
         FDCLiveIndicator.Indicator = aValue;
-        FDCLiveIndicator.Render();
+        RenderScene(FDCLiveIndicator);
+    }
+
+    public void incTimeIndicatorFlame() {
+        FDCTimeIndicator.incFlameAnimationIndex();
+        RenderScene(FDCTimeIndicator);
+    }
+
+    public void subTimeIndicatorFusible() {
+        FDCTimeIndicator.subCurrentFusibleLength();
+        RenderScene(FDCTimeIndicator);
     }
 
 }

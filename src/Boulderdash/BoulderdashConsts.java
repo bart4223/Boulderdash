@@ -37,6 +37,14 @@ public abstract class BoulderdashConsts {
     public final static Integer SPRITE_DOOR_OPEN_THREEQUARTER_FRONT  = 31;
     public final static Integer SPRITE_DOOR_OPEN_FRONT               = 32;
     public final static Integer SPRITE_EXPLOSION                     = 33;
+    public final static Integer SPRITE_HEART_ACTIVE                  = 34;
+    public final static Integer SPRITE_HEART_INACTIVE                = 35;
+    public final static Integer SPRITE_FUSIBLE_RIGHT                 = 36;
+    public final static Integer SPRITE_FUSIBLE_CORNER_RIGHT          = 37;
+    public final static Integer SPRITE_FUSIBLE_TOP                   = 38;
+    public final static Integer SPRITE_FUSIBLE_CORNER_LEFT           = 39;
+    public final static Integer SPRITE_FUSIBLE_LEFT                  = 40;
+    public final static Integer SPRITE_FLAME                         = 41;
 
     // --------------------- Mimics ------------------------------------
     public final static String MIMIC_ACTION_PLAYER_MOVE              = "Player.Move";

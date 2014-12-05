@@ -5,6 +5,7 @@ import Boulderdash.Graphics.*;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryIntegerCellValue;
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
+import Uniplay.Misc.NGTaskManager;
 import Uniplay.NGGameEngineConstants;
 import Uniplay.Sound.NGMediaPlayerSoundItem;
 import Uniplay.Storage.*;
@@ -12,6 +13,7 @@ import Uniwork.Base.NGObjectRequestCaller;
 import Uniwork.Base.NGObjectRequestInvoker;
 import Uniwork.Base.NGPropertyItem;
 import Uniwork.Misc.NGStrings;
+import Uniwork.Misc.NGTickEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,6 +26,9 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class Boulderdash extends NG2DGame {
+
+    public static String CTimeTask = "Boulderdash.GameTime";
+    public static String CTimeFlameTask = "Boulderdash.GameTimeFlame";
 
     protected Integer FGameFieldGridSize;
     protected Boolean FShowGameFieldGrid;
@@ -148,11 +153,13 @@ public class Boulderdash extends NG2DGame {
         FNewLevelStarted = true;
         setLiveIndicator(getPCs().get(0).getCurrentLives());
         UpdateToBeCollectedDiamondCount();
+        StartTimeTask();
     }
 
     @Override
     protected void DoFinishLevel() {
         super.DoFinishLevel();
+        StopTimeTask();
         FNewLevelStarted = false;
         addPoints(1000);
     }
@@ -323,6 +330,48 @@ public class Boulderdash extends NG2DGame {
         FCaller.setObjectName(String.format(NGGameEngineConstants.MIMIC_OBJECTREQUEST_ACTION_TEMPLATE, BoulderdashConsts.MIMIC_ACTION_PLAYER_RIGHT));
         FCaller.setObjectMethod(NGGameEngineConstants.MIMIC_OBJECTREQUESTMETHOD_DEFAULT);
         FCaller.Invoke();
+    }
+
+    protected void StopTimeTask() {
+        NGTaskManager tm = getTaskManager();
+        tm.stopPeriodicTask(CTimeFlameTask);
+        tm.stopPeriodicTask(CTimeTask);
+    }
+
+    protected void StartTimeTask() {
+        StartTimeTask(0);
+    }
+
+    protected void StartTimeTask(Integer aDelay) {
+        NGTaskManager tm = getTaskManager();
+        tm.startPeriodicTask(CTimeTask, aDelay);
+        tm.startPeriodicTask(CTimeFlameTask, aDelay);
+    }
+
+    @Override
+    protected void DoHandleTick(NGTickEvent aEvent) {
+        super.DoHandleTick(aEvent);
+        if (aEvent.Name.equals(CTimeTask)) {
+            NGTaskManager tm = getTaskManager();
+            tm.stopPeriodicTask(CTimeFlameTask);
+            try {
+                FGameFieldController.subTimeIndicatorFusible();
+            } finally {
+                tm.startPeriodicTask(CTimeFlameTask);
+            }
+        } else if (aEvent.Name.equals(CTimeFlameTask)) {
+            FGameFieldController.incTimeIndicatorFlame();
+        }
+    }
+
+    @Override
+    protected void DoInitialize() {
+        super.DoInitialize();
+        NGTaskManager tm = getTaskManager();
+        tm.addPeriodicTask(CTimeTask, 100);
+        tm.addListener(CTimeTask, this);
+        tm.addPeriodicTask(CTimeFlameTask, 10);
+        tm.addListener(CTimeFlameTask, this);
     }
 
     public Boulderdash(NGGameManager aManager, String aName) {

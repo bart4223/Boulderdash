@@ -4,7 +4,7 @@ import Uniwork.Visuals.NGDisplayController;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 
-public class DisplayControllerNotificationArea extends NGDisplayController {
+public class NotificationAreaDisplayController extends NGDisplayController {
 
     protected Color FNotifyBackColor;
     protected Color FNotifyBorderColor;
@@ -27,11 +27,11 @@ public class DisplayControllerNotificationArea extends NGDisplayController {
         FGC.strokeRect(FNotifyWidth - 1, FNotifyWidth - 1, FWidth - 2 * (FNotifyWidth - 1), FHeight - 2 * (FNotifyWidth - 1));
     }
 
-    public DisplayControllerNotificationArea(Canvas aCanvas) {
+    public NotificationAreaDisplayController(Canvas aCanvas) {
         this(aCanvas,"");
     }
 
-    public DisplayControllerNotificationArea(Canvas aCanvas, String aName) {
+    public NotificationAreaDisplayController(Canvas aCanvas, String aName) {
         super(aCanvas, aName);
         FNotifyBackColor = Color.LIGHTSLATEGREY;
         FNotifyBorderColor = Color.BLACK;

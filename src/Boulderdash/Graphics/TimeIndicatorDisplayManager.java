@@ -30,6 +30,7 @@ public class TimeIndicatorDisplayManager extends NGDisplayManager {
         if (fusibleLength == 0) {
             NGDisplayController dc = getController(CFlame);
             dc.setPosition(x, y - 32);
+            clearRect(x, y - 64, 32, 32);
             return;
         }
         aController.setProperty(aController,String.format("%s.ImageNumber", CLAYERBACKGROUND), BoulderdashConsts.SPRITE_FUSIBLE_RIGHT);
@@ -41,6 +42,12 @@ public class TimeIndicatorDisplayManager extends NGDisplayManager {
             if (fusibleLength == 0) {
                 NGDisplayController dc = getController(CFlame);
                 dc.setPosition(x, y - 32);
+                if (i < 23) {
+                    clearRect(x, y - 64, 32, 32);
+                }
+                else {
+                    clearRect(x - 32, y - 32, 32, 32);
+                }
                 return;
             }
         }
@@ -52,6 +59,7 @@ public class TimeIndicatorDisplayManager extends NGDisplayManager {
         if (fusibleLength == 0) {
             NGDisplayController dc = getController(CFlame);
             dc.setPosition(x - 32, y);
+            clearRect(x - 64, y, 32, 32);
             return;
         }
         aController.setProperty(aController,String.format("%s.ImageNumber", CLAYERBACKGROUND), BoulderdashConsts.SPRITE_FUSIBLE_TOP);
@@ -63,6 +71,12 @@ public class TimeIndicatorDisplayManager extends NGDisplayManager {
             if (fusibleLength == 0) {
                 NGDisplayController dc = getController(CFlame);
                 dc.setPosition(x - 32, y);
+                if (i < 24) {
+                    clearRect(x - 64, y, 32, 32);
+                }
+                else {
+                    clearRect(x - 40, y + 32, 32, 32);
+                }
                 return;
             }
         }
@@ -74,6 +88,7 @@ public class TimeIndicatorDisplayManager extends NGDisplayManager {
         if (fusibleLength == 0) {
             NGDisplayController dc = getController(CFlame);
             dc.setPosition(x - 8, y + 32);
+            clearRect(x - 8, y + 64, 32, 32);
             return;
         }
         aController.setProperty(aController,String.format("%s.ImageNumber", CLAYERBACKGROUND), BoulderdashConsts.SPRITE_FUSIBLE_LEFT);
@@ -85,6 +100,9 @@ public class TimeIndicatorDisplayManager extends NGDisplayManager {
             if (fusibleLength == 0) {
                 NGDisplayController dc = getController(CFlame);
                 dc.setPosition(x - 8, y + 32);
+                if (i < 23) {
+                    clearRect(x - 8, y + 64, 32, 32);
+                }
                 return;
             }
         }
@@ -139,15 +157,25 @@ public class TimeIndicatorDisplayManager extends NGDisplayManager {
         return FMaxFusibleLength;
     }
 
-    public void resetCurrentFusibelLength() {
+    public Integer getCurrentFusibleLength() {
+        return FCurrentFusibleLength;
+    }
+
+    public void setCurrentFusibleLength(Integer aValue) {
+        if (FCurrentFusibleLength != aValue) {
+            FCurrentFusibleLength = aValue;
+        }
+    }
+
+    public void resetTimeIndicator() {
         FFlameBurned = false;
         FCurrentFusibleLength = getMaxFusibleLength();
+        clearRect(0, 0, FWidth, FHeight - 40);
     }
 
     public void subCurrentFusibleLength() {
-        if (FCurrentFusibleLength > 0) {
-            FCurrentFusibleLength = FCurrentFusibleLength - 1;
-            clearRect(0, 0, FWidth, FHeight - 40);
+        if (getCurrentFusibleLength() > 0) {
+            setCurrentFusibleLength(getCurrentFusibleLength() - 1);
         }
     }
 

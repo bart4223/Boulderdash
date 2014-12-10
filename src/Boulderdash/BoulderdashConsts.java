@@ -4,9 +4,9 @@ public abstract class BoulderdashConsts {
 
     // --------------------- Sprites -----------------------------------
     public final static Integer SPRITE_AIR                           = 0;
-    public final static Integer SPRITE_BENDER_FOOT_DOWN              = 1;
+    public final static Integer SPRITE_BENDER_FOOT_DOWN              = 42;//1;
     public final static Integer SPRITE_DIAMOND                       = 2;
-    public final static Integer SPRITE_BENDER_FOOT_UP                = 3;
+    public final static Integer SPRITE_BENDER_FOOT_UP                = 43;//3;
     public final static Integer SPRITE_BOULDER                       = 4;
     public final static Integer SPRITE_EARTH                         = 5;
     public final static Integer SPRITE_DOOR_OPEN_NONE                = 6;
@@ -45,6 +45,8 @@ public abstract class BoulderdashConsts {
     public final static Integer SPRITE_FUSIBLE_CORNER_LEFT           = 39;
     public final static Integer SPRITE_FUSIBLE_LEFT                  = 40;
     public final static Integer SPRITE_FLAME                         = 41;
+    public final static Integer SPRITE_NEW_BENDER_FOOT_DOWN          = 42;
+    public final static Integer SPRITE_NEW_BENDER_FOOT_UP            = 43;
 
     // --------------------- Mimics ------------------------------------
     public final static String MIMIC_ACTION_PLAYER_MOVE              = "Player.Move";

@@ -14,6 +14,7 @@ import Uniwork.Base.NGObjectRequestInvoker;
 import Uniwork.Base.NGPropertyItem;
 import Uniwork.Misc.NGStrings;
 import Uniwork.Misc.NGTickEvent;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,6 +43,8 @@ public class Boulderdash extends NG2DGame {
     protected ArrayList<DiamondItem> FDiamonds;
     protected Boolean FNewLevelStarted;
     protected Integer FPoints;
+    protected Integer FCurrentTime;
+    protected Integer FMaxTime = 150;
 
     protected void CreateControlStage(){
         FGameControlStage = new Stage();
@@ -153,6 +156,7 @@ public class Boulderdash extends NG2DGame {
         FNewLevelStarted = true;
         setLiveIndicator(getPCs().get(0).getCurrentLives());
         UpdateToBeCollectedDiamondCount();
+        resetTime();
         StartTimeTask();
     }
 
@@ -348,6 +352,30 @@ public class Boulderdash extends NG2DGame {
         tm.startPeriodicTask(CTimeFlameTask, aDelay);
     }
 
+    protected void resetTime() {
+        FCurrentTime = FMaxTime;
+        FGameFieldController.resetTimeIndicator();
+    }
+
+    protected void checkTime() {
+        if (FCurrentTime > 0) {
+            FCurrentTime = FCurrentTime - 1;
+            Integer length = FCurrentTime * FGameFieldController.getMaxTimeIndicatorFusibleLength() / FMaxTime;
+            if (length < FGameFieldController.getCurrentTimeIndicatorFusibleLength()) {
+                FGameFieldController.setCurrentTimeIndicatorFusibleLength(length);
+            }
+        }
+        if (FCurrentTime == 0) {
+            writeLog("Time expired...");
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    Restart();
+                }
+            });
+        }
+    }
+
     @Override
     protected void DoHandleTick(NGTickEvent aEvent) {
         super.DoHandleTick(aEvent);
@@ -355,7 +383,7 @@ public class Boulderdash extends NG2DGame {
             NGTaskManager tm = getTaskManager();
             tm.stopPeriodicTask(CTimeFlameTask);
             try {
-                FGameFieldController.subTimeIndicatorFusible();
+                checkTime();
             } finally {
                 tm.startPeriodicTask(CTimeFlameTask);
             }
@@ -387,6 +415,8 @@ public class Boulderdash extends NG2DGame {
         FDiamonds = new ArrayList<DiamondItem>();
         FNewLevelStarted = false;
         FPoints = 0;
+        FMaxTime = 150;
+        FCurrentTime = 0;
     }
 
     public Canvas getGameFieldLayerBack() {

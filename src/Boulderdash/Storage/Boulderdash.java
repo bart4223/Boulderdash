@@ -362,8 +362,8 @@ public class Boulderdash extends NG2DGame {
         if (FCurrentTime > 0) {
             FCurrentTime = FCurrentTime - 1;
             Integer length = FCurrentTime * FGameFieldController.getMaxTimeIndicatorFusibleLength() / FMaxTime;
-            if (length < FGameFieldController.getCurrentTimeIndicatorFusibleLength()) {
-                FGameFieldController.setCurrentTimeIndicatorFusibleLength(length);
+            while (length <= FGameFieldController.getCurrentTimeIndicatorFusibleLength() - 1) {
+                FGameFieldController.subTimeIndicatorFusible();
             }
         }
         if (FCurrentTime == 0) {

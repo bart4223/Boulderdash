@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 public class Boulderdash extends NG2DGame {
 
+    public static Integer CMinTime = 150;
     public static String CTimeTask = "Boulderdash.GameTime";
     public static String CTimeFlameTask = "Boulderdash.GameTimeFlame";
 
@@ -44,7 +45,7 @@ public class Boulderdash extends NG2DGame {
     protected Boolean FNewLevelStarted;
     protected Integer FPoints;
     protected Integer FCurrentTime;
-    protected Integer FMaxTime = 150;
+    protected Integer FMaxTime;
 
     protected void CreateControlStage(){
         FGameControlStage = new Stage();
@@ -415,7 +416,7 @@ public class Boulderdash extends NG2DGame {
         FDiamonds = new ArrayList<DiamondItem>();
         FNewLevelStarted = false;
         FPoints = 0;
-        FMaxTime = 150;
+        FMaxTime = CMinTime;
         FCurrentTime = 0;
     }
 

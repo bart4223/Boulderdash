@@ -29,6 +29,7 @@ import java.util.ArrayList;
 public class Boulderdash extends NG2DGame {
 
     public static Integer CMinTime = 150;
+    public static String CKeyRepeatTask = "Boulderdash.KeyRepeat";
     public static String CTimeTask = "Boulderdash.GameTime";
     public static String CTimeFlameTask = "Boulderdash.GameTimeFlame";
 
@@ -78,7 +79,7 @@ public class Boulderdash extends NG2DGame {
             Scene scene = new Scene(lRoot, 880, 880, Color.DARKGRAY);
             FGameFieldStage.setScene(scene);
             FGameFieldStage.setResizable(false);
-            scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
                 @Override
                 public void handle(KeyEvent keyEvent) {
                     handleKeyPressed(keyEvent);
@@ -91,6 +92,11 @@ public class Boulderdash extends NG2DGame {
     }
 
     protected void handleKeyPressed(KeyEvent e) {
+        StartKeyRepeatTask(e, 0);
+    }
+
+    protected void handleKeyRepeat(KeyEvent e) {
+        StopKeyRepeatTask();
         switch (e.getCode()) {
             case DOWN:
                 if (FState == State.Started) {
@@ -337,6 +343,17 @@ public class Boulderdash extends NG2DGame {
         FCaller.Invoke();
     }
 
+    protected void StopKeyRepeatTask() {
+        NGTaskManager tm = getTaskManager();
+        tm.stopPeriodicTask(CKeyRepeatTask);
+    }
+
+    protected void StartKeyRepeatTask(KeyEvent aKeyEvent, Integer aDelay) {
+        NGTaskManager tm = getTaskManager();
+        tm.setTaskProp(CKeyRepeatTask, "KeyEvent", aKeyEvent);
+        tm.startPeriodicTask(CKeyRepeatTask, aDelay);
+    }
+
     protected void StopTimeTask() {
         NGTaskManager tm = getTaskManager();
         tm.stopPeriodicTask(CTimeFlameTask);
@@ -390,6 +407,9 @@ public class Boulderdash extends NG2DGame {
             }
         } else if (aEvent.Name.equals(CTimeFlameTask)) {
             FGameFieldController.incTimeIndicatorFlame();
+        } else if (aEvent.Name.equals(CKeyRepeatTask)) {
+            NGTaskManager tm = getTaskManager();
+            handleKeyRepeat((KeyEvent)tm.getTaskProp(CKeyRepeatTask, "KeyEvent"));
         }
     }
 
@@ -401,6 +421,8 @@ public class Boulderdash extends NG2DGame {
         tm.addListener(CTimeTask, this);
         tm.addPeriodicTask(CTimeFlameTask, 10);
         tm.addListener(CTimeFlameTask, this);
+        tm.addPeriodicTask(CKeyRepeatTask, 10);
+        tm.addListener(CKeyRepeatTask, this);
     }
 
     public Boulderdash(NGGameManager aManager, String aName) {

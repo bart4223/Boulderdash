@@ -2,7 +2,7 @@
 <java version="1.7.0_25" class="java.beans.XMLDecoder">
  <object class="Uniplay.Storage.NGSerialize2DLevel">
   <void property="caption">
-   <string>The First</string>
+   <string>The dangerous Cave</string>
   </void>
   <void property="gameField">
    <object class="Uniplay.Storage.NGSerialize2DGameField">
@@ -11804,7 +11804,7 @@
    </object>
   </void>
   <void property="name">
-   <string>Level1</string>
+   <string>Level8</string>
   </void>
   <void property="props">
    <object class="java.util.ArrayList">

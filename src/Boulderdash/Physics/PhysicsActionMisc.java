@@ -1,6 +1,7 @@
 package Boulderdash.Physics;
 
 import Boulderdash.Graphics.BoulderdashSprite;
+import Boulderdash.Graphics.SpriteBomb;
 import Boulderdash.Graphics.SpriteBoulder;
 import Boulderdash.Graphics.SpriteDiamond;
 import Boulderdash.Storage.MemoryCellValue;
@@ -15,7 +16,7 @@ import Uniplay.Storage.NGCustomGameObject;
 public abstract class PhysicsActionMisc {
 
     protected static Boolean isObjectTouchable(MemoryCellValue aCellValue) {
-        return aCellValue.getObject() instanceof SpriteBoulder || aCellValue.getObject() instanceof SpriteDiamond;
+        return aCellValue.getObject() instanceof SpriteBoulder || aCellValue.getObject() instanceof SpriteDiamond || aCellValue.getObject() instanceof SpriteBomb;
     }
 
     public PhysicsActionMisc() {

@@ -3,6 +3,7 @@ package Boulderdash.Control;
 import Boulderdash.Graphics.*;
 import Boulderdash.Physics.PhysicsActionMisc;
 import Boulderdash.Storage.*;
+import Uniplay.Control.NGControlMimicItem;
 import Uniplay.Control.NGControlMimicManager;
 import Uniplay.Control.NGControlMimicORBAction;
 import Uniplay.Kernel.NGGameEngineMemoryAddress;
@@ -12,7 +13,9 @@ import Uniplay.Physics.NGObjectPhysicsProcessor;
 import Uniplay.Physics.NGPhysicsAction2DImpuls;
 import Uniplay.Storage.*;
 import Boulderdash.BoulderdashConsts;
+import Uniwork.Base.NGPropertyList;
 import Uniwork.Graphics.NGVector2D;
+import javafx.application.Platform;
 
 public class MimicActionBenderMove extends NGControlMimicORBAction {
 
@@ -29,6 +32,10 @@ public class MimicActionBenderMove extends NGControlMimicORBAction {
 
     protected static Boolean isObjectMoveable(MemoryCellValue aCellValue) {
         return aCellValue.getObject() instanceof SpriteBoulder;
+    }
+
+    protected static Boolean isObjectBlastable(MemoryCellValue aCellValue) {
+        return aCellValue.getObject() instanceof SpriteBomb;
     }
 
     protected void setNewCharacterPosition(NG2DGameCharacter aCharacter) {
@@ -122,6 +129,12 @@ public class MimicActionBenderMove extends NGControlMimicORBAction {
                             break;
                     }
                 }
+            }
+            else if (isObjectBlastable(value)) {
+                NGPropertyList props = new NGPropertyList();
+                Bomb bomb = ((SpriteBomb)(value.getObject())).getBomb();
+                props.set("StartObject", bomb);
+                FManager.ActivateMimic(BoulderdashConsts.MIMIC_ACTION_BOMB_ACTIVATION, props);
             }
         }
     }

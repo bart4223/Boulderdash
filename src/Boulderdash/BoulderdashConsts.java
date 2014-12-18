@@ -59,6 +59,7 @@ public abstract class BoulderdashConsts {
     public final static String MIMIC_ACTION_DOOR_OPEN                = "Door.Open";
     public final static String MIMIC_ACTION_DOOR_CLOSE               = "Door.Close";
     public final static String MIMIC_ACTION_EXPLOSION                = "Explosion";
+    public final static String MIMIC_ACTION_BOMB_ACTIVATION          = "Bomb.Activation";
 
     // --------------------- SOUNDS ---------------------------------
     public final static String SOUND_SPLASH_FEAR                     = "Fear";

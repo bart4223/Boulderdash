@@ -264,7 +264,11 @@ public class Boulderdash extends NG2DGame {
                 brick.setID(aID);
                 return brick;
             case 27:
-                return new SpriteBomb();
+                Bomb bomb = new Bomb(this);
+                bomb.setPosition(aAddress.getOffset(), aAddress.getBase());
+                bomb.setLayer(1);
+                bomb.setInEarth(true);
+                return new SpriteBomb(bomb);
         }
         return null;
     }

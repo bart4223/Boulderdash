@@ -38,7 +38,6 @@ public class Bender extends NG2DGameCharacter {
         } else {
             setMode(Mode.footdown);
         }
-        getGame().refreshMemoryCell(getMemoryAddress());
     }
 
     public Boolean getInDoor() {

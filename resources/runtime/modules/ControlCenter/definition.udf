@@ -370,7 +370,7 @@
            <string>Interval</string>
           </void>
           <void property="value">
-           <int>100</int>
+           <int>50</int>
           </void>
          </object>
         </void>
@@ -380,7 +380,7 @@
            <string>CountDown</string>
           </void>
           <void property="value">
-           <int>5</int>
+           <int>10</int>
           </void>
          </object>
         </void>

@@ -47,6 +47,7 @@ public abstract class BoulderdashConsts {
     public final static Integer SPRITE_FLAME                         = 41;
     public final static Integer SPRITE_NEW_BENDER_FOOT_DOWN          = 42;
     public final static Integer SPRITE_NEW_BENDER_FOOT_UP            = 43;
+    public final static Integer SPRITE_BOMB_ACTIVATED                = 44;
 
     // --------------------- Mimics ------------------------------------
     public final static String MIMIC_ACTION_PLAYER_MOVE              = "Player.Move";

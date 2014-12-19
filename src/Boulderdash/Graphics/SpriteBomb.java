@@ -28,6 +28,25 @@ public class SpriteBomb extends BoulderdashSprite {
         return FBomb;
     }
 
+    public static Integer getID(Bomb aBomb) {
+        Integer res = BoulderdashConsts.SPRITE_BOMB;
+        switch (aBomb.getMode()) {
+            case inactive:
+                res = BoulderdashConsts.SPRITE_BOMB;
+                break;
+            case active:
+                res = BoulderdashConsts.SPRITE_BOMB_ACTIVATED;
+                break;
+        }
+        return res;
+    }
+
+    @Override
+    public Integer getID() {
+        return getID(FBomb);
+    }
+
+
     @Override
     public String getResponsibleDisplayControllerName(NGCustomRenderEngineItem aRenderEngine) {
         if (aRenderEngine.getName().equals("BACK")) {
@@ -48,7 +67,7 @@ public class SpriteBomb extends BoulderdashSprite {
             else {
                 res.add(new NGPropertyItem("Background", BoulderdashConsts.SPRITE_AIR));
             }
-            res.add(new NGPropertyItem("Front", FID));
+            res.add(new NGPropertyItem("Front", getID()));
         }
         return res;
     }

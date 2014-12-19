@@ -9,10 +9,7 @@ import Uniplay.Kernel.NGGameEngineMemoryAddress;
 import Uniplay.Kernel.NGGameEngineMemoryCellValueItem;
 import Uniplay.Kernel.NGGameEngineMemoryManager;
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
-import Uniplay.Storage.NG2DGame;
-import Uniplay.Storage.NG2DGameCharacter;
-import Uniplay.Storage.NGCustomGame;
-import Uniplay.Storage.NGCustomGameObject;
+import Uniplay.Storage.*;
 
 import java.util.ArrayList;
 
@@ -35,14 +32,44 @@ public class MimicActionExplosion extends NGControlMimicPeriodicAction {
     }
 
     @Override
+    protected void DoDeactivate() {
+        super.DoDeactivate();
+        NG2DGame game = getGame();
+        NGGameEngineMemoryManager mm = game.getMemoryManager();
+        NGGameEngineMemoryAddress address = null;
+        for (NGGameEngineMemoryCellValueItem item : FExplosionCenters) {
+            address  = item.getAddress();
+            mm.setCellValueAsObject(game.getMemoryName(), address, new SpriteAir());
+            mm.refreshCell(game.getMemoryName(), address);
+        }
+        if (StartObject instanceof NG2DGameCharacter) {
+            NG2DGameCharacter gc = (NG2DGameCharacter)StartObject;
+            address =gc.getMemoryAddress();
+        } else if (StartObject instanceof NG2DGameObject) {
+            NG2DGameObject go = (NG2DGameObject)StartObject;
+            address = go.getMemoryAddress();
+        }
+        if (address != null) {
+            mm.setCellValueAsObject(game.getMemoryName(), address, new SpriteAir());
+            mm.refreshCell(game.getMemoryName(), address);
+        }
+    }
+
+    @Override
     protected void DoActivate() {
         super.DoActivate();
         FExplosionCenters.clear();
         NG2DGame game = getGame();
         NGGameEngineMemoryManager mm = game.getMemoryManager();
+        NGGameEngineMemoryAddress address = null;
         if (StartObject instanceof NG2DGameCharacter) {
             NG2DGameCharacter gc = (NG2DGameCharacter)StartObject;
-            NGGameEngineMemoryAddress address = gc.getMemoryAddress();
+            address =gc.getMemoryAddress();
+        } else if (StartObject instanceof NG2DGameObject) {
+            NG2DGameObject go = (NG2DGameObject)StartObject;
+            address = go.getMemoryAddress();
+        }
+        if (address != null) {
             for (int y = 0; y < Intensity; y++) {
                 for (int x = 0; x < Intensity; x++) {
                     addExplosionCenter(new NGGameEngineMemoryAddress(address.getPage(), address.getBase() - y, address.getOffset() - x));

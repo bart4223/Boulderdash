@@ -6,9 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="module" module-name="Uniwork" />
     <orderEntry type="module" module-name="Uniplay" />
+    <orderEntry type="module" module-name="Uniwork" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
-

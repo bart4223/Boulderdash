@@ -40,6 +40,9 @@
       <void property="classname">
        <string>Uniplay.Storage.NGDataStorageModule</string>
       </void>
+      <void property="configurationFilename">
+       <string>resources/runtime/modules/DataStorage/config.ucf</string>
+      </void>
       <void property="name">
        <string>DataStorage</string>
       </void>

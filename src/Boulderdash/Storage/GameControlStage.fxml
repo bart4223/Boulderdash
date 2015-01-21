@@ -9,6 +9,6 @@
         <ComboBox id="cbPlayers" prefWidth="150" onAction="#handlecbPlayers" fx:id="cbPlayers" />
         <Button id="btnNew" prefWidth="80" text="New" onAction="#handleNew" fx:id="btnNew" />
         <Button id="btnTest" prefWidth="80" text="Test" onAction="#handleTest" fx:id="btnTest" />
-        <Button id="btnExit" prefWidth="80" text="Exit" onAction="#handleExit" fx:id="btnExit" />
+        <Button id="btnQuit" prefWidth="80" text="Quit" onAction="#handleQuit" fx:id="btnQuit" />
     </HBox>
 </AnchorPane>

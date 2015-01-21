@@ -31,7 +31,7 @@ public class GameControlStageController extends NGStageController {
     }
 
     @FXML
-    protected void handleExit(){
+    protected void handleQuit(){
         Game.Shutdown();
     }
 

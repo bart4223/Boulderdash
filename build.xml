@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="boulderdash" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.tox/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.ane"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.7" value="${jdk.home.1.7}/bin"/>
+  <path id="jdk.classpath.1.7">
+    <fileset dir="${jdk.home.1.7}">
+      <include name="lib/ant-javafx.jar"/>
+      <include name="lib/dt.jar"/>
+      <include name="lib/javafx-doclet.jar"/>
+      <include name="lib/javafx-mx.jar"/>
+      <include name="lib/jconsole.jar"/>
+      <include name="lib/sa-jdi.jar"/>
+      <include name="lib/tools.jar"/>
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/htmlconverter.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxrt.jar"/>
+      <include name="jre/lib/JObjC.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.7}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.7}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.7"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.hamcrest-core-1.3.classpath">
+    <pathelement location="${idea.home}/lib/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.junit-4.11.classpath">
+    <pathelement location="${idea.home}/lib/junit-4.11.jar"/>
+  </path>
+  
+  <path id="library.junit-4.111.classpath">
+    <pathelement location="${idea.home}/lib/junit-4.11.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module Uniwork -->
+  
+  <dirname property="module.uniwork.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.uniwork" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.uniwork" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.uniwork" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.uniwork" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="uniwork.output.dir" value="${module.uniwork.basedir}/out/production/Uniwork"/>
+  <property name="uniwork.testoutput.dir" value="${module.uniwork.basedir}/out/test/Uniwork"/>
+  
+  <path id="uniwork.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="uniwork.module.production.classpath">
+    <path refid="${module.jdk.classpath.uniwork}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+  </path>
+  
+  <path id="uniwork.runtime.production.module.classpath">
+    <pathelement location="${uniwork.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+  </path>
+  
+  <path id="uniwork.module.classpath">
+    <path refid="${module.jdk.classpath.uniwork}"/>
+    <pathelement location="${uniwork.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+  </path>
+  
+  <path id="uniwork.runtime.module.classpath">
+    <pathelement location="${uniwork.testoutput.dir}"/>
+    <pathelement location="${uniwork.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.uniwork">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.uniwork">
+    <patternset refid="excluded.from.module.uniwork"/>
+  </patternset>
+  
+  <path id="uniwork.module.sourcepath">
+    <dirset dir="${module.uniwork.basedir}/../Uniwork">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.uniwork" depends="compile.module.uniwork.production,compile.module.uniwork.tests" description="Compile module Uniwork"/>
+  
+  <target name="compile.module.uniwork.production" depends="register.custom.compilers" description="Compile module Uniwork; production classes">
+    <mkdir dir="${uniwork.output.dir}"/>
+    <javac2 destdir="${uniwork.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.uniwork}/javac">
+      <compilerarg line="${compiler.args.uniwork}"/>
+      <bootclasspath refid="uniwork.module.bootclasspath"/>
+      <classpath refid="uniwork.module.production.classpath"/>
+      <src refid="uniwork.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.uniwork"/>
+    </javac2>
+    
+    <copy todir="${uniwork.output.dir}">
+      <fileset dir="${module.uniwork.basedir}/../Uniwork/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.uniwork.tests" depends="register.custom.compilers,compile.module.uniwork.production" description="compile module Uniwork; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.uniwork" description="cleanup module">
+    <delete dir="${uniwork.output.dir}"/>
+    <delete dir="${uniwork.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module Uniplay -->
+  
+  <dirname property="module.uniplay.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.uniplay" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.uniplay" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.uniplay" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.uniplay" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="uniplay.output.dir" value="${module.uniplay.basedir}/out/production/Uniplay"/>
+  <property name="uniplay.testoutput.dir" value="${module.uniplay.basedir}/out/test/Uniplay"/>
+  
+  <path id="uniplay.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="uniplay.module.production.classpath">
+    <path refid="${module.jdk.classpath.uniplay}"/>
+    <pathelement location="${uniwork.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+    <path refid="library.junit-4.111.classpath"/>
+  </path>
+  
+  <path id="uniplay.runtime.production.module.classpath">
+    <path refid="uniwork.runtime.production.module.classpath"/>
+    <pathelement location="${uniplay.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+    <path refid="library.junit-4.111.classpath"/>
+  </path>
+  
+  <path id="uniplay.module.classpath">
+    <path refid="${module.jdk.classpath.uniplay}"/>
+    <pathelement location="${uniwork.testoutput.dir}"/>
+    <pathelement location="${uniwork.output.dir}"/>
+    <pathelement location="${uniplay.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+    <path refid="library.junit-4.111.classpath"/>
+  </path>
+  
+  <path id="uniplay.runtime.module.classpath">
+    <path refid="uniwork.runtime.module.classpath"/>
+    <pathelement location="${uniplay.testoutput.dir}"/>
+    <pathelement location="${uniplay.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+    <path refid="library.junit-4.111.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.uniplay">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.uniplay">
+    <patternset refid="excluded.from.module.uniplay"/>
+  </patternset>
+  
+  <path id="uniplay.module.sourcepath">
+    <dirset dir="${module.uniplay.basedir}/../Uniplay">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.uniplay" depends="compile.module.uniplay.production,compile.module.uniplay.tests" description="Compile module Uniplay"/>
+  
+  <target name="compile.module.uniplay.production" depends="register.custom.compilers,compile.module.uniwork" description="Compile module Uniplay; production classes">
+    <mkdir dir="${uniplay.output.dir}"/>
+    <javac2 destdir="${uniplay.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.uniplay}/javac">
+      <compilerarg line="${compiler.args.uniplay}"/>
+      <bootclasspath refid="uniplay.module.bootclasspath"/>
+      <classpath refid="uniplay.module.production.classpath"/>
+      <src refid="uniplay.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.uniplay"/>
+    </javac2>
+    
+    <copy todir="${uniplay.output.dir}">
+      <fileset dir="${module.uniplay.basedir}/../Uniplay/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.uniplay.tests" depends="register.custom.compilers,compile.module.uniplay.production" description="compile module Uniplay; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.uniplay" description="cleanup module">
+    <delete dir="${uniplay.output.dir}"/>
+    <delete dir="${uniplay.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module Boulderdash -->
+  
+  <dirname property="module.boulderdash.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.boulderdash" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.boulderdash" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.boulderdash" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.boulderdash" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="boulderdash.output.dir" value="${module.boulderdash.basedir}/out/production/Boulderdash"/>
+  <property name="boulderdash.testoutput.dir" value="${module.boulderdash.basedir}/out/test/Boulderdash"/>
+  
+  <path id="boulderdash.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="boulderdash.module.production.classpath">
+    <path refid="${module.jdk.classpath.boulderdash}"/>
+    <pathelement location="${uniplay.output.dir}"/>
+    <pathelement location="${uniwork.output.dir}"/>
+  </path>
+  
+  <path id="boulderdash.runtime.production.module.classpath">
+    <path refid="uniplay.runtime.production.module.classpath"/>
+    <path refid="uniwork.runtime.production.module.classpath"/>
+    <pathelement location="${boulderdash.output.dir}"/>
+  </path>
+  
+  <path id="boulderdash.module.classpath">
+    <path refid="${module.jdk.classpath.boulderdash}"/>
+    <pathelement location="${uniplay.testoutput.dir}"/>
+    <pathelement location="${uniplay.output.dir}"/>
+    <pathelement location="${uniwork.testoutput.dir}"/>
+    <pathelement location="${uniwork.output.dir}"/>
+    <pathelement location="${boulderdash.output.dir}"/>
+  </path>
+  
+  <path id="boulderdash.runtime.module.classpath">
+    <path refid="uniplay.runtime.module.classpath"/>
+    <path refid="uniwork.runtime.module.classpath"/>
+    <pathelement location="${boulderdash.testoutput.dir}"/>
+    <pathelement location="${boulderdash.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.boulderdash">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.boulderdash">
+    <patternset refid="excluded.from.module.boulderdash"/>
+  </patternset>
+  
+  <path id="boulderdash.module.sourcepath">
+    <dirset dir="${module.boulderdash.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.boulderdash" depends="compile.module.boulderdash.production,compile.module.boulderdash.tests" description="Compile module Boulderdash"/>
+  
+  <target name="compile.module.boulderdash.production" depends="register.custom.compilers,compile.module.uniplay,compile.module.uniwork" description="Compile module Boulderdash; production classes">
+    <mkdir dir="${boulderdash.output.dir}"/>
+    <javac2 destdir="${boulderdash.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.boulderdash}/javac">
+      <compilerarg line="${compiler.args.boulderdash}"/>
+      <bootclasspath refid="boulderdash.module.bootclasspath"/>
+      <classpath refid="boulderdash.module.production.classpath"/>
+      <src refid="boulderdash.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.boulderdash"/>
+    </javac2>
+    
+    <copy todir="${boulderdash.output.dir}">
+      <fileset dir="${module.boulderdash.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.boulderdash.tests" depends="register.custom.compilers,compile.module.boulderdash.production" description="compile module Boulderdash; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.boulderdash" description="cleanup module">
+    <delete dir="${boulderdash.output.dir}"/>
+    <delete dir="${boulderdash.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.uniwork, clean.module.uniplay, clean.module.boulderdash, clean.artifact.boulderdash" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.uniwork, compile.module.uniplay, compile.module.boulderdash" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.boulderdash" value="${basedir}/out/artifacts/Boulderdash"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="artifact.temp.output.Boulderdash" value="${artifacts.temp.dir}/Boulderdash.jar"/>
+    <taskdef resource="com/sun/javafx/tools/ant/antlib.xml" uri="javafx:com.sun.javafx.tools.ant" classpath="${jdk.home.1.7}/lib/ant-javafx.jar"/>
+  </target>
+  
+  <target name="clean.artifact.boulderdash" description="clean Boulderdash artifact output">
+    <delete dir="${artifact.output.boulderdash}"/>
+  </target>
+  
+  <target name="artifact.boulderdash" depends="init.artifacts, compile.module.boulderdash, compile.module.uniplay, compile.module.uniwork" description="Build &#39;Boulderdash&#39; artifact" xmlns:fx="javafx:com.sun.javafx.tools.ant">
+    <mkdir dir="${artifact.output.boulderdash}"/>
+    <copy todir="${artifact.temp.output.Boulderdash}">
+      <fileset dir="${boulderdash.output.dir}"/>
+    </copy>
+    <copy todir="${artifact.temp.output.Boulderdash}">
+      <fileset dir="${uniplay.output.dir}"/>
+    </copy>
+    <copy todir="${artifact.temp.output.Boulderdash}">
+      <fileset dir="${uniwork.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.temp.output.Boulderdash}/resources"/>
+    <mkdir dir="${artifact.temp.output.Boulderdash}/resources/levels"/>
+    <copy todir="${artifact.temp.output.Boulderdash}/resources/levels">
+      <fileset dir="${basedir}/resources/levels"/>
+    </copy>
+    <mkdir dir="${artifact.temp.output.Boulderdash}/resources/runtime"/>
+    <copy todir="${artifact.temp.output.Boulderdash}/resources/runtime">
+      <fileset dir="${basedir}/resources/runtime"/>
+    </copy>
+    <mkdir dir="${artifact.temp.output.Boulderdash}/resources/sound"/>
+    <copy todir="${artifact.temp.output.Boulderdash}/resources/sound">
+      <fileset dir="${basedir}/resources/sound"/>
+    </copy>
+    <mkdir dir="${artifact.temp.output.Boulderdash}/resources/splash"/>
+    <copy todir="${artifact.temp.output.Boulderdash}/resources/splash">
+      <fileset dir="${basedir}/resources/splash"/>
+    </copy>
+    <mkdir dir="${artifact.temp.output.Boulderdash}/resources/sprites"/>
+    <copy todir="${artifact.temp.output.Boulderdash}/resources/sprites">
+      <fileset dir="${basedir}/resources/sprites"/>
+    </copy>
+    <copy file="${basedir}/resources/runtime/config.bd" tofile="${artifact.temp.output.Boulderdash}/resources/config.bd"/>
+    <copy file="${basedir}/README.md" tofile="${artifact.temp.output.Boulderdash}/README.md"/>
+    <fx:fileset id="all_but_Boulderdash" dir="${artifact.temp.output.Boulderdash}" includes="**/*.jar">
+      <exclude name="Boulderdash.jar"/>
+    </fx:fileset>
+    <fx:fileset id="all_Boulderdash" dir="${artifact.temp.output.Boulderdash}" includes="**/*.jar"/>
+    <fx:application id="Boulderdash_id" name="Boulderdash" mainClass="Boulderdash.Main"/>
+    <fx:jar destfile="${artifact.temp.output.Boulderdash}/Boulderdash.jar">
+      <fx:application refid="Boulderdash_id"/>
+      <fileset dir="${artifact.temp.output.Boulderdash}" excludes="**/*.jar"/>
+      <fx:resources>
+        <fx:fileset refid="all_but_Boulderdash"/>
+      </fx:resources>
+      <manifest/>
+    </fx:jar>
+    <fx:deploy width="600" height="400" updatemode="background" outdir="${artifact.temp.output.Boulderdash}/deploy" outfile="Boulderdash">
+      <fx:application refid="Boulderdash_id"/>
+      <fx:resources>
+        <fx:fileset refid="all_Boulderdash"/>
+      </fx:resources>
+    </fx:deploy>
+    <copy todir="${artifact.output.boulderdash}">
+      <fileset dir="${artifact.temp.output.Boulderdash}/deploy"/>
+    </copy>
+    <delete includeemptydirs="true">
+      <fileset dir="${artifact.temp.output.Boulderdash}"/>
+    </delete>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.boulderdash" description="Build all artifacts">
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

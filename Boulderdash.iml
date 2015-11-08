@@ -9,5 +9,6 @@
     <orderEntry type="module" module-name="Uniplay" />
     <orderEntry type="module" module-name="Uniwork" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="junit-4.12" level="project" />
   </component>
 </module>

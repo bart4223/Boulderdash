@@ -2,7 +2,7 @@
 <java version="1.7.0_25" class="java.beans.XMLDecoder">
  <object class="Uniplay.Sound.NGSoundSystemDefinition">
   <void property="sounds">
-   <object class="java.util.ArrayList">
+   <object class="java.util.concurrent.CopyOnWriteArrayList">
     <void method="add">
      <object class="Uniplay.Sound.NGSoundSystemDefinitionSoundItem">
       <void property="filename">
@@ -12,14 +12,14 @@
        <string>Source</string>
       </void>
       <void property="runeventnames">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
    		 <string>Kernel.Splash.Run</string>
         </void>
        </object>
       </void>
       <void property="stopeventnames">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
    		 <string>Kernel.Splash.Finish</string>
         </void>
@@ -39,14 +39,14 @@
        <string>Fear</string>
       </void>
       <void property="runeventnames">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
    		 <string>Kernel.Started</string>
         </void>
        </object>
       </void>
       <void property="stopeventnames">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
    		 <string>Game.Start</string>
         </void>
@@ -66,11 +66,11 @@
        <string>RollingStone</string>
       </void>
       <void property="runeventnames">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
        </object>
       </void>
       <void property="stopeventnames">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
        </object>
       </void>
       <void property="volume">
@@ -90,11 +90,11 @@
        <string>Walk</string>
       </void>
       <void property="runeventnames">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
        </object>
       </void>
       <void property="stopeventnames">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
        </object>
       </void>
       <void property="volume">

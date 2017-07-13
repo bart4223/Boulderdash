@@ -11,7 +11,7 @@
    <int>20</int>
   </void>
   <void property="layers">
-   <object class="java.util.ArrayList">
+   <object class="java.util.concurrent.CopyOnWriteArrayList">
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
@@ -21,7 +21,7 @@
        <string>Bender</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -54,7 +54,7 @@
        <string>Diamond</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -137,7 +137,7 @@
        <string>Boulder</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -520,7 +520,7 @@
        <string>Earth</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -4743,7 +4743,7 @@
        <string>Door</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -4776,7 +4776,7 @@
        <string>Monster</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="imagename">
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_12.png</string>
@@ -4798,7 +4798,7 @@
        <string>Brick TopLeft Corner</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D"/>
         </void>
@@ -4841,7 +4841,7 @@
        <string>Brick Top</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -4902,7 +4902,7 @@
        <string>Brick TopRight Corner</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -4949,7 +4949,7 @@
        <string>Brick Left</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -5293,7 +5293,7 @@
        <string>Brick Right</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -5706,7 +5706,7 @@
        <string>Brick BottlmLeft Corner</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -5756,7 +5756,7 @@
        <string>Brick Bottom</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -6165,7 +6165,7 @@
        <string>Brick BottomRight Corner</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -6218,7 +6218,7 @@
        <string>Brick Down End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="imagename">
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_22.png</string>
@@ -6240,7 +6240,7 @@
        <string>Brick Up End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="imagename">
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_23.png</string>
@@ -6262,7 +6262,7 @@
        <string>Brick Left End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="imagename">
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_24.png</string>
@@ -6284,7 +6284,7 @@
        <string>Brick Right End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="imagename">
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_25.png</string>
@@ -6306,7 +6306,7 @@
        <string>Brick End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="imagename">
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_26.png</string>
@@ -6328,7 +6328,7 @@
        <string>Bomb</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="imagename">
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_27.png</string>

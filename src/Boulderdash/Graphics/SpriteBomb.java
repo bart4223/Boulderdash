@@ -7,7 +7,7 @@ import Uniplay.Storage.NGCustomGameObject;
 import Uniwork.Base.NGPropertyItem;
 import Uniwork.Visuals.NGDisplayController;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class SpriteBomb extends BoulderdashSprite {
 
@@ -58,8 +58,8 @@ public class SpriteBomb extends BoulderdashSprite {
     }
 
     @Override
-    public ArrayList<NGPropertyItem> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
-        ArrayList<NGPropertyItem> res = super.getDisplayControllerLayerProps(aRenderEngine, aDisplayController);
+    public CopyOnWriteArrayList<NGPropertyItem> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
+        CopyOnWriteArrayList<NGPropertyItem> res = super.getDisplayControllerLayerProps(aRenderEngine, aDisplayController);
         if (aDisplayController.getName().equals("TWOLAYERS")) {
             if (FBomb.getInEarth()) {
                 res.add(new NGPropertyItem("Background", BoulderdashConsts.SPRITE_EARTH));

@@ -11,7 +11,7 @@
    <int>32</int>
   </void>
   <void property="layers">
-   <object class="java.util.ArrayList">
+   <object class="java.util.concurrent.CopyOnWriteArrayList">
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
@@ -24,7 +24,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_1.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_1</string>
@@ -46,7 +46,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_2.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_2</string>
@@ -68,7 +68,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_4.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_4</string>
@@ -90,7 +90,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_5.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_5</string>
@@ -112,7 +112,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_7.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_7</string>
@@ -134,7 +134,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_12.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_12</string>
@@ -156,7 +156,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_14.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_14</string>
@@ -178,7 +178,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_15.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_15</string>
@@ -200,7 +200,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_16.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_16</string>
@@ -222,7 +222,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_17.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_17</string>
@@ -244,7 +244,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_18.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_18</string>
@@ -266,7 +266,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_19.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_19</string>
@@ -288,7 +288,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_20.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_20</string>
@@ -310,7 +310,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_21.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_21</string>
@@ -332,7 +332,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_22.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_22</string>
@@ -354,7 +354,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_23.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_23</string>
@@ -376,7 +376,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_24.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_24</string>
@@ -398,7 +398,7 @@
         <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_25.png</string>
        </void>
        <void property="geometryObjects">
-        <object class="java.util.ArrayList"/>
+        <object class="java.util.concurrent.CopyOnWriteArrayList"/>
        </void>
        <void property="name">
         <string>ID_25</string>
@@ -420,7 +420,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_26.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_26</string>
@@ -442,7 +442,7 @@
        <string>/Users/Nils/IdeaProjects/Boulderdash/resources/sprites/id_27.png</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList"/>
+       <object class="java.util.concurrent.CopyOnWriteArrayList"/>
       </void>
       <void property="name">
        <string>ID_27</string>

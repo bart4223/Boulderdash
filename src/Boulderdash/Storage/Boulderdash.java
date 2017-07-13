@@ -24,7 +24,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Boulderdash extends NG2DGame {
 
@@ -41,8 +41,8 @@ public class Boulderdash extends NG2DGame {
     protected GameControlStageController FGameControlController;
     protected NGObjectRequestCaller FCaller;
     protected Boolean FPlaySound;
-    protected ArrayList<DoorItem> FDoors;
-    protected ArrayList<DiamondItem> FDiamonds;
+    protected CopyOnWriteArrayList<DoorItem> FDoors;
+    protected CopyOnWriteArrayList<DiamondItem> FDiamonds;
     protected Boolean FNewLevelStarted;
     protected Integer FPoints;
     protected Integer FCurrentTime;
@@ -438,8 +438,8 @@ public class Boulderdash extends NG2DGame {
         FCaller.setLogManager(aManager.getLogManager());
         CreateControlStage();
         CreateGameFieldStage();
-        FDoors = new ArrayList<DoorItem>();
-        FDiamonds = new ArrayList<DiamondItem>();
+        FDoors = new CopyOnWriteArrayList<DoorItem>();
+        FDiamonds = new CopyOnWriteArrayList<DiamondItem>();
         FNewLevelStarted = false;
         FPoints = 0;
         FMaxTime = CMinTime;
@@ -512,11 +512,11 @@ public class Boulderdash extends NG2DGame {
         FGameFieldController.setLiveIndicator(aValue);
     }
 
-    public ArrayList<DoorItem> getDoors() {
+    public CopyOnWriteArrayList<DoorItem> getDoors() {
         return FDoors;
     }
 
-    public ArrayList<DiamondItem> getDiamonds() {
+    public CopyOnWriteArrayList<DiamondItem> getDiamonds() {
         return FDiamonds;
     }
 

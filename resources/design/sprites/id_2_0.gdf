@@ -11,7 +11,7 @@
    <int>10</int>
   </void>
   <void property="layers">
-   <object class="java.util.ArrayList">
+   <object class="java.util.concurrent.CopyOnWriteArrayList">
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
@@ -21,7 +21,7 @@
        <string>Layer 1</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -605,7 +605,7 @@
        <string>Layer 2</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -955,7 +955,7 @@
        <string>Layer 3</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -1065,7 +1065,7 @@
        <string>Layer 4</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -1205,7 +1205,7 @@
        <string>Layer 5</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">

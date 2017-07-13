@@ -11,11 +11,11 @@ import Uniplay.Kernel.NGGameEngineMemoryManager;
 import Uniplay.Kernel.NGGameEngineMemoryObjectCellValue;
 import Uniplay.Storage.*;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MimicActionExplosion extends NGControlMimicPeriodicAction {
 
-    protected ArrayList<NGGameEngineMemoryCellValueItem> FExplosionCenters;
+    protected CopyOnWriteArrayList<NGGameEngineMemoryCellValueItem> FExplosionCenters;
     protected ExplosionCenter FExplosionCenter;
 
     protected static Boolean isObjectRupturable(MemoryCellValue aCellValue) {
@@ -106,7 +106,7 @@ public class MimicActionExplosion extends NGControlMimicPeriodicAction {
 
     public MimicActionExplosion(NGControlMimicManager aManager, NGCustomGame aGame, String aName) {
         super(aManager, aGame, aName, Kind.temporary);
-        FExplosionCenters = new ArrayList<NGGameEngineMemoryCellValueItem>();
+        FExplosionCenters = new CopyOnWriteArrayList<NGGameEngineMemoryCellValueItem>();
         FExplosionCenter = new ExplosionCenter(aGame);
         StartObject = null;
         Intensity = 3;

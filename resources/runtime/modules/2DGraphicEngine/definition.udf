@@ -2,7 +2,7 @@
 <java version="1.7.0_25" class="java.beans.XMLDecoder">
  <object class="Uniplay.Graphics.NG2DGraphicEngineDefinition">
   <void property="eventHandlers">
-   <object class="java.util.ArrayList">
+   <object class="java.util.concurrent.CopyOnWriteArrayList">
     <void method="add">
      <object class="Uniplay.Graphics.NGGraphicEngineDefinitionEventHandlerItem">
       <void property="classname">
@@ -20,11 +20,11 @@
    </object>
   </void>
   <void property="renderEngines">
-   <object class="java.util.ArrayList">
+   <object class="java.util.concurrent.CopyOnWriteArrayList">
     <void method="add">
      <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineItem">
       <void property="displayControllers">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerItem">
           <void property="name">
@@ -37,7 +37,7 @@
            <string>resources/sprites/id_%d.png</string>
           </void>
           <void property="props">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
             <void method="add">
              <object class="Uniwork.Base.NGSerializePropertyItem">
               <void property="name">
@@ -51,7 +51,7 @@
            </object>
           </void>
           <void property="layers">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
            </object>
           </void>
          </object>
@@ -68,7 +68,7 @@
            <string>resources/sprites/id_%d.png</string>
           </void>
           <void property="props">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
             <void method="add">
              <object class="Uniwork.Base.NGSerializePropertyItem">
               <void property="name">
@@ -82,7 +82,7 @@
            </object>
           </void>
           <void property="layers">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
             <void method="add">
              <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerLayerItem">
               <void property="name">
@@ -109,7 +109,7 @@
            <string>resources/sprites/id_%d.png</string>
           </void>
           <void property="props">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
             <void method="add">
              <object class="Uniwork.Base.NGSerializePropertyItem">
               <void property="name">
@@ -123,7 +123,7 @@
            </object>
           </void>
           <void property="layers">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
             <void method="add">
              <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerLayerItem">
               <void property="name">
@@ -150,7 +150,7 @@
        <string>Uniplay.Graphics.NG2DRenderEngine</string>
       </void>
       <void property="props">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Base.NGSerializePropertyItem">
           <void property="name">
@@ -178,7 +178,7 @@
     <void method="add">
      <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineItem">
       <void property="displayControllers">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerItem">
           <void property="name">
@@ -191,7 +191,7 @@
            <string>resources/sprites/id_%d.png</string>
           </void>
           <void property="props">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
             <void method="add">
              <object class="Uniwork.Base.NGSerializePropertyItem">
               <void property="name">
@@ -215,7 +215,7 @@
            </object>
           </void>
           <void property="layers">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
            </object>
           </void>
          </object>
@@ -232,7 +232,7 @@
        <string>Uniplay.Graphics.NG2DRenderEngine</string>
       </void>
       <void property="props">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Base.NGSerializePropertyItem">
           <void property="name">
@@ -260,7 +260,7 @@
     <void method="add">
      <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineItem">
       <void property="displayControllers">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniplay.Graphics.NGGraphicEngineDefinitionRenderEngineDisplayControllerItem">
           <void property="name">
@@ -273,7 +273,7 @@
            <string>resources/sprites/id_%d.png</string>
           </void>
           <void property="props">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
             <void method="add">
              <object class="Uniwork.Base.NGSerializePropertyItem">
               <void property="name">
@@ -297,7 +297,7 @@
            </object>
           </void>
           <void property="layers">
-           <object class="java.util.ArrayList">
+           <object class="java.util.concurrent.CopyOnWriteArrayList">
            </object>
           </void>
          </object>
@@ -314,7 +314,7 @@
        <string>Uniplay.Graphics.NG2DRenderEngine</string>
       </void>
       <void property="props">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Base.NGSerializePropertyItem">
           <void property="name">

@@ -7,7 +7,7 @@ import Uniplay.Storage.NGCustomGameObject;
 import Uniwork.Base.NGPropertyItem;
 import Uniwork.Visuals.NGDisplayController;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class SpriteExplosion extends BoulderdashSprite {
 
@@ -30,8 +30,8 @@ public class SpriteExplosion extends BoulderdashSprite {
     }
 
     @Override
-    public ArrayList<NGPropertyItem> getDisplayControllerProps(String aRenderEngine, NGDisplayController aDisplayController) {
-        ArrayList<NGPropertyItem> res = super.getDisplayControllerProps(aRenderEngine, aDisplayController);
+    public CopyOnWriteArrayList<NGPropertyItem> getDisplayControllerProps(String aRenderEngine, NGDisplayController aDisplayController) {
+        CopyOnWriteArrayList<NGPropertyItem> res = super.getDisplayControllerProps(aRenderEngine, aDisplayController);
         if (aDisplayController.getName().equals("ANIMATION")) {
             res.add(new NGPropertyItem("AnimationIndex", FExplosionCenter.getExplosionIndex()));
         }
@@ -39,8 +39,8 @@ public class SpriteExplosion extends BoulderdashSprite {
     }
 
     @Override
-    public ArrayList<NGPropertyItem> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
-        ArrayList<NGPropertyItem> res = super.getDisplayControllerLayerProps(aRenderEngine, aDisplayController);
+    public CopyOnWriteArrayList<NGPropertyItem> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
+        CopyOnWriteArrayList<NGPropertyItem> res = super.getDisplayControllerLayerProps(aRenderEngine, aDisplayController);
         if (aDisplayController.getName().equals("ANIMATION")) {
             res.add(new NGPropertyItem("Background", BoulderdashConsts.SPRITE_AIR));
             res.add(new NGPropertyItem("Front", FID));

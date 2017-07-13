@@ -4,7 +4,7 @@
   <void property="levelDesignerManager">
    <object class="Uniplay.Workbench.NGLevelDesignerManagerDefinition">
     <void property="levelDesigners">
-     <object class="java.util.ArrayList">
+     <object class="java.util.concurrent.CopyOnWriteArrayList">
       <void method="add">
        <object class="Uniplay.Workbench.NG2DLevelDesignerDefinition">
         <void property="name">
@@ -17,7 +17,7 @@
          <string>The First</string>
         </void>
         <void property="props">
-         <object class="java.util.ArrayList">
+         <object class="java.util.concurrent.CopyOnWriteArrayList">
           <void method="add">
            <object class="Uniwork.Base.NGSerializePropertyItem">
             <void property="name">

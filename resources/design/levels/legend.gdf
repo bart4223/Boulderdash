@@ -11,7 +11,7 @@
    <int>32</int>
   </void>
   <void property="layers">
-   <object class="java.util.ArrayList">
+   <object class="java.util.concurrent.CopyOnWriteArrayList">
     <void method="add">
      <object class="Grids.XMLLayer">
       <void property="ZOrder">
@@ -21,7 +21,7 @@
        <string>Number 0</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -101,7 +101,7 @@
        <string>Number 1</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -208,7 +208,7 @@
        <string>Number 2</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -341,7 +341,7 @@
        <string>Number 3</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -374,7 +374,7 @@
        <string>Number 4</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -427,7 +427,7 @@
        <string>Number 5</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -480,7 +480,7 @@
        <string>Number 6</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -523,7 +523,7 @@
        <string>Number 7</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -576,7 +576,7 @@
        <string>Number 8</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -606,7 +606,7 @@
        <string>Number 9</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -639,7 +639,7 @@
        <string>Bender</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D"/>
         </void>
@@ -665,7 +665,7 @@
        <string>Diamond</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -695,7 +695,7 @@
        <string>Boulder</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -725,7 +725,7 @@
        <string>Earth</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -755,7 +755,7 @@
        <string>Door</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -785,7 +785,7 @@
        <string>Monster</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -815,7 +815,7 @@
        <string>Brick TopLeft Corner</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -845,7 +845,7 @@
        <string>Brick Top</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -875,7 +875,7 @@
        <string>Brick TopRight Corner</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -905,7 +905,7 @@
        <string>Brick Left</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="y">
@@ -935,7 +935,7 @@
        <string>Brick Right</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -965,7 +965,7 @@
        <string>Brick BottlmLeft Corner</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -998,7 +998,7 @@
        <string>Brick Bottom</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -1031,7 +1031,7 @@
        <string>Brick BottomRight Corner</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -1064,7 +1064,7 @@
        <string>Brick Down End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -1097,7 +1097,7 @@
        <string>Brick Up End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -1130,7 +1130,7 @@
        <string>Brick Left End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -1163,7 +1163,7 @@
        <string>Brick Right End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -1196,7 +1196,7 @@
        <string>Brick End</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">
@@ -1229,7 +1229,7 @@
        <string>Bomb</string>
       </void>
       <void property="geometryObjects">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniwork.Graphics.NGPoint2D">
           <void property="x">

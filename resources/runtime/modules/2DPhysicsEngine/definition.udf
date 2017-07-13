@@ -2,14 +2,14 @@
 <java version="1.7.0_25" class="java.beans.XMLDecoder">
  <object class="Uniplay.Physics.NGPhysicsEngineDefinition">
   <void property="behaviours">
-   <object class="java.util.ArrayList">
+   <object class="java.util.concurrent.CopyOnWriteArrayList">
     <void method="add">
      <object class="Uniplay.Physics.NGPhysicsEngineDefinitionBehaviourItem">
       <void property="classname">
        <string>Boulderdash.Storage.Boulder</string>
       </void>
       <void property="physicsPrinciple">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniplay.Physics.NGPhysicsEngineDefinitionPhysicsPrincipleItem">
           <void property="classname">
@@ -34,7 +34,7 @@
        <string>Boulderdash.Storage.Diamond</string>
       </void>
       <void property="physicsPrinciple">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniplay.Physics.NGPhysicsEngineDefinitionPhysicsPrincipleItem">
           <void property="classname">
@@ -52,7 +52,7 @@
        <string>Boulderdash.Storage.Bomb</string>
       </void>
       <void property="physicsPrinciple">
-       <object class="java.util.ArrayList">
+       <object class="java.util.concurrent.CopyOnWriteArrayList">
         <void method="add">
          <object class="Uniplay.Physics.NGPhysicsEngineDefinitionPhysicsPrincipleItem">
           <void property="classname">

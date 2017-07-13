@@ -10,11 +10,11 @@
      <double>29.0</double>
     </void>
     <void property="layers">
-     <object class="java.util.ArrayList">
+     <object class="java.util.concurrent.CopyOnWriteArrayList">
       <void method="add">
        <object class="Uniplay.Storage.NGSerialize2DGameFieldLayer">
         <void property="cells">
-         <object class="java.util.ArrayList">
+         <object class="java.util.concurrent.CopyOnWriteArrayList">
           <void method="add">
            <object class="Uniplay.Kernel.NGSerializeGameEngineMemoryCell"/>
           </void>
@@ -13809,7 +13809,7 @@
          <string>DEFAULT</string>
         </void>
         <void property="props">
-         <object class="java.util.ArrayList">
+         <object class="java.util.concurrent.CopyOnWriteArrayList">
           <void method="add">
            <object class="Uniwork.Base.NGSerializePropertyItem">
             <void property="name">
@@ -13861,7 +13861,7 @@
      </object>
     </void>
     <void property="props">
-     <object class="java.util.ArrayList"/>
+     <object class="java.util.concurrent.CopyOnWriteArrayList"/>
     </void>
     <void property="width">
      <double>38.0</double>
@@ -13872,7 +13872,7 @@
    <string>Level1</string>
   </void>
   <void property="props">
-   <object class="java.util.ArrayList">
+   <object class="java.util.concurrent.CopyOnWriteArrayList">
     <void method="add">
      <object class="Uniwork.Base.NGSerializePropertyItem">
       <void property="name">

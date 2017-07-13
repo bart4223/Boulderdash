@@ -6,7 +6,7 @@ import Uniplay.Storage.NGCustomGameObject;
 import Uniwork.Base.NGPropertyItem;
 import Uniwork.Visuals.NGDisplayController;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class BoulderdashSprite extends NG2DCustomSprite {
 
@@ -25,13 +25,13 @@ public class BoulderdashSprite extends NG2DCustomSprite {
     }
 
     @Override
-    public ArrayList<NGPropertyItem> getDisplayControllerProps(String aRenderEngine, NGDisplayController aDisplayController) {
-        return new ArrayList<NGPropertyItem>();
+    public CopyOnWriteArrayList<NGPropertyItem> getDisplayControllerProps(String aRenderEngine, NGDisplayController aDisplayController) {
+        return new CopyOnWriteArrayList<NGPropertyItem>();
     }
 
     @Override
-    public ArrayList<NGPropertyItem> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
-        return new ArrayList<NGPropertyItem>();
+    public CopyOnWriteArrayList<NGPropertyItem> getDisplayControllerLayerProps(String aRenderEngine, NGDisplayController aDisplayController) {
+        return new CopyOnWriteArrayList<NGPropertyItem>();
     }
 
     @Override

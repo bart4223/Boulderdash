@@ -32,13 +32,13 @@
     <exclude name="**/vssver2.scc/**"/>
   </patternset>
   <patternset id="library.patterns">
-    <include name="*.war"/>
-    <include name="*.swc"/>
-    <include name="*.ane"/>
-    <include name="*.zip"/>
     <include name="*.egg"/>
     <include name="*.jar"/>
+    <include name="*.ane"/>
     <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
   </patternset>
   <patternset id="compiler.resources">
     <exclude name="**/?*.java"/>
@@ -94,12 +94,16 @@
   
   <!-- Project Libraries -->
   
+  <path id="library.gson-2.5.classpath">
+    <pathelement location="${basedir}/../libs/gson-2.5.jar"/>
+  </path>
+  
   <path id="library.hamcrest-core-1.3.classpath">
-    <pathelement location="${idea.home}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/../libs/hamcrest-core-1.3.jar"/>
   </path>
   
   <path id="library.junit-4.12.classpath">
-    <pathelement location="${idea.home}/lib/junit-4.12.jar"/>
+    <pathelement location="${basedir}/../libs/junit-4.12.jar"/>
   </path>
   <!-- Register Custom Compiler Taskdefs -->
   <property name="javac2.home" value="${idea.home}/lib"/>
@@ -137,12 +141,14 @@
   
   <path id="uniwork.module.production.classpath">
     <path refid="${module.jdk.classpath.uniwork}"/>
+    <path refid="library.gson-2.5.classpath"/>
     <path refid="library.hamcrest-core-1.3.classpath"/>
     <path refid="library.junit-4.12.classpath"/>
   </path>
   
   <path id="uniwork.runtime.production.module.classpath">
     <pathelement location="${uniwork.output.dir}"/>
+    <path refid="library.gson-2.5.classpath"/>
     <path refid="library.hamcrest-core-1.3.classpath"/>
     <path refid="library.junit-4.12.classpath"/>
   </path>
@@ -150,6 +156,7 @@
   <path id="uniwork.module.classpath">
     <path refid="${module.jdk.classpath.uniwork}"/>
     <pathelement location="${uniwork.output.dir}"/>
+    <path refid="library.gson-2.5.classpath"/>
     <path refid="library.hamcrest-core-1.3.classpath"/>
     <path refid="library.junit-4.12.classpath"/>
   </path>
@@ -157,6 +164,7 @@
   <path id="uniwork.runtime.module.classpath">
     <pathelement location="${uniwork.testoutput.dir}"/>
     <pathelement location="${uniwork.output.dir}"/>
+    <path refid="library.gson-2.5.classpath"/>
     <path refid="library.hamcrest-core-1.3.classpath"/>
     <path refid="library.junit-4.12.classpath"/>
   </path>
@@ -226,15 +234,13 @@
   <path id="uniplay.module.production.classpath">
     <path refid="${module.jdk.classpath.uniplay}"/>
     <pathelement location="${uniwork.output.dir}"/>
-    <path refid="library.hamcrest-core-1.3.classpath"/>
-    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.gson-2.5.classpath"/>
   </path>
   
   <path id="uniplay.runtime.production.module.classpath">
     <path refid="uniwork.runtime.production.module.classpath"/>
     <pathelement location="${uniplay.output.dir}"/>
-    <path refid="library.hamcrest-core-1.3.classpath"/>
-    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.gson-2.5.classpath"/>
   </path>
   
   <path id="uniplay.module.classpath">
@@ -242,16 +248,14 @@
     <pathelement location="${uniwork.testoutput.dir}"/>
     <pathelement location="${uniwork.output.dir}"/>
     <pathelement location="${uniplay.output.dir}"/>
-    <path refid="library.hamcrest-core-1.3.classpath"/>
-    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.gson-2.5.classpath"/>
   </path>
   
   <path id="uniplay.runtime.module.classpath">
     <path refid="uniwork.runtime.module.classpath"/>
     <pathelement location="${uniplay.testoutput.dir}"/>
     <pathelement location="${uniplay.output.dir}"/>
-    <path refid="library.hamcrest-core-1.3.classpath"/>
-    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.gson-2.5.classpath"/>
   </path>
   
   
@@ -320,14 +324,14 @@
     <path refid="${module.jdk.classpath.boulderdash}"/>
     <pathelement location="${uniplay.output.dir}"/>
     <pathelement location="${uniwork.output.dir}"/>
-    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.gson-2.5.classpath"/>
   </path>
   
   <path id="boulderdash.runtime.production.module.classpath">
     <path refid="uniplay.runtime.production.module.classpath"/>
     <path refid="uniwork.runtime.production.module.classpath"/>
     <pathelement location="${boulderdash.output.dir}"/>
-    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.gson-2.5.classpath"/>
   </path>
   
   <path id="boulderdash.module.classpath">
@@ -337,7 +341,7 @@
     <pathelement location="${uniwork.testoutput.dir}"/>
     <pathelement location="${uniwork.output.dir}"/>
     <pathelement location="${boulderdash.output.dir}"/>
-    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.gson-2.5.classpath"/>
   </path>
   
   <path id="boulderdash.runtime.module.classpath">
@@ -345,7 +349,7 @@
     <path refid="uniwork.runtime.module.classpath"/>
     <pathelement location="${boulderdash.testoutput.dir}"/>
     <pathelement location="${boulderdash.output.dir}"/>
-    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.gson-2.5.classpath"/>
   </path>
   
   
